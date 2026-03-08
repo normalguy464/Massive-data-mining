@@ -1,24 +1,23 @@
 # Massive-data-mining
 
-# 🌐 Massive Data Mining: Reddit Community Structure & User Migration
+# 🌐 Massive Data Mining: Multi-Scale User Migration on Reddit
 
 ## 📖 About The Project
-This repository contains the source code for an end-to-end Big Data pipeline and network analysis project focusing on the massive **Reddit Pushshift Dataset**. 
+This repository contains the source code for an end-to-end Big Data pipeline and data mining project focusing on the massive **Reddit Pushshift Dataset**. 
 
 The project is divided into two main phases:
 1. **Data Engineering (ETL):** Extracting, cleaning, and transforming terabytes of raw `.zst` compressed JSON dumps from torrents into highly optimized, columnar **Parquet** files hosted on Hugging Face.
-2. **Data Mining & Network Analysis:** Applying graph-theory and data mining techniques to the cleaned dataset to analyze user behavior, community clustering, and migration patterns across the Reddit ecosystem.
+2. **Data Mining & Migration Analysis:** Tracking and analyzing the dynamics of user migration across the Reddit ecosystem, particularly in response to platform interventions (e.g., subreddit bans or quarantines).
 
 ## 📚 Theoretical Foundation & Objectives
-The analytical phase of this project is heavily inspired by and builds upon the following academic research:
+The analytical phase of this project is heavily inspired by and builds upon the academic research: **Multi-Scale User Migration on Reddit** *(ICWSM, 2021)*.
 
-1. **Exploring Reddit Community Structure: Bridges, Gateways and Highways** *(Electronics, 2024)*
-   - **Objective:** We aim to construct user-subreddit bipartite graphs to analyze the macro-structure of Reddit. By evaluating node centrality and edge weights, we will identify which subreddits act as "bridges" (connecting isolated communities) or "gateways" (onboarding users to broader topics).
-2. **Multi-Scale User Migration on Reddit** *(ICWSM, 2021)*
-   - **Objective:** We will track overlapping user bases to understand how users migrate between communities. A key focus will be analyzing macro and micro-level migration patterns, particularly observing how users disperse after platform moderation interventions (e.g., when a subreddit is banned).
+When a subreddit is banned or shut down, its user base does not simply disappear; they migrate to other active communities. This project aims to map these "digital migrations" across two specific scales:
+* **Macro-Scale (Community Level):** By building transition matrices and calculating user overlap over time-windows, we identify the destination subreddits that act as "refuges" for displaced users. We analyze how the structural overlap between communities shifts before and after an intervention event.
+* **Micro-Scale (Individual Level):** We track the activity levels (e.g., posting frequency) of the affected users to determine behavioral changes. Does a community ban suppress a user's engagement, or does it radicalize and increase their activity in a new environment?
 
 ## 🗂️ Repository Structure (Current Phase)
-Currently, the repository contains the **Data Engineering** scripts used to build the foundational dataset.
+Currently, the repository contains the **Data Engineering** scripts used to build the foundational dataset required for this heavy temporal analysis.
 
 * `Data processing/`
   * 📄 `torrent_download.py`: The core ETL engine. It asynchronously streams downloaded `.zst` files from qBittorrent, decompresses them, parses JSON lines using `orjson`, normalizes data types, handles missing values, and securely batches uploads Parquet files to the Hugging Face Hub.
@@ -26,11 +25,11 @@ Currently, the repository contains the **Data Engineering** scripts used to buil
   * 📄 `delete_file_repo.py`: The repository janitor. It synchronizes local trash logs (empty/invalid files) with the remote Hugging Face repo and cleans up corrupted Parquet files (e.g., missing magic bytes) caused by network interruptions.
 
 ## 🚀 Roadmap (Next Steps)
-Our team is moving towards the Network Analysis phase. Upcoming scripts will include:
-- [ ] **Graph Construction:** Building nodes (Users, Subreddits) and edges (Interactions, Co-authorship) using `NetworkX` or `PySpark`.
-- [ ] **Community Detection:** Applying clustering algorithms (e.g., Louvain, Leiden) to group similar subreddits.
-- [ ] **Centrality Analysis:** Calculating Betweenness and Eigenvector centrality to find "Bridge" communities.
-- [ ] **Migration Tracking:** Time-series analysis of user activity before and after specific subreddit bans.
+With the foundational dataset cleaned and optimized, our team is moving towards the **Data Mining** phase. Upcoming scripts will include:
+- [ ] **Temporal Data Windowing:** Splitting the dataset into pre-intervention and post-intervention timeframes based on the `created_utc` timestamp.
+- [ ] **Macro Migration Mapping:** Calculating Jaccard similarity and user overlap metrics to trace the flow of users between subreddits.
+- [ ] **Micro Activity Tracking:** Aggregating individual user engagement metrics to analyze behavioral shifts.
+- [ ] **Visualization:** Plotting migration flows (e.g., Sankey diagrams) and activity distributions over time.
 
 ## 🛠️ Prerequisites & Setup
 To run the data processing scripts, you need:
