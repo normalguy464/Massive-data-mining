@@ -9,9 +9,6 @@ The project is divided into two main phases:
 1. **Data Engineering (ETL):** Extracting, cleaning, and transforming terabytes of raw `.zst` compressed JSON dumps from torrents into highly optimized, columnar **Parquet** files hosted on Hugging Face.
 2. **Data Mining & Migration Analysis:** Tracking and analyzing the dynamics of user migration across the Reddit ecosystem, particularly in response to platform interventions (e.g., subreddit bans or quarantines).
 
-## 📚 Theoretical Foundation & Objectives
-The analytical phase of this project is heavily inspired by and builds upon the academic research: **Multi-Scale User Migration on Reddit** *(ICWSM, 2021)*.
-
 When a subreddit is banned or shut down, its user base does not simply disappear; they migrate to other active communities. This project aims to map these "digital migrations" across two specific scales:
 * **Macro-Scale (Community Level):** By building transition matrices and calculating user overlap over time-windows, we identify the destination subreddits that act as "refuges" for displaced users. We analyze how the structural overlap between communities shifts before and after an intervention event.
 * **Micro-Scale (Individual Level):** We track the activity levels (e.g., posting frequency) of the affected users to determine behavioral changes. Does a community ban suppress a user's engagement, or does it radicalize and increase their activity in a new environment?
