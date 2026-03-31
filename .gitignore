@@ -1,0 +1,4 @@
+.env
+*.env
+secrets.json
+config.local.py
