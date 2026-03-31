@@ -35,6 +35,8 @@ To run the data processing scripts, you need:
 - `huggingface_hub` & `datasets` (for cloud storage)
 - `pyarrow`, `pandas`, `zstandard`, `orjson` (for high-speed data manipulation)
 
+- hihi
+
 Create a `.env` file in the root directory with your Hugging Face token:
 ```env
 HF_TOKEN=your_hf_access_token_here
