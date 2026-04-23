@@ -25,10 +25,10 @@ REPO_TYPE = "dataset"
 TARGET_FOLDER = "pushshift_1"
 
 # Thư mục local để lưu dữ liệu
-LOCAL_DIR = "./reddit_subset"
+LOCAL_DIR = "./data/raw"
 
 # Tổng dung lượng muốn tải
-TARGET_SIZE_GB = 12
+TARGET_SIZE_GB = 8
 TARGET_BYTES = TARGET_SIZE_GB * 1024**3
 
 # Chỉ lấy submission
