@@ -4,3 +4,4 @@ secrets.json
 config.local.py
 .venv
 .idea
+__pycache__/
