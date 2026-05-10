@@ -1,0 +1,81 @@
+rank,highway_length,highway_nodes,highway_tuple,occurrence_count,pct_of_paths,pct_of_paths_min_length,unique_communities_spanned
+1,2,ConservativeKiwi → CapeIndependence,"('ConservativeKiwi', 'CapeIndependence')",22,8.7,100.0,2
+2,2,2islamist4you → Afghan,"('2islamist4you', 'Afghan')",21,8.3,100.0,2
+3,2,Barber → BeardAdvice,"('Barber', 'BeardAdvice')",20,7.91,100.0,2
+4,2,90DayFiance → Celebrity_Fantasies2,"('90DayFiance', 'Celebrity_Fantasies2')",18,7.11,100.0,2
+5,2,BlackHair → Barber,"('BlackHair', 'Barber')",17,6.72,100.0,1
+6,2,Athleta_gap → BlackestFridayDeals,"('Athleta_gap', 'BlackestFridayDeals')",16,6.32,100.0,2
+7,2,BlackestFridayDeals → BestThings,"('BlackestFridayDeals', 'BestThings')",16,6.32,100.0,1
+8,2,Aliexpress → Buyee,"('Aliexpress', 'Buyee')",15,5.93,100.0,2
+9,2,Buyee → AmazonSeller,"('Buyee', 'AmazonSeller')",15,5.93,100.0,1
+10,2,CatholicMemes → BibleVerseCommentary,"('CatholicMemes', 'BibleVerseCommentary')",14,5.53,100.0,2
+11,2,AimeLeonDore → Athleta_gap,"('AimeLeonDore', 'Athleta_gap')",14,5.53,100.0,1
+12,2,AusMemes → ConservativeKiwi,"('AusMemes', 'ConservativeKiwi')",14,5.53,100.0,1
+13,2,420 → Cannabis_Culture,"('420', 'Cannabis_Culture')",12,4.74,100.0,2
+14,2,AmazonWFShoppers → Aliexpress,"('AmazonWFShoppers', 'Aliexpress')",12,4.74,100.0,1
+15,2,ButchSelfies → BlackHair,"('ButchSelfies', 'BlackHair')",12,4.74,100.0,1
+16,2,CelebsARG_ → BundaBoa,"('CelebsARG_', 'BundaBoa')",11,4.35,100.0,1
+17,2,AvPD → BPDmemes,"('AvPD', 'BPDmemes')",11,4.35,100.0,2
+18,2,BundaBoa → CelebsARG_,"('BundaBoa', 'CelebsARG_')",11,4.35,100.0,1
+19,2,CelebsARG_ → Cholansfw,"('CelebsARG_', 'Cholansfw')",11,4.35,100.0,2
+20,2,Cholansfw → CelebsARG_,"('Cholansfw', 'CelebsARG_')",10,3.95,100.0,2
+1,3,BlackHair → Barber → BeardAdvice,"('BlackHair', 'Barber', 'BeardAdvice')",17,7.0,96.05,2
+2,3,Athleta_gap → BlackestFridayDeals → BestThings,"('Athleta_gap', 'BlackestFridayDeals', 'BestThings')",16,6.58,96.05,2
+3,3,Aliexpress → Buyee → AmazonSeller,"('Aliexpress', 'Buyee', 'AmazonSeller')",15,6.17,96.05,2
+4,3,AimeLeonDore → Athleta_gap → BlackestFridayDeals,"('AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals')",14,5.76,96.05,2
+5,3,AusMemes → ConservativeKiwi → CapeIndependence,"('AusMemes', 'ConservativeKiwi', 'CapeIndependence')",14,5.76,96.05,2
+6,3,AmazonWFShoppers → Aliexpress → Buyee,"('AmazonWFShoppers', 'Aliexpress', 'Buyee')",12,4.94,96.05,2
+7,3,ButchSelfies → BlackHair → Barber,"('ButchSelfies', 'BlackHair', 'Barber')",12,4.94,96.05,1
+8,3,BundaBoa → CelebsARG_ → Cholansfw,"('BundaBoa', 'CelebsARG_', 'Cholansfw')",11,4.53,96.05,2
+9,3,Cholansfw → CelebsARG_ → BundaBoa,"('Cholansfw', 'CelebsARG_', 'BundaBoa')",10,4.12,96.05,2
+10,3,90dayfianceuncensored → 90DayFiance → Celebrity_Fantasies2,"('90dayfianceuncensored', '90DayFiance', 'Celebrity_Fantasies2')",10,4.12,96.05,2
+11,3,BlackMetalMemes → 2islamist4you → Afghan,"('BlackMetalMemes', '2islamist4you', 'Afghan')",10,4.12,96.05,2
+12,3,BikiniBottomTwitter → AFCEastMemeWar → AZCardinals,"('BikiniBottomTwitter', 'AFCEastMemeWar', 'AZCardinals')",9,3.7,96.05,2
+13,3,AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades,"('AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades')",9,3.7,96.05,2
+14,3,AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale,"('AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale')",9,3.7,96.05,1
+15,3,BloxFruitsTrades → BalisongSale → AVexchange,"('BloxFruitsTrades', 'BalisongSale', 'AVexchange')",9,3.7,96.05,1
+16,3,ATBandATGcommunity → ButchSelfies → BlackHair,"('ATBandATGcommunity', 'ButchSelfies', 'BlackHair')",9,3.7,96.05,2
+17,3,CampFlogGnaw → AimeLeonDore → Athleta_gap,"('CampFlogGnaw', 'AimeLeonDore', 'Athleta_gap')",6,2.47,96.05,2
+18,3,AVexchange → BalisongSale → BloxFruitsTrades,"('AVexchange', 'BalisongSale', 'BloxFruitsTrades')",6,2.47,96.05,1
+19,3,BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox,"('BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox')",6,2.47,96.05,1
+20,3,BloxFruitsTrades → AdoptMeTradingRoblox → AdoptMeTrading,"('BloxFruitsTrades', 'AdoptMeTradingRoblox', 'AdoptMeTrading')",6,2.47,96.05,2
+1,4,AimeLeonDore → Athleta_gap → BlackestFridayDeals → BestThings,"('AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals', 'BestThings')",14,6.28,88.14,2
+2,4,AmazonWFShoppers → Aliexpress → Buyee → AmazonSeller,"('AmazonWFShoppers', 'Aliexpress', 'Buyee', 'AmazonSeller')",12,5.38,88.14,2
+3,4,ButchSelfies → BlackHair → Barber → BeardAdvice,"('ButchSelfies', 'BlackHair', 'Barber', 'BeardAdvice')",12,5.38,88.14,2
+4,4,AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale,"('AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale')",9,4.04,88.14,2
+5,4,AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale → AVexchange,"('AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale', 'AVexchange')",9,4.04,88.14,1
+6,4,ATBandATGcommunity → ButchSelfies → BlackHair → Barber,"('ATBandATGcommunity', 'ButchSelfies', 'BlackHair', 'Barber')",9,4.04,88.14,2
+7,4,CampFlogGnaw → AimeLeonDore → Athleta_gap → BlackestFridayDeals,"('CampFlogGnaw', 'AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals')",6,2.69,88.14,3
+8,4,AVexchange → BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox,"('AVexchange', 'BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox')",6,2.69,88.14,1
+9,4,BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox → AdoptMeTrading,"('BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox', 'AdoptMeTrading')",6,2.69,88.14,2
+10,4,AimeLeonDore → 1688Reps → BikeShop → AVexchange,"('AimeLeonDore', '1688Reps', 'BikeShop', 'AVexchange')",5,2.24,88.14,2
+11,4,BestThings → BlackestFridayDeals → Athleta_gap → AimeLeonDore,"('BestThings', 'BlackestFridayDeals', 'Athleta_gap', 'AimeLeonDore')",5,2.24,88.14,2
+12,4,AgencySquad → AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades,"('AgencySquad', 'AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades')",4,1.79,88.14,3
+13,4,AgencySquad → BlackMetalMemes → 2islamist4you → Afghan,"('AgencySquad', 'BlackMetalMemes', '2islamist4you', 'Afghan')",4,1.79,88.14,2
+14,4,Androgynoushotties → BlackHair → Barber → BeardAdvice,"('Androgynoushotties', 'BlackHair', 'Barber', 'BeardAdvice')",4,1.79,88.14,2
+15,4,AmazonSeller → Buyee → Aliexpress → AmazonWFShoppers,"('AmazonSeller', 'Buyee', 'Aliexpress', 'AmazonWFShoppers')",4,1.79,88.14,2
+16,4,AgencySquad → Cholansfw → CelebsARG_ → BundaBoa,"('AgencySquad', 'Cholansfw', 'CelebsARG_', 'BundaBoa')",3,1.35,88.14,3
+17,4,AgencySquad → ATBandATGcommunity → ButchSelfies → BlackHair,"('AgencySquad', 'ATBandATGcommunity', 'ButchSelfies', 'BlackHair')",3,1.35,88.14,2
+18,4,Anna_Faith → AimeLeonDore → 1688Reps → BikeShop,"('Anna_Faith', 'AimeLeonDore', '1688Reps', 'BikeShop')",3,1.35,88.14,3
+19,4,Anna_Faith → AimeLeonDore → Athleta_gap → BlackestFridayDeals,"('Anna_Faith', 'AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals')",3,1.35,88.14,3
+20,4,BackSilhouettesGW → 360Waves → Barber → BeardAdvice,"('BackSilhouettesGW', '360Waves', 'Barber', 'BeardAdvice')",3,1.35,88.14,2
+1,5,AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale → AVexchange,"('AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale', 'AVexchange')",9,5.77,61.66,2
+2,5,ATBandATGcommunity → ButchSelfies → BlackHair → Barber → BeardAdvice,"('ATBandATGcommunity', 'ButchSelfies', 'BlackHair', 'Barber', 'BeardAdvice')",9,5.77,61.66,3
+3,5,CampFlogGnaw → AimeLeonDore → Athleta_gap → BlackestFridayDeals → BestThings,"('CampFlogGnaw', 'AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals', 'BestThings')",6,3.85,61.66,3
+4,5,AVexchange → BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox → AdoptMeTrading,"('AVexchange', 'BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox', 'AdoptMeTrading')",6,3.85,61.66,2
+5,5,AgencySquad → AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale,"('AgencySquad', 'AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale')",4,2.56,61.66,3
+6,5,AgencySquad → ATBandATGcommunity → ButchSelfies → BlackHair → Barber,"('AgencySquad', 'ATBandATGcommunity', 'ButchSelfies', 'BlackHair', 'Barber')",3,1.92,61.66,2
+7,5,Anna_Faith → AimeLeonDore → 1688Reps → BikeShop → AVexchange,"('Anna_Faith', 'AimeLeonDore', '1688Reps', 'BikeShop', 'AVexchange')",3,1.92,61.66,3
+8,5,Anna_Faith → AimeLeonDore → Athleta_gap → BlackestFridayDeals → BestThings,"('Anna_Faith', 'AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals', 'BestThings')",3,1.92,61.66,3
+9,5,BombPartyGossip → AmazonWFShoppers → Aliexpress → Buyee → AmazonSeller,"('BombPartyGossip', 'AmazonWFShoppers', 'Aliexpress', 'Buyee', 'AmazonSeller')",3,1.92,61.66,2
+10,5,BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox → AdoptMeTrading → AgencySquad,"('BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox', 'AdoptMeTrading', 'AgencySquad')",3,1.92,61.66,3
+11,5,AgencySquad → CampFlogGnaw → AimeLeonDore → Athleta_gap → BlackestFridayDeals,"('AgencySquad', 'CampFlogGnaw', 'AimeLeonDore', 'Athleta_gap', 'BlackestFridayDeals')",2,1.28,61.66,4
+12,5,ATBGE → AmazonWTF → Aliexpress → Buyee → AmazonSeller,"('ATBGE', 'AmazonWTF', 'Aliexpress', 'Buyee', 'AmazonSeller')",2,1.28,61.66,2
+13,5,AnimalJam → AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale,"('AnimalJam', 'AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale')",2,1.28,61.66,2
+14,5,AdoptMeRBX → AdoptMeTrading → AdoptMeTradingRoblox → BloxFruitsTrades → BalisongSale,"('AdoptMeRBX', 'AdoptMeTrading', 'AdoptMeTradingRoblox', 'BloxFruitsTrades', 'BalisongSale')",2,1.28,61.66,3
+15,5,BlackCrossdressers → Androgynoushotties → BlackHair → Barber → BeardAdvice,"('BlackCrossdressers', 'Androgynoushotties', 'BlackHair', 'Barber', 'BeardAdvice')",2,1.28,61.66,2
+16,5,BundaBoa → CelebsARG_ → Cholansfw → Anna_Faith → AimeLeonDore,"('BundaBoa', 'CelebsARG_', 'Cholansfw', 'Anna_Faith', 'AimeLeonDore')",2,1.28,61.66,3
+17,5,BikiniBottomTwitter → AmazonWFShoppers → Aliexpress → Buyee → AmazonSeller,"('BikiniBottomTwitter', 'AmazonWFShoppers', 'Aliexpress', 'Buyee', 'AmazonSeller')",2,1.28,61.66,2
+18,5,BalisongSale → BloxFruitsTrades → AdoptMeTradingRoblox → AdoptMeTrading → AnimalJam,"('BalisongSale', 'BloxFruitsTrades', 'AdoptMeTradingRoblox', 'AdoptMeTrading', 'AnimalJam')",2,1.28,61.66,2
+19,5,AmazonSeller → Buyee → Aliexpress → AmazonWFShoppers → BombPartyGossip,"('AmazonSeller', 'Buyee', 'Aliexpress', 'AmazonWFShoppers', 'BombPartyGossip')",2,1.28,61.66,2
+20,5,AgencySquad → AmazonWFShoppers → Aliexpress → Buyee → AmazonSeller,"('AgencySquad', 'AmazonWFShoppers', 'Aliexpress', 'Buyee', 'AmazonSeller')",1,0.64,61.66,2
