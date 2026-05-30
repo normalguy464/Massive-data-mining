@@ -831,6 +831,22 @@ function StatsTab() {
       maxValue: 1,
       color: chartPalette[3],
     },
+    {
+      label: "PPR seeds",
+      value: data.keyMetrics.pagerankSeeds ?? 0,
+      display: formatNumber(data.keyMetrics.pagerankSeeds ?? 0),
+      helper: "Seed PageRank Nibble",
+      maxValue: Math.max(data.keyMetrics.pagerankSeeds ?? 0, 1),
+      color: chartPalette[6],
+    },
+    {
+      label: "Best conductance",
+      value: data.keyMetrics.pagerankBestConductance ?? 0,
+      display: formatScore(data.keyMetrics.pagerankBestConductance ?? 0, 4),
+      helper: "Cụm APPR tốt nhất",
+      maxValue: 1,
+      color: chartPalette[7],
+    },
   ];
   const communityDistribution = data.communitySizeDistribution.map((item) => ({
     label: `${item.label}`,
@@ -880,6 +896,19 @@ function StatsTab() {
     value: row.occurrence_count,
     detail: `${formatNumber(row.occurrence_count)} lần`,
     subtext: `${row.unique_communities_spanned} community`,
+  }));
+  const pagerankSummaries = data.pagerankNibble?.summary ?? [];
+  const pagerankSeeds = pagerankSummaries.slice(0, 12).map((row) => ({
+    label: row.seed,
+    value: 1 - Number(row.conductance ?? 0),
+    detail: `φ ${formatScore(row.conductance, 4)}`,
+    subtext: `${formatNumber(row.clusterSize)} node / ${row.seedCommunityName || "Community"}`,
+  }));
+  const pagerankTopNodes = (data.pagerankNibble?.topNodes ?? []).slice(0, 12).map((row) => ({
+    label: `${row.seed} -> ${row.subreddit}`,
+    value: row.pprScore,
+    detail: formatScore(row.pprScore, 4),
+    subtext: row.communityName || "Community",
   }));
   const runtimeSeries = [
     { key: "extract", label: "Extract", color: chartPalette[0] },
@@ -996,6 +1025,26 @@ function StatsTab() {
           <HighwayHeatmap data={data.highwayHeatmap} />
         </Panel>
       </div>
+
+      {pagerankSeeds.length > 0 && (
+        <div className="stats-grid">
+          <Panel eyebrow="Approx. PPR" title="PageRank Nibble local clusters">
+            <HorizontalBarChart
+              axisFormatter={(value) => formatScore(value, 2)}
+              data={pagerankSeeds}
+              maxValue={1}
+              valueFormatter={(value) => formatScore(value, 4)}
+            />
+          </Panel>
+          <Panel eyebrow="PPR score" title="Top node theo personalized PageRank">
+            <HorizontalBarChart
+              axisFormatter={(value) => formatScore(value, 2)}
+              data={pagerankTopNodes}
+              valueFormatter={(value) => formatScore(value, 4)}
+            />
+          </Panel>
+        </div>
+      )}
 
       <div className="stats-grid">
         <Panel eyebrow="Grouped runtime" title="Thời gian xử lý">

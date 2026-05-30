@@ -15,6 +15,9 @@ const CLUSTER_NAMES_CSV = path.join(repoRoot, "result", "cluster_names.csv");
 const BRIDGE_CSV = path.join(repoRoot, "result", "bridge_result.csv");
 const GATEWAY_CSV = path.join(repoRoot, "result", "gateway_result.csv");
 const HIGHWAY_CSV = path.join(repoRoot, "result", "highway_result.csv");
+const PAGERANK_NIBBLE_CSV = path.join(repoRoot, "result", "pagerank_nibble_result.csv");
+const PAGERANK_NIBBLE_SUMMARY_CSV = path.join(repoRoot, "result", "pagerank_nibble_summary.csv");
+const PAGERANK_NIBBLE_GRAPH = path.join(repoRoot, "result", "pagerank_nibble_graph.json");
 const SIMILARITY_CSV = path.join(repoRoot, "subreddit_similarity_results.csv");
 const COMMUNITY_IMAGE = path.join(repoRoot, "result", "community_result_summary.png");
 const SIMILARITY_IMAGE = path.join(repoRoot, "similarity_histogram_0p3_0p99.png");
@@ -128,6 +131,11 @@ function parseCsv(text) {
 
 function readCsv(filePath) {
   return parseCsv(fs.readFileSync(filePath, "utf8"));
+}
+
+function readOptionalCsv(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  return readCsv(filePath);
 }
 
 function toNumber(value, fallback = 0) {
@@ -278,6 +286,14 @@ function sanitizeExtractedGraph(graphId, graph) {
   };
 }
 
+function writeGraphIndex(graphIndex) {
+  fs.writeFileSync(
+    path.join(graphDir, "index.json"),
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), graphs: graphIndex }, null, 2)}\n`,
+    "utf8",
+  );
+}
+
 function buildHtmlGraphData() {
   cleanDirectory(graphDir);
   const graphIndex = [];
@@ -319,11 +335,7 @@ function buildHtmlGraphData() {
     });
   }
 
-  fs.writeFileSync(
-    path.join(graphDir, "index.json"),
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), graphs: graphIndex }, null, 2)}\n`,
-    "utf8",
-  );
+  writeGraphIndex(graphIndex);
 
   return graphIndex;
 }
@@ -722,6 +734,109 @@ function buildHighwayHeatmap(highwayRows) {
     .sort((a, b) => a.length - b.length || a.communities - b.communities);
 }
 
+function splitPipeList(value) {
+  return String(value ?? "")
+    .split("|")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function buildPagerankNibbleData() {
+  const summary = readOptionalCsv(PAGERANK_NIBBLE_SUMMARY_CSV)
+    .map((row) => ({
+      seed: row.seed_subreddit,
+      seedCommunityId: row.seed_community_id === "" ? null : toNumber(row.seed_community_id, null),
+      seedCommunityName: row.seed_community_name,
+      clusterSize: toNumber(row.cluster_size),
+      conductance: toNumber(row.cluster_conductance),
+      cut: toNumber(row.cluster_cut),
+      volume: toNumber(row.cluster_volume),
+      pprMass: toNumber(row.ppr_mass),
+      residualMass: toNumber(row.residual_mass),
+      pushCount: toNumber(row.push_count),
+      rankedNodeCount: toNumber(row.ranked_node_count),
+      topSubreddits: splitPipeList(row.top_subreddits),
+      topCommunities: splitPipeList(row.top_communities),
+      alpha: toNumber(row.alpha),
+      epsilon: toNumber(row.epsilon),
+      minEdgeWeight: toNumber(row.min_edge_weight),
+    }))
+    .filter((row) => row.seed)
+    .sort((a, b) => a.conductance - b.conductance);
+
+  const topNodes = readOptionalCsv(PAGERANK_NIBBLE_CSV)
+    .map((row) => ({
+      seed: row.seed_subreddit,
+      rank: toNumber(row.rank),
+      subreddit: row.subreddit,
+      communityId: row.community_id === "" ? null : toNumber(row.community_id, null),
+      communityName: row.community_name,
+      pprScore: toNumber(row.ppr_score),
+      scorePerDegree: toNumber(row.score_per_degree),
+      weightedDegree: toNumber(row.weighted_degree),
+      clusterSize: toNumber(row.cluster_size),
+      conductance: toNumber(row.cluster_conductance),
+    }))
+    .filter((row) => row.seed && row.subreddit)
+    .sort((a, b) => b.pprScore - a.pprScore);
+
+  const clusterNodes = new Set(topNodes.map((row) => row.subreddit));
+  const best = summary[0] ?? null;
+  const avgClusterSize = summary.length
+    ? summary.reduce((sum, row) => sum + row.clusterSize, 0) / summary.length
+    : 0;
+  const avgPushCount = summary.length
+    ? summary.reduce((sum, row) => sum + row.pushCount, 0) / summary.length
+    : 0;
+
+  return {
+    metrics: {
+      seedCount: summary.length,
+      totalClusterNodes: clusterNodes.size,
+      bestConductance: best?.conductance ?? 0,
+      avgClusterSize: round(avgClusterSize, 2),
+      avgPushCount: round(avgPushCount, 1),
+      alpha: best?.alpha ?? 0,
+      epsilon: best?.epsilon ?? 0,
+      minEdgeWeight: best?.minEdgeWeight ?? 0,
+    },
+    summary,
+    topNodes: topNodes.slice(0, 120),
+  };
+}
+
+function copyPagerankNibbleGraph() {
+  if (!fs.existsSync(PAGERANK_NIBBLE_GRAPH)) return null;
+
+  const payload = JSON.parse(fs.readFileSync(PAGERANK_NIBBLE_GRAPH, "utf8"));
+  const graphId = payload.id || "pagerank_nibble";
+  payload.id = graphId;
+  payload.title = payload.title || "PageRank Nibble local clusters";
+  payload.description =
+    payload.description ||
+    "Approximate Personalized PageRank neighborhoods from selected seed subreddits.";
+  payload.nodes = Array.isArray(payload.nodes) ? payload.nodes : [];
+  payload.edges = Array.isArray(payload.edges) ? payload.edges : [];
+  payload.groups =
+    payload.groups ??
+    [...new Set(payload.nodes.map((node) => node.group).filter(Boolean))].sort();
+
+  const outputPath = path.join(graphDir, `${graphId}.json`);
+  fs.writeFileSync(outputPath, `${JSON.stringify(payload)}\n`, "utf8");
+
+  return {
+    id: graphId,
+    title: payload.title,
+    description: payload.description,
+    sourceFile: path.relative(repoRoot, PAGERANK_NIBBLE_GRAPH).split(path.sep).join("/"),
+    path: `/graphs/${graphId}.json`,
+    nodeCount: payload.nodes.length,
+    edgeCount: payload.edges.length,
+    groupCount: payload.groups.length,
+    fileSizeBytes: fs.statSync(outputPath).size,
+  };
+}
+
 function copyAssets() {
   ensureDir(assetDir);
   if (fs.existsSync(COMMUNITY_IMAGE)) {
@@ -737,9 +852,15 @@ async function main() {
   ensureDir(graphDir);
   copyAssets();
   const htmlGraphs = buildHtmlGraphData();
+  const pagerankGraph = copyPagerankNibbleGraph();
+  if (pagerankGraph) {
+    htmlGraphs.push(pagerankGraph);
+    writeGraphIndex(htmlGraphs);
+  }
 
   const { communities, subToCommunity } = buildCommunityData();
   const communityNames = new Map(communities.map((community) => [community.id, community.name]));
+  const pagerankNibble = buildPagerankNibbleData();
   const bridgeRows = readCsv(BRIDGE_CSV)
     .map((row) => ({
       subreddit: row.subreddit,
@@ -796,7 +917,7 @@ async function main() {
     report: {
       title: "Xây dựng và phân tích cấu trúc cộng đồng Reddit trên dữ liệu lớn bằng đồ thị tương đồng ngữ nghĩa",
       datasetScale: "Khoảng 1TB dữ liệu Reddit Pushshift",
-      method: "DistilBERT embedding, cosine similarity, lọc top 3%, Louvain community detection",
+      method: "DistilBERT embedding, cosine similarity, lọc top 3%, Louvain community detection, PageRank Nibble/APPR",
       model: "sentence-transformers/all-distilroberta-v1",
     },
     pipelineSteps: [
@@ -808,6 +929,7 @@ async function main() {
       "Giữ lại top 3% cạnh tương đồng mạnh nhất",
       "Xây dựng đồ thị và phát hiện cộng đồng bằng Louvain",
       "Phân tích community, bridge, gateway và highway",
+      "Chạy PageRank Nibble để tìm cụm cục bộ quanh các seed nổi bật",
     ],
     keyMetrics: {
       subreddits: communities.reduce((sum, community) => sum + community.subreddits.length, 0),
@@ -819,6 +941,9 @@ async function main() {
       bridgeRows: bridgeRows.length,
       gatewayRows: gatewayRows.length,
       highwayRows: highwayRows.length,
+      pagerankSeeds: pagerankNibble.metrics.seedCount,
+      pagerankBestConductance: pagerankNibble.metrics.bestConductance,
+      pagerankClusterNodes: pagerankNibble.metrics.totalClusterNodes,
     },
     similarityStats: similarity.similarityStats,
     topSimilarityPairs: similarity.topPairs,
@@ -847,6 +972,7 @@ async function main() {
     })),
     topHighways: highwayRows.slice(0, 40),
     highwayHeatmap: buildHighwayHeatmap(highwayRows),
+    pagerankNibble,
     experiments: {
       environments: [
         { name: "Local", ram: "8GB", runtime: "Python local", data: "12GB", files: "3,188", extract: "15p 03s", embedding: "1h 42p", similarity: "1p 07s" },
