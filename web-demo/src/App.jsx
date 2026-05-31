@@ -1,6 +1,4 @@
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { DataSet, Network } from "vis-network/standalone/esm/vis-network";
-import "vis-network/styles/vis-network.css";
+import { Fragment, useEffect, useMemo, useState } from "react";
 
 const tabs = [
   { id: "graph", label: "Graph" },
@@ -54,14 +52,6 @@ function formatBytes(value) {
 function App() {
   const [activeTab, setActiveTab] = useState("graph");
   const graphIndexState = useGraphIndex();
-  const graphTotals = useMemo(() => {
-    const graphs = graphIndexState.graphs;
-    return {
-      graphs: graphs.length,
-      nodes: graphs.reduce((sum, graph) => sum + Number(graph.nodeCount ?? 0), 0),
-      edges: graphs.reduce((sum, graph) => sum + Number(graph.edgeCount ?? 0), 0),
-    };
-  }, [graphIndexState.graphs]);
 
   return (
     <div className="app-shell">
@@ -127,41 +117,6 @@ function useGraphIndex() {
   return state;
 }
 
-function useCommunityIndex(enabled) {
-  const [state, setState] = useState({ data: null, loading: false, error: "" });
-
-  useEffect(() => {
-    if (!enabled || state.data || state.loading) return undefined;
-
-    let cancelled = false;
-    setState((current) => ({ ...current, loading: true, error: "" }));
-
-    fetch(publicUrl("data/communityIndex.json"))
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Không tải được communityIndex.json (${response.status})`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (!cancelled) {
-          setState({ data, loading: false, error: "" });
-        }
-      })
-      .catch((error) => {
-        if (!cancelled) {
-          setState({ data: null, loading: false, error: error.message });
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [enabled, state.data]);
-
-  return state;
-}
-
 function SummaryPill({ label, value }) {
   return (
     <div className="summary-pill">
@@ -172,30 +127,17 @@ function SummaryPill({ label, value }) {
 }
 
 function GraphTab({ graphIndexState }) {
+  return <GraphHtmlTab graphIndexState={graphIndexState} />;
+}
+
+function GraphHtmlTab({ graphIndexState }) {
   const { graphs, loading, error } = graphIndexState;
   const [selectedGraphId, setSelectedGraphId] = useState("");
-  const [graphState, setGraphState] = useState({ data: null, loading: false, error: "" });
-  const [groupFilter, setGroupFilter] = useState("all");
-  const [showLabels, setShowLabels] = useState(false);
-  const [nodeQuery, setNodeQuery] = useState("");
-  const [selectedNode, setSelectedNode] = useState(null);
-  const [pendingFocusId, setPendingFocusId] = useState("");
-  const communityIndexState = useCommunityIndex(Boolean(selectedNode));
-  const graphCacheRef = useRef(new Map());
-  const prefetchingRef = useRef(new Set());
-  const pendingFocusRef = useRef("");
-  const containerRef = useRef(null);
-  const networkRef = useRef(null);
-
-  useEffect(() => {
-    pendingFocusRef.current = pendingFocusId;
-  }, [pendingFocusId]);
+  const [cachedGraphIds, setCachedGraphIds] = useState([]);
 
   useEffect(() => {
     if (selectedGraphId || graphs.length === 0) return;
-    const initialGraph =
-      graphs.find((graph) => graph.id === "community_level") ??
-      [...graphs].sort((a, b) => Number(a.fileSizeBytes ?? 0) - Number(b.fileSizeBytes ?? 0))[0];
+    const initialGraph = graphs.find((graph) => graph.id === "community_level") ?? graphs[0];
     setSelectedGraphId(initialGraph.id);
   }, [graphs, selectedGraphId]);
 
@@ -203,236 +145,18 @@ function GraphTab({ graphIndexState }) {
     () => (selectedGraphId ? graphs.find((graph) => graph.id === selectedGraphId) ?? null : null),
     [graphs, selectedGraphId],
   );
-
-  const prefetchGraph = useCallback((graph) => {
-    if (!graph || graphCacheRef.current.has(graph.id) || prefetchingRef.current.has(graph.id)) {
-      return;
-    }
-    prefetchingRef.current.add(graph.id);
-    fetch(publicUrl(graph.path))
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data) => {
-        if (data) graphCacheRef.current.set(graph.id, data);
-      })
-      .catch(() => undefined)
-      .finally(() => {
-        prefetchingRef.current.delete(graph.id);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (!selectedMeta) return undefined;
-
-    const cached = graphCacheRef.current.get(selectedMeta.id);
-    setSelectedNode(null);
-    setPendingFocusId("");
-    setGroupFilter("all");
-
-    if (cached) {
-      setGraphState({ data: cached, loading: false, error: "" });
-      setShowLabels(cached.nodes.length <= 120);
-      return undefined;
-    }
-
-    const controller = new AbortController();
-    setGraphState({ data: null, loading: true, error: "" });
-
-    fetch(publicUrl(selectedMeta.path), { signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Không tải được ${selectedMeta.path} (${response.status})`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        graphCacheRef.current.set(selectedMeta.id, data);
-        setGraphState({ data, loading: false, error: "" });
-        setShowLabels(data.nodes.length <= 120);
-      })
-      .catch((fetchError) => {
-        if (fetchError.name !== "AbortError") {
-          setGraphState({ data: null, loading: false, error: fetchError.message });
-        }
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, [selectedMeta]);
-
-  useEffect(() => {
-    if (!graphs.length) return undefined;
-
-    const smallGraphs = graphs.filter(
-      (graph) => graph.id !== selectedGraphId && Number(graph.fileSizeBytes ?? 0) <= 160000,
-    );
-    const handle =
-      "requestIdleCallback" in window
-        ? window.requestIdleCallback(() => smallGraphs.forEach(prefetchGraph))
-        : window.setTimeout(() => smallGraphs.forEach(prefetchGraph), 400);
-
-    return () => {
-      if ("cancelIdleCallback" in window) {
-        window.cancelIdleCallback(handle);
-      } else {
-        window.clearTimeout(handle);
-      }
-    };
-  }, [graphs, prefetchGraph, selectedGraphId]);
-
-  const graphData = graphState.data;
-  const groups = useMemo(() => graphData?.groups ?? [], [graphData]);
-  const filteredGraph = useMemo(() => filterGraph(graphData, groupFilter), [graphData, groupFilter]);
-  const visibleNodeIds = useMemo(
-    () => new Set(filteredGraph.nodes.map((node) => node.id)),
-    [filteredGraph.nodes],
+  const selectedPath = selectedMeta?.htmlPath ?? selectedMeta?.path ?? "";
+  const cachedGraphs = useMemo(
+    () => graphs.filter((graph) => cachedGraphIds.includes(graph.id)),
+    [cachedGraphIds, graphs],
   );
 
   useEffect(() => {
-    if (!containerRef.current || !graphData) return undefined;
-
-    let disposed = false;
-    let idleHandle = null;
-    let timerHandle = null;
-    let network = null;
-    const largeGraph = filteredGraph.nodes.length > 1000 || filteredGraph.edges.length > 1800;
-
-    const renderNetwork = () => {
-      if (disposed || !containerRef.current) return;
-
-      const shouldShowLabels = showLabels || filteredGraph.nodes.length <= 80;
-      const nodeSet = new DataSet(
-        filteredGraph.nodes.map((node) => ({
-          id: node.id,
-          label: shouldShowLabels ? String(node.label ?? node.id) : undefined,
-          title: normalizeTitle(node.title ?? node.label ?? node.id),
-          group: String(node.group ?? "default"),
-          shape: node.shape ?? "dot",
-          size: node.size,
-          value: node.value,
-          color: node.color,
-          x: node.x,
-          y: node.y,
-          borderWidth: 1,
-        })),
-      );
-      const edgeSet = new DataSet(
-        filteredGraph.edges.map((edge, index) => ({
-          id: edge.id ?? `${edge.from}:${edge.to}:${index}`,
-          from: edge.from,
-          to: edge.to,
-          title: normalizeTitle(edge.title ?? `${edge.from} - ${edge.to}`),
-          width: Math.min(5, Math.max(0.6, Number(edge.width ?? 1))),
-          value: edge.value,
-          color: normalizeEdgeColor(edge.color),
-          arrows: edge.arrows,
-          dashes: edge.dashes,
-          smooth: largeGraph ? false : { type: "continuous" },
-        })),
-      );
-
-      network = new Network(
-        containerRef.current,
-        { nodes: nodeSet, edges: edgeSet },
-        {
-          autoResize: true,
-          nodes: {
-            shape: "dot",
-            font: {
-              face: "Inter, Segoe UI, Arial, sans-serif",
-              size: largeGraph ? 10 : 12,
-              color: "#1f2937",
-              strokeWidth: 4,
-              strokeColor: "#ffffff",
-            },
-          },
-          groups: buildVisGroups(groups),
-          edges: {
-            selectionWidth: 2,
-            hoverWidth: 2,
-            color: { color: "#cbd5e1", highlight: "#2563eb", hover: "#2563eb" },
-          },
-          layout: { improvedLayout: false },
-          physics: {
-            stabilization: { iterations: largeGraph ? 80 : 160, updateInterval: 20 },
-            barnesHut: {
-              gravitationalConstant: largeGraph ? -8500 : -3600,
-              centralGravity: 0.12,
-              springLength: largeGraph ? 80 : 115,
-              springConstant: 0.035,
-              damping: 0.18,
-            },
-          },
-          interaction: {
-            hover: true,
-            tooltipDelay: 120,
-            hideEdgesOnDrag: true,
-            navigationButtons: false,
-            keyboard: false,
-          },
-        },
-      );
-
-      network.on("click", (params) => {
-        if (!params.nodes.length) {
-          setSelectedNode(null);
-          return;
-        }
-        const node = graphData.nodes.find((candidate) => candidate.id === params.nodes[0]);
-        setSelectedNode(node ?? null);
-      });
-
-      network.once("stabilizationIterationsDone", () => {
-        network.setOptions({ physics: false });
-      });
-
-      networkRef.current = network;
-      focusNetworkNode(network, pendingFocusRef.current, filteredGraph.nodes);
-    };
-
-    if ("requestIdleCallback" in window) {
-      idleHandle = window.requestIdleCallback(renderNetwork, { timeout: 300 });
-    } else {
-      timerHandle = window.setTimeout(renderNetwork, 0);
-    }
-
-    return () => {
-      disposed = true;
-      if (idleHandle !== null && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleHandle);
-      }
-      if (timerHandle !== null) {
-        window.clearTimeout(timerHandle);
-      }
-      if (network) network.destroy();
-      if (networkRef.current === network) networkRef.current = null;
-    };
-  }, [filteredGraph, graphData, groups, showLabels]);
-
-  useEffect(() => {
-    if (!networkRef.current || !pendingFocusId || !visibleNodeIds.has(pendingFocusId)) return;
-    focusNetworkNode(networkRef.current, pendingFocusId, filteredGraph.nodes);
-  }, [filteredGraph.nodes, pendingFocusId, visibleNodeIds]);
-
-  function focusNode() {
-    if (!graphData || !nodeQuery.trim()) return;
-    const term = nodeQuery.trim().toLowerCase();
-    const match = graphData.nodes.find(
-      (node) =>
-        String(node.id).toLowerCase().includes(term) ||
-        String(node.label ?? "").toLowerCase().includes(term),
+    if (!selectedGraphId || !selectedPath) return;
+    setCachedGraphIds((current) =>
+      current.includes(selectedGraphId) ? current : [...current, selectedGraphId],
     );
-
-    if (!match) {
-      setSelectedNode(null);
-      setPendingFocusId("");
-      return;
-    }
-
-    if (!visibleNodeIds.has(match.id)) setGroupFilter("all");
-    setSelectedNode(match);
-    setPendingFocusId(match.id);
-  }
+  }, [selectedGraphId, selectedPath]);
 
   if (loading) {
     return <EmptyState title="Đang tải danh sách graph" text="Metadata nhỏ đang được đọc trước." />;
@@ -442,26 +166,27 @@ function GraphTab({ graphIndexState }) {
     return <EmptyState title="Không tải được danh sách graph" text={error} />;
   }
 
+  if (!graphs.length) {
+    return <EmptyState title="Chưa có graph" text="Không tìm thấy file HTML graph để hiển thị." />;
+  }
+
   return (
-    <section className="graph-workspace">
+    <section className="graph-workspace graph-workspace-html">
       <aside className="graph-list" aria-label="Danh sách graph">
         {graphs.map((graph) => (
           <button
             className={graph.id === selectedGraphId ? "graph-item active" : "graph-item"}
             key={graph.id}
             onClick={() => setSelectedGraphId(graph.id)}
-            onMouseEnter={() => prefetchGraph(graph)}
             type="button"
           >
             <span>{graph.title}</span>
-            <strong>
-              {formatNumber(graph.nodeCount)} node, {formatNumber(graph.edgeCount)} cạnh
-            </strong>
+            <strong>{getGraphItemMeta(graph)}</strong>
           </button>
         ))}
       </aside>
 
-      <section className="graph-panel">
+      <section className="graph-panel graph-panel-html">
         <div className="graph-header">
           <div>
             <h2>{selectedMeta?.title ?? "Graph"}</h2>
@@ -469,282 +194,39 @@ function GraphTab({ graphIndexState }) {
           </div>
         </div>
 
-        <div className="control-strip">
-          <label>
-            Group
-            <select
-              disabled={!graphData || groups.length === 0}
-              onChange={(event) => setGroupFilter(event.target.value)}
-              value={groupFilter}
-            >
-              <option value="all">Tất cả</option>
-              {groups.map((group) => (
-                <option key={String(group)} value={String(group)}>
-                  {String(group)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="check-control">
-            <input
-              checked={showLabels}
-              onChange={(event) => setShowLabels(event.target.checked)}
-              type="checkbox"
-            />
-            Hiện label
-          </label>
-          <div className="node-search">
-            <input
-              onChange={(event) => setNodeQuery(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") focusNode();
-              }}
-              placeholder="Tìm node"
-              value={nodeQuery}
-            />
-            <button onClick={focusNode} type="button">
-              Tìm
-            </button>
+        {selectedPath ? (
+          <div className="graph-frame-shell">
+            {cachedGraphs.map((graph) => {
+              const graphPath = graph.htmlPath ?? graph.path ?? "";
+              const active = graph.id === selectedGraphId;
+
+              return (
+                <iframe
+                  aria-hidden={!active}
+                  className={active ? "graph-frame active" : "graph-frame"}
+                  key={graph.id}
+                  src={publicUrl(graphPath)}
+                  tabIndex={active ? undefined : -1}
+                  title={graph.title ?? "Graph"}
+                />
+              );
+            })}
           </div>
-        </div>
-
-        {graphState.error && <div className="inline-message error">{graphState.error}</div>}
-        {graphState.loading && <div className="inline-message">Đang tải graph JSON...</div>}
-
-        <div className="graph-content">
-          <div className="graph-canvas" ref={containerRef} />
-          <aside className="node-panel">
-            <span className="kicker">Node đang chọn</span>
-            {selectedNode ? (
-              <NodeDetails communityIndexState={communityIndexState} node={selectedNode} />
-            ) : (
-              <p>Chọn một node trên graph để xem thông tin nhanh.</p>
-            )}
-          </aside>
-        </div>
+        ) : (
+          <div className="inline-message error">Graph này chưa có đường dẫn HTML.</div>
+        )}
       </section>
     </section>
   );
 }
 
-function NodeDetails({ communityIndexState, node }) {
-  const context = getNodeContext(node, communityIndexState.data);
-  const details = getNodeDetails(node, context);
-
-  return (
-    <>
-      <h3>{node.label ?? node.id}</h3>
-      <p>{getNodeSummary(node, context)}</p>
-      {communityIndexState.loading && (
-        <div className="node-context-message">Đang tải nội dung community...</div>
-      )}
-      {communityIndexState.error && (
-        <div className="node-context-message error">{communityIndexState.error}</div>
-      )}
-      {context.community && (
-        <section className="node-context-card">
-          <span>{context.kind === "subreddit" ? "Community của subreddit" : "Nội dung community"}</span>
-          <strong>{context.community.name}</strong>
-          <p>{context.community.reason}</p>
-          <div className="node-tag-list">
-            {context.community.examples.slice(0, 10).map((example) => (
-              <span key={example}>{example}</span>
-            ))}
-          </div>
-        </section>
-      )}
-      <dl className="node-detail-list">
-        {details.map(([label, value]) => (
-          <div key={label}>
-            <dt>{label}</dt>
-            <dd>{value}</dd>
-          </div>
-        ))}
-      </dl>
-    </>
-  );
-}
-
-function getNodeSummary(node, context) {
-  if (context.kind === "subreddit" && context.community) {
-    return `Subreddit này thuộc community "${context.community.name}". Nội dung bên dưới được suy ra từ cụm community và metadata graph, không phải toàn bộ bài viết/comment gốc.`;
-  }
-  if (context.kind === "community" && context.community) {
-    return context.community.reason;
-  }
-  return stripHtml(node.title ?? node.label ?? node.id);
-}
-
-function getNodeContext(node, communityIndex) {
-  if (!communityIndex) return { kind: "unknown", community: null, subreddit: getSubredditName(node) };
-
-  const subreddit = getSubredditName(node);
-  const subredditCommunityId = subreddit
-    ? communityIndex.subredditToCommunity?.[subreddit]
-    : undefined;
-  if (subreddit && subredditCommunityId !== undefined) {
-    return {
-      kind: "subreddit",
-      subreddit,
-      community: communityIndex.communities?.[String(subredditCommunityId)] ?? null,
-    };
-  }
-
-  const inferredSubreddit = getSubredditSamples(node).find(
-    (sample) => communityIndex.subredditToCommunity?.[sample] !== undefined,
-  );
-  if (inferredSubreddit) {
-    const communityId = communityIndex.subredditToCommunity[inferredSubreddit];
-    return {
-      kind: "community",
-      subreddit: inferredSubreddit,
-      community: communityIndex.communities?.[String(communityId)] ?? null,
-    };
-  }
-
-  const communityId = getCommunityId(node);
-  if (communityId !== null) {
-    return {
-      kind: "community",
-      community: communityIndex.communities?.[String(communityId)] ?? null,
-      subreddit: null,
-    };
-  }
-
-  return { kind: "unknown", community: null, subreddit };
-}
-
-function getNodeDetails(node, context) {
-  return [
-    ["Loại", context.kind === "community" ? "Community" : context.kind === "subreddit" ? "Subreddit" : "Node"],
-    ["Subreddit", context.subreddit ?? "-"],
-    ["Community", context.community?.name ?? "-"],
-    ["ID", node.id],
-    ["Group", node.group ?? "-"],
-    ["Size", node.size ?? node.value ?? "-"],
-    ["Shape", node.shape ?? "-"],
-  ].filter(([, value]) => value !== undefined && value !== "");
-}
-
-function getSubredditName(node) {
-  const id = String(node.id ?? "");
-  const label = String(node.label ?? "");
-  const title = stripHtml(node.title ?? "");
-  const titleMatch = title.match(/Subreddit:\s*([^\n]+)/i);
-
-  if (id.startsWith("subreddit:")) return id.slice("subreddit:".length);
-  if (id.startsWith("s_")) return id.slice(2);
-  if (titleMatch) return titleMatch[1].trim();
-  if (String(node.group ?? "") === "subreddit" && label) return label;
-  if (isCommunityLikeNode(node)) return "";
-  return label || id;
-}
-
-function getCommunityId(node) {
-  const id = String(node.id ?? "");
-  const title = stripHtml(node.title ?? "");
-  const directMatch = id.match(/^community:(\d+)$/) ?? id.match(/^c_(\d+)$/);
-  const titleMatch = title.match(/Community\s*:?\s*(\d+)/i) ?? title.match(/ID:\s*(\d+)/i);
-
-  if (directMatch) return Number(directMatch[1]);
-  if (titleMatch) return Number(titleMatch[1]);
-  if (/^\d+$/.test(id) && /Community/i.test(title)) return Number(id);
-  return null;
-}
-
-function getSubredditSamples(node) {
-  const title = stripHtml(node.title ?? "");
-  const topMatch = title.match(/Top subreddits:\s*([^\n]+)/i);
-  if (!topMatch) return [];
-  return topMatch[1]
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
-function isCommunityLikeNode(node) {
-  const id = String(node.id ?? "");
-  const title = stripHtml(node.title ?? "");
-  return id.startsWith("community:") || /^c_\d+$/.test(id) || /Community/i.test(title);
-}
-
-function focusNetworkNode(network, nodeId, visibleNodes) {
-  if (!nodeId || !visibleNodes.some((node) => node.id === nodeId)) return;
-  window.setTimeout(() => {
-    network.selectNodes([nodeId]);
-    network.focus(nodeId, {
-      scale: 1.35,
-      animation: { duration: 420, easingFunction: "easeInOutQuad" },
-    });
-  }, 0);
-}
-
-function filterGraph(graphData, groupFilter) {
-  if (!graphData) return { nodes: [], edges: [] };
-
-  const nodes =
-    groupFilter === "all"
-      ? graphData.nodes
-      : graphData.nodes.filter((node) => String(node.group ?? "none") === groupFilter);
-  const allowedNodeIds = new Set(nodes.map((node) => node.id));
-  const edges = graphData.edges.filter(
-    (edge) => allowedNodeIds.has(edge.from) && allowedNodeIds.has(edge.to),
-  );
-
-  return { nodes, edges };
-}
-
-function normalizeEdgeColor(color) {
-  if (!color) return { color: "#cbd5e1", highlight: "#2563eb", hover: "#2563eb" };
-  if (typeof color === "string") {
-    return { color, highlight: "#2563eb", hover: "#2563eb" };
-  }
-  return color;
-}
-
-function normalizeTitle(value) {
-  return String(value ?? "").replace(/\n/g, "<br>");
-}
-
-function stripHtml(value) {
-  return String(value ?? "")
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<[^>]*>/g, "")
-    .trim();
-}
-
-function buildVisGroups(groups) {
-  const palette = [
-    "#2563eb",
-    "#059669",
-    "#d97706",
-    "#dc2626",
-    "#7c3aed",
-    "#0891b2",
-    "#be123c",
-    "#4d7c0f",
-    "#9333ea",
-    "#0f766e",
-  ];
-  const result = {
-    default: { color: { background: "#ffffff", border: "#94a3b8" } },
-    bridge: { color: { background: "#dc2626", border: "#991b1b" } },
-    gateway: { color: { background: "#059669", border: "#047857" } },
-    both: { color: { background: "#2563eb", border: "#1d4ed8" } },
-    other: { color: { background: "#ffffff", border: "#94a3b8" } },
-    cluster: { color: { background: "#2563eb", border: "#1d4ed8" } },
-    subreddit: { color: { background: "#ffffff", border: "#94a3b8" } },
-  };
-
-  groups.forEach((group, index) => {
-    const color = palette[index % palette.length];
-    result[String(group)] = {
-      color: { background: color, border: color },
-      font: { color: "#111827", strokeWidth: 5, strokeColor: "#ffffff" },
-    };
-  });
-
-  return result;
+function getGraphItemMeta(graph) {
+  const parts = [];
+  if (Number(graph.nodeCount) > 0) parts.push(`${formatNumber(graph.nodeCount)} node`);
+  if (Number(graph.edgeCount) > 0) parts.push(`${formatNumber(graph.edgeCount)} cạnh`);
+  if (graph.sourceFile) parts.push(graph.sourceFile);
+  if (!parts.length && graph.path) parts.push(graph.path);
+  return parts.join(", ");
 }
 
 function StatsTab() {
@@ -831,22 +313,6 @@ function StatsTab() {
       maxValue: 1,
       color: chartPalette[3],
     },
-    {
-      label: "PPR seeds",
-      value: data.keyMetrics.pagerankSeeds ?? 0,
-      display: formatNumber(data.keyMetrics.pagerankSeeds ?? 0),
-      helper: "Seed PageRank Nibble",
-      maxValue: Math.max(data.keyMetrics.pagerankSeeds ?? 0, 1),
-      color: chartPalette[6],
-    },
-    {
-      label: "Best conductance",
-      value: data.keyMetrics.pagerankBestConductance ?? 0,
-      display: formatScore(data.keyMetrics.pagerankBestConductance ?? 0, 4),
-      helper: "Cụm APPR tốt nhất",
-      maxValue: 1,
-      color: chartPalette[7],
-    },
   ];
   const communityDistribution = data.communitySizeDistribution.map((item) => ({
     label: `${item.label}`,
@@ -872,12 +338,18 @@ function StatsTab() {
     label: `${pair.source} - ${pair.target}`,
     value: pair.score,
     detail: formatScore(pair.score, 4),
+    tooltip: formatPairContentTooltip(pair),
   }));
+  const subredditContentRows = (data.subredditContentTable ?? []).slice(0, 24).map((row) => [
+    row.subreddit,
+    row.content,
+    formatContentSource(row.source),
+    row.communityName,
+  ]);
   const topCommunities = data.topCommunities.slice(0, 12).map((community) => ({
     label: community.name,
     value: community.size,
-    detail: `${formatNumber(community.size)} subreddit`,
-    subtext: community.densityLabel,
+    detail: `${formatNumber(community.size)} subreddit`
   }));
   const topBridges = data.topBridges.slice(0, 12).map((row) => ({
     label: row.subreddit,
@@ -896,19 +368,6 @@ function StatsTab() {
     value: row.occurrence_count,
     detail: `${formatNumber(row.occurrence_count)} lần`,
     subtext: `${row.unique_communities_spanned} community`,
-  }));
-  const pagerankSummaries = data.pagerankNibble?.summary ?? [];
-  const pagerankSeeds = pagerankSummaries.slice(0, 12).map((row) => ({
-    label: row.seed,
-    value: 1 - Number(row.conductance ?? 0),
-    detail: `φ ${formatScore(row.conductance, 4)}`,
-    subtext: `${formatNumber(row.clusterSize)} node / ${row.seedCommunityName || "Community"}`,
-  }));
-  const pagerankTopNodes = (data.pagerankNibble?.topNodes ?? []).slice(0, 12).map((row) => ({
-    label: `${row.seed} -> ${row.subreddit}`,
-    value: row.pprScore,
-    detail: formatScore(row.pprScore, 4),
-    subtext: row.communityName || "Community",
   }));
   const runtimeSeries = [
     { key: "extract", label: "Extract", color: chartPalette[0] },
@@ -929,11 +388,19 @@ function StatsTab() {
       similarity: row.similarity,
     },
   }));
+  const louvainAlgorithm = data.experiments.algorithms.find((row) => row.name === "Louvain");
+  const louvainTimeMinutes = parseDurationMinutes(louvainAlgorithm?.time);
   const algorithmRows = data.experiments.algorithms.map((row) => ({
     label: row.name,
     timeMinutes: parseDurationMinutes(row.time),
     detail: row.time,
     modularity: row.modularity,
+    note: row.note,
+    scope: row.scope,
+    isFocus: row.name === "Louvain",
+    deltaModularity: row.modularity - Number(louvainAlgorithm?.modularity ?? row.modularity),
+    timeRatio:
+      louvainTimeMinutes > 0 ? parseDurationMinutes(row.time) / louvainTimeMinutes : null,
   }));
 
   return (
@@ -978,7 +445,7 @@ function StatsTab() {
       </div>
 
       <Panel eyebrow="Ranking score" title="Top similarity pairs">
-        <HorizontalBarChart
+        <ColumnBarChart
           data={topSimilarityPairs}
           maxValue={1}
           axisFormatter={(value) => formatScore(value, 2)}
@@ -988,7 +455,7 @@ function StatsTab() {
 
       <div className="stats-grid">
         <Panel eyebrow="Ranking size" title="Top community lớn">
-          <HorizontalBarChart data={topCommunities} valueFormatter={formatNumber} />
+          <ColumnBarChart data={topCommunities} valueFormatter={formatNumber} />
         </Panel>
         <Panel eyebrow="Role overlap" title="Bridge và Gateway">
           <RoleSummaryChart
@@ -1001,14 +468,14 @@ function StatsTab() {
 
       <div className="stats-grid">
         <Panel eyebrow="Betweenness role" title="Top bridge">
-          <HorizontalBarChart
+          <ColumnBarChart
             data={topBridges}
             axisFormatter={(value) => formatScore(value, 3)}
             valueFormatter={(value) => formatScore(value, 4)}
           />
         </Panel>
         <Panel eyebrow="Gateway role" title="Top gateway">
-          <HorizontalBarChart
+          <ColumnBarChart
             data={topGateways}
             axisFormatter={(value) => formatScore(value, 2)}
             maxValue={1}
@@ -1019,32 +486,12 @@ function StatsTab() {
 
       <div className="stats-grid">
         <Panel eyebrow="Path frequency" title="Top highway">
-          <HorizontalBarChart data={topHighways} valueFormatter={formatNumber} />
+          <ColumnBarChart data={topHighways} valueFormatter={formatNumber} />
         </Panel>
         <Panel eyebrow="Matrix" title="Highway heatmap">
           <HighwayHeatmap data={data.highwayHeatmap} />
         </Panel>
       </div>
-
-      {pagerankSeeds.length > 0 && (
-        <div className="stats-grid">
-          <Panel eyebrow="Approx. PPR" title="PageRank Nibble local clusters">
-            <HorizontalBarChart
-              axisFormatter={(value) => formatScore(value, 2)}
-              data={pagerankSeeds}
-              maxValue={1}
-              valueFormatter={(value) => formatScore(value, 4)}
-            />
-          </Panel>
-          <Panel eyebrow="PPR score" title="Top node theo personalized PageRank">
-            <HorizontalBarChart
-              axisFormatter={(value) => formatScore(value, 2)}
-              data={pagerankTopNodes}
-              valueFormatter={(value) => formatScore(value, 4)}
-            />
-          </Panel>
-        </div>
-      )}
 
       <div className="stats-grid">
         <Panel eyebrow="Grouped runtime" title="Thời gian xử lý">
@@ -1057,6 +504,7 @@ function StatsTab() {
         <Panel eyebrow="Quality / runtime" title="Thuật toán community">
           <AlgorithmBenchmarkChart
             data={algorithmRows}
+            focusLabel="Louvain"
             timeFormatter={(value) => `${formatScore(value, 1)} phút`}
           />
         </Panel>
@@ -1067,6 +515,29 @@ function StatsTab() {
 
 function compactPath(nodes) {
   return (nodes ?? []).join(" → ");
+}
+
+function formatPairContentTooltip(pair) {
+  const source = formatSubredditContentTooltip(pair.source, pair.sourceContent);
+  const target = formatSubredditContentTooltip(pair.target, pair.targetContent);
+  return [`${pair.source} - ${pair.target}`, `Similarity: ${formatScore(pair.score, 4)}`, source, target]
+    .filter(Boolean)
+    .join("\n\n");
+}
+
+function formatSubredditContentTooltip(subreddit, content) {
+  if (!content) return `${subreddit}: chưa có nội dung`;
+  const source = formatContentSource(content.source);
+  const body = content.shortContent || content.content || "Chưa có nội dung";
+  return `${subreddit} (${source}): ${body}`;
+}
+
+function formatContentSource(source) {
+  const normalized = String(source ?? "").trim().toLowerCase();
+  if (normalized === "reddit_about") return "Reddit about.json";
+  if (normalized === "community_inference") return "Suy luận từ community";
+  if (!normalized) return "Không rõ nguồn";
+  return source;
 }
 
 function MetricChartCard({ metric }) {
@@ -1086,7 +557,7 @@ function MetricChartCard({ metric }) {
   );
 }
 
-function HorizontalBarChart({
+function ColumnBarChart({
   data,
   maxValue,
   ranked = true,
@@ -1097,40 +568,52 @@ function HorizontalBarChart({
   const ticks = buildScaleTicks(max, axisFormatter);
 
   return (
-    <div className="hbar-chart">
-      <div className={ranked ? "hbar-scale" : "hbar-scale no-rank"}>
-        {ticks.map((tick) => (
-          <span key={tick.ratio} style={{ left: `${tick.ratio * 100}%` }}>
-            {tick.label}
-          </span>
-        ))}
-      </div>
-      {data.map((item, index) => {
-        const value = Number(item.value ?? 0);
-        const width = max > 0 ? clamp((value / max) * 100, value > 0 ? 2 : 0, 100) : 0;
-        const color = item.color ?? chartPalette[index % chartPalette.length];
+    <div className="column-chart">
+      <div
+        className="column-frame"
+        style={{
+          "--column-count": data.length,
+          minWidth: `${Math.max(480, data.length * 78 + 62)}px`,
+        }}
+      >
+        <div className="column-y-axis">
+          {[...ticks].reverse().map((tick) => (
+            <span key={tick.ratio}>{tick.label}</span>
+          ))}
+        </div>
+        <div className="column-plot">
+          <div className="column-grid-lines" />
+          <div className="column-bars">
+            {data.map((item, index) => {
+              const value = Number(item.value ?? 0);
+              const height = max > 0 ? clamp((value / max) * 100, value > 0 ? 3 : 0, 100) : 0;
+              const color = item.color ?? chartPalette[index % chartPalette.length];
+              const valueLabel = item.detail ?? valueFormatter(value);
+              const tooltip = item.tooltip ?? `${item.label}: ${valueFormatter(value)}`;
 
-        return (
-          <div
-            className={ranked ? "hbar-row" : "hbar-row no-rank"}
-            key={item.label}
-            style={{ "--bar-color": color }}
-          >
-            {ranked && <div className="hbar-rank">{String(index + 1).padStart(2, "0")}</div>}
-            <div className="hbar-body">
-              <div className="hbar-meta">
-                <span title={item.label}>{item.label}</span>
-                <strong>{item.detail ?? valueFormatter(value)}</strong>
-              </div>
-              <div className="hbar-track">
-                <div className="hbar-grid" />
-                <div className="hbar-fill" style={{ width: `${width}%` }} />
-              </div>
-              {item.subtext && <small title={item.subtext}>{item.subtext}</small>}
-            </div>
+              return (
+                <div
+                  aria-label={tooltip}
+                  className="column-item"
+                  key={item.label}
+                  style={{ "--bar-color": color }}
+                  tabIndex={item.tooltip ? 0 : undefined}
+                >
+                  <strong className="column-value">{valueLabel}</strong>
+                  <div className="column-bar-shell" title={tooltip}>
+                    <div className="column-bar" style={{ height: `${height}%` }} />
+                  </div>
+                  {item.tooltip && <div className="column-tooltip">{item.tooltip}</div>}
+                  <div className="column-label">
+                    <strong title={item.label}>{item.label}</strong>
+                    {item.subtext && <small title={item.subtext}>{item.subtext}</small>}
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
+        </div>
+      </div>
     </div>
   );
 }
@@ -1289,7 +772,7 @@ function RoleSummaryChart({ bridgeRows, gatewayRows, overlap }) {
           <p>Nằm đồng thời trong tập bridge và gateway nổi bật.</p>
         </div>
       </div>
-      <HorizontalBarChart
+      <ColumnBarChart
         axisFormatter={formatNumber}
         data={rows}
         maxValue={max}
@@ -1316,59 +799,90 @@ function GroupedBarChart({ groups, series, valueFormatter = formatNumber }) {
           </span>
         ))}
       </div>
-      <div className="grouped-scale">
-        {ticks.map((tick) => (
-          <span key={tick.ratio} style={{ left: `${tick.ratio * 100}%` }}>
-            {tick.label}
-          </span>
-        ))}
-      </div>
-      {groups.map((group) => (
-        <div className="grouped-row" key={group.label}>
-          <div className="grouped-label">
-            <strong>{group.label}</strong>
-            <span>{group.note}</span>
-          </div>
-          <div className="grouped-bars">
-            {series.map((item) => {
-              const value = Number(group.values[item.key] ?? 0);
-              const width = clamp((value / max) * 100, value > 0 ? 2 : 0, 100);
-              return (
-                <div className="grouped-bar-line" key={item.key}>
-                  <span>{item.label}</span>
-                  <div
-                    className="grouped-track"
-                    title={`${group.label} - ${item.label}: ${group.details[item.key]}`}
-                  >
-                    <div style={{ width: `${width}%`, backgroundColor: item.color }} />
-                  </div>
-                  <strong>{group.details[item.key]}</strong>
+      <div
+        className="grouped-column-frame"
+        style={{
+          "--group-count": groups.length,
+          "--series-count": series.length,
+          minWidth: `${Math.max(460, groups.length * 132 + 62)}px`,
+        }}
+      >
+        <div className="grouped-y-axis">
+          {[...ticks].reverse().map((tick) => (
+            <span key={tick.ratio}>{tick.label}</span>
+          ))}
+        </div>
+        <div className="grouped-column-plot">
+          <div className="grouped-column-grid" />
+          <div className="grouped-column-groups">
+            {groups.map((group) => (
+              <div className="grouped-column-group" key={group.label}>
+                <div className="grouped-column-bars">
+                  {series.map((item) => {
+                    const value = Number(group.values[item.key] ?? 0);
+                    const height = clamp((value / max) * 100, value > 0 ? 3 : 0, 100);
+                    return (
+                      <div className="grouped-column-item" key={item.key}>
+                        <strong>{group.details[item.key]}</strong>
+                        <div
+                          className="grouped-column-track"
+                          title={`${group.label} - ${item.label}: ${group.details[item.key]}`}
+                        >
+                          <div style={{ height: `${height}%`, backgroundColor: item.color }} />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+                <div className="grouped-column-label">
+                  <strong>{group.label}</strong>
+                  <span>{group.note}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
 
-function AlgorithmBenchmarkChart({ data, timeFormatter = formatNumber }) {
-  const maxTime = Math.max(...data.map((item) => item.timeMinutes), 1);
-  const minModularity = Math.min(...data.map((item) => item.modularity)) - 0.02;
-  const maxModularity = Math.max(...data.map((item) => item.modularity)) + 0.02;
+function AlgorithmBenchmarkChart({ data, focusLabel = "Louvain", timeFormatter = formatNumber }) {
+  const focus = data.find((item) => item.label === focusLabel) ?? data[0];
+  const focusTime = Math.max(Number(focus?.timeMinutes ?? 1), Number.EPSILON);
+  const focusModularity = Number(focus?.modularity ?? 0);
+  const rows = data.map((item) => ({
+    ...item,
+    timeRatio: item.timeRatio ?? Number(item.timeMinutes ?? 0) / focusTime,
+  }));
+  const maxLogRatio = Math.max(
+    ...rows.map((item) => Math.abs(Math.log10(Math.max(Number(item.timeRatio ?? 1), Number.EPSILON)))),
+    0.5,
+  );
+  const minLogRatio = -maxLogRatio;
+  const modularityPadding =
+    Math.max(...rows.map((item) => Math.abs(Number(item.modularity ?? 0) - focusModularity)), 0.02) + 0.02;
+  const minModularity = focusModularity - modularityPadding;
+  const maxModularity = focusModularity + modularityPadding;
   const modularityRange = Math.max(maxModularity - minModularity, Number.EPSILON);
   const plot = { left: 72, right: 604, top: 28, bottom: 206 };
   const width = plot.right - plot.left;
   const height = plot.bottom - plot.top;
-  const xScale = (value) =>
-    plot.left + (Math.log10(Number(value ?? 0) + 1) / Math.log10(maxTime + 1)) * width;
+  const xScale = (ratio) => {
+    const logRatio = Math.log10(Math.max(Number(ratio ?? 1), Number.EPSILON));
+    return plot.left + ((logRatio - minLogRatio) / (maxLogRatio - minLogRatio)) * width;
+  };
   const yScale = (value) =>
     plot.bottom - ((Number(value ?? 0) - minModularity) / modularityRange) * height;
-  const xTicks = [0, 1, 5, 15, Math.ceil(maxTime)].filter(
-    (value, index, values) => value <= maxTime && values.indexOf(value) === index,
+  const xTicks = [0.01, 0.1, 1, 10, 100, 1000].filter((ratio) => {
+    const logRatio = Math.log10(ratio);
+    return logRatio >= minLogRatio && logRatio <= maxLogRatio;
+  });
+  const yTicks = [minModularity, focusModularity, maxModularity].filter(
+    (value, index, values) => values.findIndex((candidate) => Math.abs(candidate - value) < 0.0001) === index,
   );
-  const yTicks = [minModularity, (minModularity + maxModularity) / 2, maxModularity];
+  const focusX = xScale(1);
+  const focusY = yScale(focusModularity);
 
   return (
     <div className="algorithm-chart">
@@ -1379,7 +893,7 @@ function AlgorithmBenchmarkChart({ data, timeFormatter = formatNumber }) {
           <g key={`x-${tick}`}>
             <line className="chart-grid-line" x1={xScale(tick)} x2={xScale(tick)} y1={plot.top} y2={plot.bottom} />
             <text className="chart-tick" textAnchor="middle" x={xScale(tick)} y={plot.bottom + 24}>
-              {formatScore(tick, tick < 1 ? 1 : 0)}p
+              {formatRatio(tick)}
             </text>
           </g>
         ))}
@@ -1391,18 +905,41 @@ function AlgorithmBenchmarkChart({ data, timeFormatter = formatNumber }) {
             </text>
           </g>
         ))}
+        {focus && (
+          <>
+            <line className="chart-focus-line" x1={focusX} x2={focusX} y1={plot.top} y2={plot.bottom} />
+            <line className="chart-focus-line" x1={plot.left} x2={plot.right} y1={focusY} y2={focusY} />
+          </>
+        )}
         <text className="chart-axis-label" textAnchor="middle" x={(plot.left + plot.right) / 2} y={246}>
-          Thời gian xử lý (log phút)
+          Thời gian so với Louvain
         </text>
         <text className="chart-axis-label" textAnchor="middle" transform="rotate(-90 20 116)" x={20} y={116}>
           Modularity
         </text>
-        {data.map((item, index) => {
-          const color = chartPalette[index % chartPalette.length];
+        {rows.map((item, index) => {
+          const color = getAlgorithmColor(item, index, focusLabel);
+          const pointX = xScale(item.timeRatio);
+          const pointY = yScale(item.modularity);
+          const labelOnLeft = pointX > plot.right - 124;
           return (
             <g key={item.label}>
-              <circle cx={xScale(item.timeMinutes)} cy={yScale(item.modularity)} fill={color} r="9" />
-              <text className="chart-point-label" x={xScale(item.timeMinutes) + 14} y={yScale(item.modularity) + 5}>
+              <circle
+                className={item.label === focusLabel ? "chart-point focus" : "chart-point"}
+                cx={pointX}
+                cy={pointY}
+                fill={color}
+                r={item.label === focusLabel ? "11" : "9"}
+              />
+              {item.label === focusLabel && (
+                <circle className="chart-focus-ring" cx={pointX} cy={pointY} r="16" />
+              )}
+              <text
+                className={item.label === focusLabel ? "chart-point-label focus" : "chart-point-label"}
+                textAnchor={labelOnLeft ? "end" : "start"}
+                x={pointX + (labelOnLeft ? -14 : 14)}
+                y={pointY + 5}
+              >
                 {item.label}
               </text>
             </g>
@@ -1410,20 +947,44 @@ function AlgorithmBenchmarkChart({ data, timeFormatter = formatNumber }) {
         })}
       </svg>
       <div className="algorithm-cards">
-        {data.map((item, index) => (
+        {rows.map((item, index) => (
           <div
-            className="algorithm-card"
+            className={item.label === focusLabel ? "algorithm-card focus" : "algorithm-card"}
             key={item.label}
-            style={{ "--metric-color": chartPalette[index % chartPalette.length] }}
+            style={{ "--metric-color": getAlgorithmColor(item, index, focusLabel) }}
           >
             <span>{item.label}</span>
             <strong>{item.detail}</strong>
-            <small>{timeFormatter(item.timeMinutes)} / Modularity {formatScore(item.modularity, 4)}</small>
+            <small>
+              {timeFormatter(item.timeMinutes)} / Modularity {formatScore(item.modularity, 4)}
+              {item.scope === "local" ? " (local)" : ""}
+            </small>
+            {item.note && <small>{item.note}</small>}
           </div>
         ))}
       </div>
     </div>
   );
+}
+
+function getAlgorithmColor(item, index, focusLabel) {
+  if (item.label === focusLabel) return "#2563eb";
+  if (item.label.toLowerCase().includes("pagerank")) return "#7c3aed";
+  return chartPalette[(index + 2) % chartPalette.length];
+}
+
+function formatRatio(value) {
+  const ratio = Number(value ?? 1);
+  if (!Number.isFinite(ratio)) return "n/a";
+  if (ratio < 0.1) return `${formatScore(ratio, 2)}x`;
+  if (ratio < 10) return `${formatScore(ratio, 1)}x`;
+  return `${formatScore(ratio, 0)}x`;
+}
+
+function formatSignedScore(value) {
+  const number = Number(value ?? 0);
+  const prefix = number > 0 ? "+" : "";
+  return `${prefix}${formatScore(number, 4)}`;
 }
 
 function parseDurationMinutes(value) {
