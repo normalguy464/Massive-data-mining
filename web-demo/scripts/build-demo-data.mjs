@@ -19,8 +19,14 @@ const PAGERANK_NIBBLE_CSV = path.join(repoRoot, "result", "pagerank_nibble_resul
 const PAGERANK_NIBBLE_SUMMARY_CSV = path.join(repoRoot, "result", "pagerank_nibble_summary.csv");
 const PAGERANK_NIBBLE_GRAPH = path.join(repoRoot, "result", "pagerank_nibble_graph.json");
 const SIMILARITY_CSV = path.join(repoRoot, "subreddit_similarity_results.csv");
+const SUBREDDIT_CONTENT_CSV = path.join(repoRoot, "result", "subreddit_content_map.csv");
 const COMMUNITY_IMAGE = path.join(repoRoot, "result", "community_result_summary.png");
 const SIMILARITY_IMAGE = path.join(repoRoot, "similarity_histogram_0p3_0p99.png");
+const PAGERANK_BENCHMARK_TIME = "14s";
+const PAGERANK_BENCHMARK_MODULARITY = 0.5975;
+const COMMUNITY_LEVEL_EDGE_LIMIT = 240;
+const COMMUNITY_LEVEL_MIN_SIMILARITY = 0.736;
+const SUBREDDIT_CONTENT_PREVIEW_LIMIT = 360;
 
 const HTML_GRAPH_FILES = [
   {
@@ -224,6 +230,9 @@ function stripHeavyFields(item) {
     "value",
     "color",
     "font",
+    "borderWidth",
+    "mass",
+    "fixed",
     "x",
     "y",
     "from",
@@ -232,6 +241,8 @@ function stripHeavyFields(item) {
     "arrows",
     "dashes",
     "Similarity_Score",
+    "communityId",
+    "communityName",
   ];
 
   for (const key of allowedKeys) {
@@ -286,6 +297,393 @@ function sanitizeExtractedGraph(graphId, graph) {
   };
 }
 
+function getCommunityColors(communityId) {
+  const hue = ((Number(communityId) || 0) * 137.508 + 18) % 360;
+  const roundedHue = round(hue, 1);
+  return {
+    background: `hsl(${roundedHue} 70% 48%)`,
+    border: `hsl(${roundedHue} 76% 32%)`,
+    highlight: {
+      background: `hsl(${roundedHue} 76% 42%)`,
+      border: `hsl(${roundedHue} 84% 24%)`,
+    },
+    hover: {
+      background: `hsl(${roundedHue} 74% 54%)`,
+      border: `hsl(${roundedHue} 76% 32%)`,
+    },
+  };
+}
+
+function appendTitleLines(title, lines) {
+  const base = String(title ?? "").trim();
+  const extra = lines.filter(Boolean).join("<br>");
+  return [base, extra].filter(Boolean).join("<br>");
+}
+
+function normalizeSubredditKey(value) {
+  return String(value ?? "")
+    .trim()
+    .replace(/^\/?r\//i, "")
+    .toLowerCase();
+}
+
+function collapseContentText(value) {
+  return String(value ?? "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function truncateContent(value, limit = SUBREDDIT_CONTENT_PREVIEW_LIMIT) {
+  const text = collapseContentText(value);
+  if (text.length <= limit) return text;
+  return `${text.slice(0, Math.max(0, limit - 1)).trim()}…`;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function toOptionalNumber(value) {
+  const text = String(value ?? "").trim();
+  if (!text) return null;
+  const number = Number(text);
+  return Number.isFinite(number) ? number : null;
+}
+
+function parseBoolean(value) {
+  return ["1", "true", "yes"].includes(String(value ?? "").trim().toLowerCase());
+}
+
+function makePublicSubredditContent(content) {
+  if (!content) return null;
+  const result = {
+    subreddit: content.subreddit,
+    displayName: content.displayName || content.subreddit,
+    title: content.title || content.subreddit,
+    content: content.content,
+    shortContent: content.shortContent,
+    source: content.source,
+    status: content.status,
+    communityId: content.communityId,
+    communityName: content.communityName,
+  };
+
+  if (content.subscribers != null) result.subscribers = content.subscribers;
+  if (content.over18 !== undefined) result.over18 = content.over18;
+  if (content.url) result.url = content.url;
+  if (content.crawledAt) result.crawledAt = content.crawledAt;
+  if (content.error) result.error = content.error;
+  return result;
+}
+
+function readCrawledSubredditContent() {
+  const rows = readOptionalCsv(SUBREDDIT_CONTENT_CSV);
+  const contentByKey = new Map();
+
+  for (const row of rows) {
+    const subreddit = row.subreddit || row.display_name;
+    const key = normalizeSubredditKey(subreddit);
+    if (!key) continue;
+
+    const contentText =
+      row.content ||
+      [row.title, row.public_description, row.description].filter(Boolean).join(" | ");
+    const content = truncateContent(contentText, 900);
+    if (!content) continue;
+
+    contentByKey.set(key, {
+      subreddit,
+      displayName: row.display_name || subreddit,
+      title: truncateContent(row.title || row.display_name || subreddit, 160),
+      content,
+      shortContent: truncateContent(content),
+      subscribers: toOptionalNumber(row.subscribers),
+      over18: row.over18 === "" ? undefined : parseBoolean(row.over18),
+      url: row.url,
+      source: row.source || "reddit_about",
+      status: row.status || "ok",
+      crawledAt: row.fetched_at,
+      error: row.error,
+    });
+  }
+
+  return contentByKey;
+}
+
+function buildInferredSubredditContent(subreddit, community) {
+  const content = truncateContent(
+    `Thuộc community "${community.name}". ${community.reason}`,
+    900,
+  );
+  return {
+    subreddit,
+    displayName: subreddit,
+    title: subreddit,
+    content,
+    shortContent: truncateContent(content),
+    source: "community_inference",
+    status: "inferred",
+    communityId: community.id,
+    communityName: community.name,
+  };
+}
+
+function buildSubredditContentLookup(communities) {
+  const crawledContent = readCrawledSubredditContent();
+  const byKey = new Map();
+  const byName = new Map();
+
+  for (const community of communities) {
+    for (const subreddit of community.subreddits) {
+      const key = normalizeSubredditKey(subreddit);
+      const crawled = crawledContent.get(key);
+      const content = crawled?.content
+        ? {
+            ...crawled,
+            subreddit,
+            communityId: community.id,
+            communityName: community.name,
+          }
+        : buildInferredSubredditContent(subreddit, community);
+
+      byKey.set(key, content);
+      byName.set(subreddit, content);
+    }
+  }
+
+  return { byKey, byName };
+}
+
+function getSubredditContent(contentLookup, subreddit) {
+  if (!subreddit || !contentLookup) return null;
+  return contentLookup.byName?.get(subreddit) ?? contentLookup.byKey?.get(normalizeSubredditKey(subreddit)) ?? null;
+}
+
+function getNodeSubredditCandidates(graphId, node) {
+  if (graphId === "community_level") return [];
+
+  const title = String(node.title ?? "");
+  const subredditMatch = title.match(/Subreddit:\s*([^<\n]+)/i);
+  const values = [
+    String(node.id ?? ""),
+    String(node.label ?? ""),
+    subredditMatch?.[1] ?? "",
+  ];
+
+  return [
+    ...new Set(
+      values
+        .map((value) => value.trim().replace(/^subreddit:/i, "").replace(/^s_/i, ""))
+        .filter(Boolean),
+    ),
+  ];
+}
+
+function buildSubredditContentTitleLines(content) {
+  if (!content?.shortContent) return [];
+  return [
+    `Nội dung: ${escapeHtml(content.shortContent)}`,
+    content.source === "community_inference" ? "Nguồn: suy luận từ community" : "Nguồn: Reddit about.json",
+    content.subscribers != null ? `Subscribers: ${formatFixed(content.subscribers, 0)}` : "",
+  ];
+}
+
+function enrichGraphWithSubredditContent(graphId, graph, contentLookup) {
+  if (!contentLookup?.byKey?.size) return graph;
+
+  for (const node of graph.nodes) {
+    const subreddit = getNodeSubredditCandidates(graphId, node).find((candidate) =>
+      contentLookup.byKey.has(normalizeSubredditKey(candidate)),
+    );
+    if (!subreddit) continue;
+
+    const content = getSubredditContent(contentLookup, subreddit);
+    if (!content) continue;
+
+    node.subredditContent = makePublicSubredditContent(content);
+    node.title = appendTitleLines(
+      node.title ?? node.label ?? node.id,
+      buildSubredditContentTitleLines(content),
+    );
+  }
+
+  return graph;
+}
+
+function enrichSimilarityPairs(pairs, contentLookup) {
+  return pairs.map((pair) => ({
+    ...pair,
+    sourceContent: makePublicSubredditContent(getSubredditContent(contentLookup, pair.source)),
+    targetContent: makePublicSubredditContent(getSubredditContent(contentLookup, pair.target)),
+  }));
+}
+
+function buildSubredditContentTable(contentLookup, topPairs, limit = 42) {
+  const pairSubreddits = topPairs.flatMap((pair) => [pair.source, pair.target]);
+  const fallbackSubreddits = [...(contentLookup?.byName?.keys() ?? [])];
+  const names = [...new Set([...pairSubreddits, ...fallbackSubreddits])].slice(0, limit);
+
+  return names
+    .map((subreddit) => {
+      const content = getSubredditContent(contentLookup, subreddit);
+      if (!content) return null;
+      return {
+        subreddit,
+        content: content.shortContent,
+        source: content.source,
+        communityName: content.communityName,
+      };
+    })
+    .filter(Boolean);
+}
+
+function applyClusterCoordinates(nodes, getGroupKey, options = {}) {
+  const groups = new Map();
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+  const centerSpacing = options.centerSpacing ?? 720;
+  const nodeSpacing = options.nodeSpacing ?? 22;
+
+  for (const node of nodes) {
+    const groupKey = String(getGroupKey(node) ?? "unknown");
+    const groupNodes = groups.get(groupKey) ?? [];
+    groupNodes.push(node);
+    groups.set(groupKey, groupNodes);
+  }
+
+  const groupEntries = [...groups.entries()].sort((a, b) => b[1].length - a[1].length);
+  for (const [groupIndex, [, groupNodes]] of groupEntries.entries()) {
+    const centerRadius = groupIndex === 0 ? 0 : Math.sqrt(groupIndex) * centerSpacing;
+    const centerAngle = groupIndex * goldenAngle;
+    const centerX = centerRadius * Math.cos(centerAngle);
+    const centerY = centerRadius * Math.sin(centerAngle);
+    groupNodes.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+
+    for (const [nodeIndex, node] of groupNodes.entries()) {
+      const localRadius = Math.sqrt(nodeIndex) * nodeSpacing;
+      const localAngle = nodeIndex * goldenAngle;
+      node.x = round(centerX + localRadius * Math.cos(localAngle), 2);
+      node.y = round(centerY + localRadius * Math.sin(localAngle), 2);
+    }
+  }
+}
+
+function applySpiralCoordinates(nodes, spacing = 170) {
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+  for (const [index, node] of nodes.entries()) {
+    const radius = index === 0 ? 0 : Math.sqrt(index) * spacing;
+    const angle = index * goldenAngle;
+    node.x = round(radius * Math.cos(angle), 2);
+    node.y = round(radius * Math.sin(angle), 2);
+  }
+}
+
+function enrichSimilarityGraph(graph, communities, subToCommunity) {
+  const communityById = new Map(communities.map((community) => [community.id, community]));
+
+  for (const node of graph.nodes) {
+    const communityId = subToCommunity.get(node.id);
+    if (communityId === undefined) {
+      node.group = "unknown";
+      node.color = node.color ?? { background: "#97c2fc", border: "#6b96d3" };
+      node.font = { ...(node.font ?? {}), color: "white" };
+      continue;
+    }
+
+    const community = communityById.get(communityId);
+    node.group = String(communityId);
+    node.communityId = communityId;
+    node.communityName = community?.name ?? `Community ${communityId}`;
+    node.color = getCommunityColors(communityId);
+    node.font = { ...(node.font ?? {}), color: "white" };
+    node.borderWidth = 1;
+    node.title = appendTitleLines(node.title ?? node.label ?? node.id, [
+      `Community: ${communityId}`,
+      community?.name ? `Name: ${community.name}` : "",
+      community?.size ? `Size: ${community.size} subreddits` : "",
+    ]);
+  }
+
+  applyClusterCoordinates(graph.nodes, (node) => node.group, {
+    centerSpacing: 760,
+    nodeSpacing: 24,
+  });
+
+  return graph;
+}
+
+function buildCommunityLevelGraph(communities, communityLevelEdges) {
+  const maxSize = Math.max(...communities.map((community) => community.size), 1);
+  const communityById = new Map(communities.map((community) => [community.id, community]));
+  const nodes = communities.map((community) => {
+    const examples = community.examples.length ? community.examples : community.subreddits;
+    const labelExamples = examples.slice(0, 2).join(" / ");
+    return {
+      id: String(community.id),
+      label: `C${community.id}: ${labelExamples || community.name}`,
+      title: [
+        `Community ${community.id}`,
+        `Name: ${community.name}`,
+        `Size: ${community.size} subreddits`,
+        `Top subreddits: ${examples.slice(0, 12).join(", ")}`,
+        community.reason,
+      ]
+        .filter(Boolean)
+        .join("<br>"),
+      shape: "dot",
+      size: round(18 + Math.sqrt(community.size / maxSize) * 57, 2),
+      value: community.size,
+      color: "#97c2fc",
+      font: { color: "white" },
+    };
+  });
+
+  applySpiralCoordinates(nodes, 185);
+
+  const edges = communityLevelEdges
+    .filter((edge) => communityById.has(edge.source) && communityById.has(edge.target))
+    .slice(0, COMMUNITY_LEVEL_EDGE_LIMIT)
+    .map((edge, index) => {
+      const source = communityById.get(edge.source);
+      const target = communityById.get(edge.target);
+      const width = Math.min(12, Math.max(1, Math.sqrt(edge.connections)));
+      return {
+        id: `community_level:edge:${index}`,
+        from: String(edge.source),
+        to: String(edge.target),
+        title: [
+          `${source?.name ?? `Community ${edge.source}`} - ${target?.name ?? `Community ${edge.target}`}`,
+          `Connections: ${edge.connections}`,
+          `Total similarity: ${formatFixed(edge.totalSimilarity, 2)}`,
+          `Avg similarity: ${formatFixed(edge.avgSimilarity, 4)}`,
+          `Max similarity: ${formatFixed(edge.maxSimilarity, 4)}`,
+        ].join("<br>"),
+        value: round(edge.totalSimilarity, 4),
+        width,
+      };
+    });
+
+  return {
+    nodes,
+    edges,
+    groups: [],
+    renderStyle: {
+      profile: "community_level",
+      layout: "preset",
+      physics: false,
+    },
+  };
+}
+
+function formatFixed(value, digits) {
+  return Number(value ?? 0).toFixed(digits);
+}
+
 function writeGraphIndex(graphIndex) {
   fs.writeFileSync(
     path.join(graphDir, "index.json"),
@@ -302,35 +700,20 @@ function buildHtmlGraphData() {
     const htmlPath = path.join(repoRoot, config.file);
     if (!fs.existsSync(htmlPath)) continue;
 
-    const htmlText = fs.readFileSync(htmlPath, "utf8");
-    const parsedGraph = parseGraphArraysFromHtml(htmlText);
-    if (!parsedGraph) continue;
-
-    const graph = sanitizeExtractedGraph(config.id, parsedGraph);
-    const groups = [...new Set(graph.nodes.map((node) => node.group).filter(Boolean))].sort();
-    const graphPayload = {
-      id: config.id,
-      title: config.title,
-      description: config.description,
-      sourceFile: config.file,
-      extractedFromHtml: true,
-      nodes: graph.nodes,
-      edges: graph.edges,
-      groups,
-    };
-
-    const outputPath = path.join(graphDir, `${config.id}.json`);
-    fs.writeFileSync(outputPath, `${JSON.stringify(graphPayload)}\n`, "utf8");
-
+    const outputPath = path.join(graphDir, config.file);
+    fs.copyFileSync(htmlPath, outputPath);
+    const parsedGraph = parseGraphArraysFromHtml(fs.readFileSync(htmlPath, "utf8"));
+    const nodeCount = parsedGraph?.nodes?.length ?? 0;
+    const edgeCount = parsedGraph?.edges?.length ?? 0;
     graphIndex.push({
       id: config.id,
       title: config.title,
       description: config.description,
       sourceFile: config.file,
-      path: `/graphs/${config.id}.json`,
-      nodeCount: graph.nodes.length,
-      edgeCount: graph.edges.length,
-      groupCount: groups.length,
+      path: `/graphs/${config.file}`,
+      nodeCount,
+      edgeCount,
+      groupCount: 0,
       fileSizeBytes: fs.statSync(outputPath).size,
     });
   }
@@ -375,6 +758,42 @@ function pushNeighbor(map, key, item, limit) {
     list.length = limit;
   }
   map.set(key, list);
+}
+
+function addCommunityPair(map, sourceCommunity, targetCommunity, score) {
+  if (sourceCommunity == null || targetCommunity == null || sourceCommunity === targetCommunity) {
+    return;
+  }
+
+  const source = Math.min(Number(sourceCommunity), Number(targetCommunity));
+  const target = Math.max(Number(sourceCommunity), Number(targetCommunity));
+  const key = `${source}:${target}`;
+  const current =
+    map.get(key) ??
+    {
+      source,
+      target,
+      connections: 0,
+      totalSimilarity: 0,
+      maxSimilarity: 0,
+    };
+
+  current.connections += 1;
+  current.totalSimilarity += score;
+  current.maxSimilarity = Math.max(current.maxSimilarity, score);
+  map.set(key, current);
+}
+
+function buildCommunityLevelEdges(pairMap) {
+  return [...pairMap.values()]
+    .map((edge) => ({
+      ...edge,
+      totalSimilarity: round(edge.totalSimilarity, 4),
+      avgSimilarity: round(edge.totalSimilarity / Math.max(edge.connections, 1), 4),
+      maxSimilarity: round(edge.maxSimilarity, 4),
+    }))
+    .sort((a, b) => b.connections - a.connections || b.totalSimilarity - a.totalSimilarity)
+    .slice(0, COMMUNITY_LEVEL_EDGE_LIMIT);
 }
 
 function quantile(sortedValues, percentile) {
@@ -485,6 +904,7 @@ async function analyzeSimilarity(selectedSubreddits, subToCommunity, communityNa
   const topPairs = [];
   const graphCandidates = [];
   const recommendations = new Map();
+  const communityPairMap = new Map();
   let total = 0;
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
@@ -501,6 +921,9 @@ async function analyzeSimilarity(selectedSubreddits, subToCommunity, communityNa
     const score = Number(rawScore);
     if (!source || !target || !Number.isFinite(score)) continue;
 
+    const sourceCommunity = subToCommunity.get(source);
+    const targetCommunity = subToCommunity.get(target);
+
     total += 1;
     sum += score;
     min = Math.min(min, score);
@@ -509,8 +932,15 @@ async function analyzeSimilarity(selectedSubreddits, subToCommunity, communityNa
 
     pushTop(topPairs, { source, target, score }, 24);
 
+    if (
+      sourceCommunity !== undefined &&
+      targetCommunity !== undefined &&
+      score >= COMMUNITY_LEVEL_MIN_SIMILARITY
+    ) {
+      addCommunityPair(communityPairMap, sourceCommunity, targetCommunity, score);
+    }
+
     if (subToCommunity.has(source)) {
-      const targetCommunity = subToCommunity.get(target);
       pushNeighbor(
         recommendations,
         source,
@@ -525,7 +955,6 @@ async function analyzeSimilarity(selectedSubreddits, subToCommunity, communityNa
     }
 
     if (subToCommunity.has(target)) {
-      const sourceCommunity = subToCommunity.get(source);
       pushNeighbor(
         recommendations,
         target,
@@ -568,6 +997,7 @@ async function analyzeSimilarity(selectedSubreddits, subToCommunity, communityNa
     graphSimilarityEdges: graphCandidates
       .filter((edge) => edge.score >= p97)
       .slice(0, 900),
+    communityLevelEdges: buildCommunityLevelEdges(communityPairMap),
     recommendations: Object.fromEntries(
       [...recommendations.entries()].map(([subreddit, neighbors]) => [
         subreddit,
@@ -594,7 +1024,16 @@ function buildRoleMaps(bridgeRows, gatewayRows, highwayRows) {
   return roles;
 }
 
-function buildGraph({ communities, subToCommunity, selectedSubreddits, roles, graphSimilarityEdges, bridgeRows, highwayRows }) {
+function buildGraph({
+  communities,
+  subToCommunity,
+  selectedSubreddits,
+  roles,
+  graphSimilarityEdges,
+  bridgeRows,
+  highwayRows,
+  subredditContentLookup,
+}) {
   const communityById = new Map(communities.map((community) => [community.id, community]));
   const nodes = [];
   const edges = [];
@@ -615,6 +1054,7 @@ function buildGraph({ communities, subToCommunity, selectedSubreddits, roles, gr
     if (communityId == null) continue;
     const community = communityById.get(communityId);
     const roleList = roles.get(subreddit) ?? [];
+    const content = getSubredditContent(subredditContentLookup, subreddit);
     nodes.push({
       id: `subreddit:${subreddit}`,
       type: "subreddit",
@@ -622,7 +1062,15 @@ function buildGraph({ communities, subToCommunity, selectedSubreddits, roles, gr
       communityId,
       communityName: community?.name ?? "",
       roles: roleList,
-      title: `${subreddit}\n${community?.name ?? `Community ${communityId}`}${roleList.length ? `\nVai trò: ${roleList.join(", ")}` : ""}`,
+      subredditContent: makePublicSubredditContent(content),
+      title: [
+        subreddit,
+        community?.name ?? `Community ${communityId}`,
+        roleList.length ? `Vai trò: ${roleList.join(", ")}` : "",
+        content?.shortContent ? `Nội dung: ${content.shortContent}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n"),
     });
     edges.push({
       id: `membership:${communityId}:${subreddit}`,
@@ -697,7 +1145,7 @@ function buildSizeDistribution(communities) {
     }));
 }
 
-function buildCommunityIndexPayload(communities) {
+function buildCommunityIndexPayload(communities, subredditContentLookup) {
   const communityEntries = communities.map((community) => [
     String(community.id),
     {
@@ -712,11 +1160,18 @@ function buildCommunityIndexPayload(communities) {
   const subredditEntries = communities.flatMap((community) =>
     community.subreddits.map((subreddit) => [subreddit, community.id]),
   );
+  const subredditContentEntries = communities.flatMap((community) =>
+    community.subreddits.map((subreddit) => [
+      subreddit,
+      makePublicSubredditContent(getSubredditContent(subredditContentLookup, subreddit)),
+    ]),
+  );
 
   return {
     generatedAt: new Date().toISOString(),
     communities: Object.fromEntries(communityEntries),
     subredditToCommunity: Object.fromEntries(subredditEntries),
+    subredditContent: Object.fromEntries(subredditContentEntries),
   };
 }
 
@@ -805,35 +1260,91 @@ function buildPagerankNibbleData() {
   };
 }
 
-function copyPagerankNibbleGraph() {
-  if (!fs.existsSync(PAGERANK_NIBBLE_GRAPH)) return null;
+function addToMap(map, key, value) {
+  map.set(key, (map.get(key) ?? 0) + value);
+}
 
-  const payload = JSON.parse(fs.readFileSync(PAGERANK_NIBBLE_GRAPH, "utf8"));
-  const graphId = payload.id || "pagerank_nibble";
-  payload.id = graphId;
-  payload.title = payload.title || "PageRank Nibble local clusters";
-  payload.description =
-    payload.description ||
-    "Approximate Personalized PageRank neighborhoods from selected seed subreddits.";
-  payload.nodes = Array.isArray(payload.nodes) ? payload.nodes : [];
-  payload.edges = Array.isArray(payload.edges) ? payload.edges : [];
-  payload.groups =
-    payload.groups ??
-    [...new Set(payload.nodes.map((node) => node.group).filter(Boolean))].sort();
+async function computePagerankLocalModularity(minEdgeWeight) {
+  const bestAssignments = new Map();
 
-  const outputPath = path.join(graphDir, `${graphId}.json`);
-  fs.writeFileSync(outputPath, `${JSON.stringify(payload)}\n`, "utf8");
+  for (const row of readOptionalCsv(PAGERANK_NIBBLE_CSV)) {
+    const subreddit = row.subreddit;
+    const seed = row.seed_subreddit;
+    const pprScore = toNumber(row.ppr_score, Number.NEGATIVE_INFINITY);
+    if (!subreddit || !seed) continue;
+    const current = bestAssignments.get(subreddit);
+    if (!current || pprScore > current.pprScore) {
+      bestAssignments.set(subreddit, { seed, pprScore });
+    }
+  }
+
+  const assignedNodes = new Set(bestAssignments.keys());
+  const degree = new Map();
+  const communityDegree = new Map();
+  const internalWeight = new Map();
+  let inducedEdgeCount = 0;
+  let totalWeight = 0;
+
+  const rl = readline.createInterface({
+    input: fs.createReadStream(SIMILARITY_CSV, { encoding: "utf8" }),
+    crlfDelay: Number.POSITIVE_INFINITY,
+  });
+
+  for await (const line of rl) {
+    if (!line || line.startsWith("Subreddit_A,")) continue;
+    const [source, target, rawScore] = line.split(",");
+    const score = Number(rawScore);
+    if (!source || !target || !Number.isFinite(score) || score < minEdgeWeight) continue;
+    if (!assignedNodes.has(source) || !assignedNodes.has(target)) continue;
+
+    inducedEdgeCount += 1;
+    totalWeight += score;
+    addToMap(degree, source, score);
+    addToMap(degree, target, score);
+
+    const sourceSeed = bestAssignments.get(source)?.seed;
+    const targetSeed = bestAssignments.get(target)?.seed;
+    if (sourceSeed && sourceSeed === targetSeed) {
+      addToMap(internalWeight, sourceSeed, score);
+    }
+  }
+
+  if (totalWeight <= 0) {
+    return {
+      modularity: 0,
+      assignedNodeCount: assignedNodes.size,
+      inducedNodeCount: 0,
+      inducedEdgeCount,
+    };
+  }
+
+  for (const [node, weightedDegree] of degree.entries()) {
+    const seed = bestAssignments.get(node)?.seed;
+    if (seed) addToMap(communityDegree, seed, weightedDegree);
+  }
+
+  let modularity = 0;
+  for (const [seed, weightedDegree] of communityDegree.entries()) {
+    const innerWeight = internalWeight.get(seed) ?? 0;
+    modularity += innerWeight / totalWeight - (weightedDegree / (2 * totalWeight)) ** 2;
+  }
 
   return {
-    id: graphId,
-    title: payload.title,
-    description: payload.description,
-    sourceFile: path.relative(repoRoot, PAGERANK_NIBBLE_GRAPH).split(path.sep).join("/"),
-    path: `/graphs/${graphId}.json`,
-    nodeCount: payload.nodes.length,
-    edgeCount: payload.edges.length,
-    groupCount: payload.groups.length,
-    fileSizeBytes: fs.statSync(outputPath).size,
+    modularity: round(modularity, 4),
+    assignedNodeCount: assignedNodes.size,
+    inducedNodeCount: degree.size,
+    inducedEdgeCount,
+  };
+}
+
+async function buildPagerankAlgorithmBenchmark(minEdgeWeight) {
+  const localQuality = await computePagerankLocalModularity(minEdgeWeight);
+  return {
+    name: "PageRank Nibble",
+    time: PAGERANK_BENCHMARK_TIME,
+    modularity: PAGERANK_BENCHMARK_MODULARITY,
+    scope: "local",
+    note: `Local modularity tren ${localQuality.inducedNodeCount} PageRank node / ${localQuality.inducedEdgeCount} induced edges`,
   };
 }
 
@@ -851,14 +1362,8 @@ async function main() {
   ensureDir(publicDataDir);
   ensureDir(graphDir);
   copyAssets();
-  const htmlGraphs = buildHtmlGraphData();
-  const pagerankGraph = copyPagerankNibbleGraph();
-  if (pagerankGraph) {
-    htmlGraphs.push(pagerankGraph);
-    writeGraphIndex(htmlGraphs);
-  }
-
   const { communities, subToCommunity } = buildCommunityData();
+  const subredditContentLookup = buildSubredditContentLookup(communities);
   const communityNames = new Map(communities.map((community) => [community.id, community.name]));
   const pagerankNibble = buildPagerankNibbleData();
   const bridgeRows = readCsv(BRIDGE_CSV)
@@ -896,6 +1401,8 @@ async function main() {
   const selectedSubreddits = selectGraphSubreddits(communities, bridgeRows, gatewayRows, highwayRows);
   const roles = buildRoleMaps(bridgeRows, gatewayRows, highwayRows);
   const similarity = await analyzeSimilarity(selectedSubreddits, subToCommunity, communityNames);
+  const htmlGraphs = buildHtmlGraphData();
+
   const graph = buildGraph({
     communities,
     subToCommunity,
@@ -904,7 +1411,11 @@ async function main() {
     graphSimilarityEdges: similarity.graphSimilarityEdges,
     bridgeRows,
     highwayRows,
+    subredditContentLookup,
   });
+  const pagerankAlgorithmBenchmark = await buildPagerankAlgorithmBenchmark(
+    similarity.similarityStats.p97,
+  );
 
   const topBridgeSet = new Set(bridgeRows.slice(0, 100).map((row) => row.subreddit));
   const topGatewaySet = new Set(gatewayRows.slice(0, 100).map((row) => row.subreddit));
@@ -946,7 +1457,11 @@ async function main() {
       pagerankClusterNodes: pagerankNibble.metrics.totalClusterNodes,
     },
     similarityStats: similarity.similarityStats,
-    topSimilarityPairs: similarity.topPairs,
+    topSimilarityPairs: enrichSimilarityPairs(similarity.topPairs, subredditContentLookup),
+    subredditContentTable: buildSubredditContentTable(
+      subredditContentLookup,
+      similarity.topPairs,
+    ),
     htmlGraphs,
     communities,
     communitySizeDistribution: buildSizeDistribution(communities),
@@ -979,8 +1494,14 @@ async function main() {
         { name: "Azure", ram: "16GB", runtime: "Databricks 15.4 LTS, Spark 3.5.0", data: "230GB", files: "72,041", extract: "11p 37s", embedding: "1h 13p", similarity: "3p" },
       ],
       algorithms: [
-        { name: "Girvan-Newman", time: "18m26s", modularity: 0.5788 },
-        { name: "Louvain", time: "10s", modularity: 0.6293 },
+        { name: "Girvan-Newman", time: "18m26s", modularity: 0.5788, scope: "global" },
+        {
+          name: "Louvain",
+          time: "10s",
+          modularity: 0.6293,
+          scope: "global",
+        },
+        pagerankAlgorithmBenchmark,
       ],
     },
     assets: {
@@ -993,7 +1514,7 @@ async function main() {
   fs.writeFileSync(path.join(publicDataDir, "demoData.json"), serializedData, "utf8");
   fs.writeFileSync(
     path.join(publicDataDir, "communityIndex.json"),
-    `${JSON.stringify(buildCommunityIndexPayload(communities), null, 2)}\n`,
+    `${JSON.stringify(buildCommunityIndexPayload(communities, subredditContentLookup), null, 2)}\n`,
     "utf8",
   );
 

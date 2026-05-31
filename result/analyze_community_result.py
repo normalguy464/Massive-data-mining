@@ -80,7 +80,7 @@ def save_summary_image(frame: pd.DataFrame, image_path: Path = IMAGE_PATH) -> No
     )
 
     size_counts = community_summary["community_size"].value_counts().sort_index(ascending=False)
-    top_communities = community_summary.head(12).sort_values("community_size", ascending=True)
+    top_communities = community_summary.head(12)
 
     fig, axes = plt.subplots(1, 2, figsize=(16, 7), constrained_layout=True)
 
@@ -94,14 +94,15 @@ def save_summary_image(frame: pd.DataFrame, image_path: Path = IMAGE_PATH) -> No
     axes[0].set_ylabel("Number of communities")
     axes[0].tick_params(axis="x", rotation=45)
 
-    axes[1].barh(
+    axes[1].bar(
         top_communities["community_id"].astype(str),
         top_communities["community_size"],
         color="#F58518",
     )
     axes[1].set_title("Top 12 Largest Communities")
-    axes[1].set_xlabel("Community size")
-    axes[1].set_ylabel("Community ID")
+    axes[1].set_xlabel("Community ID")
+    axes[1].set_ylabel("Community size")
+    axes[1].tick_params(axis="x", rotation=45)
 
     fig.suptitle("Community Result Summary", fontsize=16)
     fig.savefig(image_path, dpi=200, bbox_inches="tight")
