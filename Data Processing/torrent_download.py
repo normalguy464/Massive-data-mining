@@ -389,6 +389,160 @@ class DataProcessor:
             print("No pending files needed freezing.")
             
         return len(self.safe_file_indices) > 0
+    
+    def producer_loop(self):
+        while self.is_running:
+            if self.is_paused:
+                time.sleep(1)
+                continue
+
+            try:
+                files = self.qbt_client.torrents_files(self.current_torrent_hash)
+                
+                pending_disk_size = 0
+                active_downloads_size = 0
+                candidate_files = []
+                
+                with self.lock:
+                    safe_indices_copy = self.safe_file_indices.copy()
+                    processed_indices_copy = self.processed_files_indices.copy()
+
+                for f in files:
+                    if f['progress'] == 1 and f['index'] not in processed_indices_copy and f['index'] in safe_indices_copy:
+                        pending_disk_size += f['size']
+                    elif f['priority'] > 0 and f['progress'] < 1:
+                        active_downloads_size += f['size']
+                    elif f['priority'] == 0 and f['progress'] < 1 and f['index'] not in processed_indices_copy and f['index'] in safe_indices_copy:
+                        candidate_files.append(f)
+
+                if pending_disk_size > MAX_DISK_QUEUE_BYTES:
+                    self.log_right(f"Disk buffer full ({pending_disk_size / 1024**3:.2f} GB). Pausing downloads.")
+                    print(f"\rDisk buffer full ({pending_disk_size / 1024**3:.2f} GB). Pausing downloads.", end="")
+                    time.sleep(5)
+                    continue
+
+                if active_downloads_size > 0:
+                    time.sleep(2)
+                    total_downloaded = sum(f['progress'] * f['size'] for f in files if f['priority'] > 0)
+                    total_active_size = sum(f['size'] for f in files if f['priority'] > 0)
+                    percent = (total_downloaded / total_active_size * 100) if total_active_size > 0 else 0
+                    dl_gb = total_downloaded / (1024**3)
+                    total_gb = total_active_size / (1024**3)
+                    self.update_progress(percent, f"Downloading: {percent:.1f}% ({dl_gb:.2f}/{total_gb:.2f} GB)")
+                    continue
+
+                if candidate_files:
+                    new_batch_ids = []
+                    acc_size = 0
+                    
+                    for f in candidate_files:
+                        new_batch_ids.append(f['index'])
+                        acc_size += f['size']
+                        if acc_size >= TARGET_BATCH_SIZE_BYTES: break
+                    
+                    if new_batch_ids:
+                        self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=new_batch_ids, priority=7)
+                        
+                        with self.lock:
+                            self.safe_file_indices.update(new_batch_ids)
+                        
+                        self.log_right(f"Added {len(new_batch_ids)} files to download queue.")
+                        print(f"\nStarting NEW BATCH: {len(new_batch_ids)} files ({acc_size / 1024**3:.2f} GB)")
+                
+                disk_percent = (pending_disk_size / MAX_DISK_QUEUE_BYTES * 100)
+                self.update_disk(disk_percent, f"Disk Queue: {pending_disk_size / 1024**3:.2f} / {MAX_DISK_QUEUE_GB} GB")
+
+            except Exception as e:
+                self.log_right(f"Producer error: {e}")
+            
+            time.sleep(2)
+            
+    def consumer_loop(self):
+        while self.is_running:
+            if self.is_paused:
+                time.sleep(1)
+                continue
+
+            try:
+                target_file_info = None
+                
+                with self.lock:
+                    files = self.qbt_client.torrents_files(self.current_torrent_hash)
+                    
+                    if not target_file_info:
+                        for f in files:
+                            if f['progress'] == 1 and f['index'] not in self.processed_files_indices and f['index'] in self.safe_file_indices:
+                                local_path = os.path.join(self.save_path, f['name'])
+                                if os.path.exists(local_path):
+                                    target_file_info = (local_path, f['index'])
+                                    self.processed_files_indices.add(f['index'])
+                                    break 
+                
+                if not target_file_info:
+                    time.sleep(2)
+                    continue
+
+                path, f_idx = target_file_info
+                
+                if not self.is_running: break
+                
+                thread_name = threading.current_thread().name
+
+                if path.endswith(".zst"):
+                    cleaned = self.process_clean_zst(path)
+                    
+                    if cleaned:
+                        if os.path.exists(cleaned):
+                            self.log_left(f"[{thread_name}] Cleaned: {os.path.basename(cleaned)}")
+                            fsize = os.path.getsize(cleaned)
+                            
+                            trigger_upload = False
+                            with self.lock:
+                                self.current_pending_size += fsize
+                                self.pending_uploads.append((cleaned, path, f_idx))
+                                if len(self.pending_uploads) >= UPLOAD_BATCH_SIZE or self.current_pending_size >= (MAX_PENDING_SIZE_GB * 1024**3):
+                                    trigger_upload = True
+                            
+                            try: self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
+                            except: pass
+                            
+                            if trigger_upload:
+                                self.flush_pending_uploads()
+                        else:
+                            self.log_left(f"[{thread_name}] Error: Output file missing: {cleaned}")
+                    else:
+                        try:
+                            with open(TRASH_LIST_PATH, "a", encoding="utf-8") as f:
+                                f.write(os.path.basename(path) + "\n")
+                            self.log_left(f"[{thread_name}] Added to Trash List: {os.path.basename(path)}")
+                        except Exception as e:
+                            print(f"Error writing to trash list: {e}")
+
+                        try:
+                            self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
+                        except: pass
+                        
+                        with self.lock:
+                            self.deletion_queue.add(path)
+
+                else:
+                    try: 
+                        self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
+                        with self.lock:
+                            self.deletion_queue.add(path)
+                    except: pass
+                
+                trigger_upload = False
+                with self.lock:
+                    if len(self.pending_uploads) >= UPLOAD_BATCH_SIZE or self.current_pending_size >= (MAX_PENDING_SIZE_GB * 1024**3):
+                        trigger_upload = True
+                
+                if trigger_upload:
+                    self.flush_pending_uploads()
+
+            except Exception as e:
+                self.log_left(f"Consumer error: {e}")
+                time.sleep(2)
 
     def flush_pending_uploads(self):
         with self.lock:
@@ -515,160 +669,6 @@ class DataProcessor:
                     pass
             
             time.sleep(5)
-
-    def producer_loop(self):
-        while self.is_running:
-            if self.is_paused:
-                time.sleep(1)
-                continue
-
-            try:
-                files = self.qbt_client.torrents_files(self.current_torrent_hash)
-                
-                pending_disk_size = 0
-                active_downloads_size = 0
-                candidate_files = []
-                
-                with self.lock:
-                    safe_indices_copy = self.safe_file_indices.copy()
-                    processed_indices_copy = self.processed_files_indices.copy()
-
-                for f in files:
-                    if f['progress'] == 1 and f['index'] not in processed_indices_copy and f['index'] in safe_indices_copy:
-                        pending_disk_size += f['size']
-                    elif f['priority'] > 0 and f['progress'] < 1:
-                        active_downloads_size += f['size']
-                    elif f['priority'] == 0 and f['progress'] < 1 and f['index'] not in processed_indices_copy and f['index'] in safe_indices_copy:
-                        candidate_files.append(f)
-
-                if pending_disk_size > MAX_DISK_QUEUE_BYTES:
-                    self.log_right(f"Disk buffer full ({pending_disk_size / 1024**3:.2f} GB). Pausing downloads.")
-                    print(f"\rDisk buffer full ({pending_disk_size / 1024**3:.2f} GB). Pausing downloads.", end="")
-                    time.sleep(5)
-                    continue
-
-                if active_downloads_size > 0:
-                    time.sleep(2)
-                    total_downloaded = sum(f['progress'] * f['size'] for f in files if f['priority'] > 0)
-                    total_active_size = sum(f['size'] for f in files if f['priority'] > 0)
-                    percent = (total_downloaded / total_active_size * 100) if total_active_size > 0 else 0
-                    dl_gb = total_downloaded / (1024**3)
-                    total_gb = total_active_size / (1024**3)
-                    self.update_progress(percent, f"Downloading: {percent:.1f}% ({dl_gb:.2f}/{total_gb:.2f} GB)")
-                    continue
-
-                if candidate_files:
-                    new_batch_ids = []
-                    acc_size = 0
-                    
-                    for f in candidate_files:
-                        new_batch_ids.append(f['index'])
-                        acc_size += f['size']
-                        if acc_size >= TARGET_BATCH_SIZE_BYTES: break
-                    
-                    if new_batch_ids:
-                        self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=new_batch_ids, priority=7)
-                        
-                        with self.lock:
-                            self.safe_file_indices.update(new_batch_ids)
-                        
-                        self.log_right(f"Added {len(new_batch_ids)} files to download queue.")
-                        print(f"\nStarting NEW BATCH: {len(new_batch_ids)} files ({acc_size / 1024**3:.2f} GB)")
-                
-                disk_percent = (pending_disk_size / MAX_DISK_QUEUE_BYTES * 100)
-                self.update_disk(disk_percent, f"Disk Queue: {pending_disk_size / 1024**3:.2f} / {MAX_DISK_QUEUE_GB} GB")
-
-            except Exception as e:
-                self.log_right(f"Producer error: {e}")
-            
-            time.sleep(2)
-
-    def consumer_loop(self):
-        while self.is_running:
-            if self.is_paused:
-                time.sleep(1)
-                continue
-
-            try:
-                target_file_info = None
-                
-                with self.lock:
-                    files = self.qbt_client.torrents_files(self.current_torrent_hash)
-                    
-                    if not target_file_info:
-                        for f in files:
-                            if f['progress'] == 1 and f['index'] not in self.processed_files_indices and f['index'] in self.safe_file_indices:
-                                local_path = os.path.join(self.save_path, f['name'])
-                                if os.path.exists(local_path):
-                                    target_file_info = (local_path, f['index'])
-                                    self.processed_files_indices.add(f['index'])
-                                    break 
-                
-                if not target_file_info:
-                    time.sleep(2)
-                    continue
-
-                path, f_idx = target_file_info
-                
-                if not self.is_running: break
-                
-                thread_name = threading.current_thread().name
-
-                if path.endswith(".zst"):
-                    cleaned = self.process_clean_zst(path)
-                    
-                    if cleaned:
-                        if os.path.exists(cleaned):
-                            self.log_left(f"[{thread_name}] Cleaned: {os.path.basename(cleaned)}")
-                            fsize = os.path.getsize(cleaned)
-                            
-                            trigger_upload = False
-                            with self.lock:
-                                self.current_pending_size += fsize
-                                self.pending_uploads.append((cleaned, path, f_idx))
-                                if len(self.pending_uploads) >= UPLOAD_BATCH_SIZE or self.current_pending_size >= (MAX_PENDING_SIZE_GB * 1024**3):
-                                    trigger_upload = True
-                            
-                            try: self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
-                            except: pass
-                            
-                            if trigger_upload:
-                                self.flush_pending_uploads()
-                        else:
-                            self.log_left(f"[{thread_name}] Error: Output file missing: {cleaned}")
-                    else:
-                        try:
-                            with open(TRASH_LIST_PATH, "a", encoding="utf-8") as f:
-                                f.write(os.path.basename(path) + "\n")
-                            self.log_left(f"[{thread_name}] Added to Trash List: {os.path.basename(path)}")
-                        except Exception as e:
-                            print(f"Error writing to trash list: {e}")
-
-                        try:
-                            self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
-                        except: pass
-                        
-                        with self.lock:
-                            self.deletion_queue.add(path)
-
-                else:
-                    try: 
-                        self.qbt_client.torrents_file_priority(self.current_torrent_hash, file_ids=f_idx, priority=0)
-                        with self.lock:
-                            self.deletion_queue.add(path)
-                    except: pass
-                
-                trigger_upload = False
-                with self.lock:
-                    if len(self.pending_uploads) >= UPLOAD_BATCH_SIZE or self.current_pending_size >= (MAX_PENDING_SIZE_GB * 1024**3):
-                        trigger_upload = True
-                
-                if trigger_upload:
-                    self.flush_pending_uploads()
-
-            except Exception as e:
-                self.log_left(f"Consumer error: {e}")
-                time.sleep(2)
 
     def start_pipeline(self):
         if not self.connect(): return
