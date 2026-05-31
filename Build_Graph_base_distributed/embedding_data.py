@@ -20,7 +20,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 drive.mount('/content/drive')
 
-model = SentenceTransformer('sentence-transformers/all-distilroberta-v1', device='cuda')
+model = SentenceTransformer('distilbert-base-uncased', device='cuda')
 
 base_path = "/content/drive/MyDrive/Reddit_Project/embedding_data"
 subreddits_folders = [f for f in os.listdir(base_path) if f.startswith("subreddit=")]
@@ -57,9 +57,7 @@ for sub_folder in tqdm(subreddits_folders, desc="Processing"):
 
 df_vectors = pd.DataFrame(subreddit_vectors)
 
-print("\nHoàn thành embedding")
 
-print("Tính độ tương đồng Cosine")
 
 emb_matrix = np.stack(df_vectors['mean_embedding'].values)
 subreddits_list = df_vectors['subreddit'].tolist()
@@ -84,5 +82,3 @@ df_results_sorted = df_results.sort_values(by="Similarity_Score", ascending=Fals
 
 save_path = "/content/drive/MyDrive/Reddit_Project/subreddit_similarity_results.csv"
 df_results_sorted.to_csv(save_path, index=False)
-
-print(f"File được lưu tại: {save_path}")
