@@ -34,8 +34,8 @@ function clamp(value, min = 0, max = 100) {
   return Math.min(max, Math.max(min, value));
 }
 
-function buildScaleTicks(max, formatter = formatNumber) {
-  const safeMax = Math.max(Number(max ?? 0), 1);
+function buildScaleTicks(max, formatter = formatNumber, minScale = 1) {
+  const safeMax = Math.max(Number(max ?? 0), minScale);
   return [0, 0.25, 0.5, 0.75, 1].map((ratio) => ({
     ratio,
     label: formatter(safeMax * ratio),
@@ -357,6 +357,8 @@ function StatsTab() {
     detail: formatScore(row.bridge_score, 4),
     subtext: `${row.source_name} -> ${row.target_name}`,
   }));
+  const topBridgeMax = Math.max(...topBridges.map((item) => Number(item.value ?? 0)), 0);
+  const topBridgeAxisMax = topBridgeMax > 0 ? topBridgeMax * 1.05 : 0;
   const topGateways = data.topGateways.slice(0, 12).map((row) => ({
     label: row.subreddit,
     value: row.gateway_score_normalized,
@@ -470,18 +472,20 @@ function StatsTab() {
         <Panel eyebrow="Betweenness role" title="Top bridge">
           <ColumnBarChart
             data={topBridges}
+            maxValue={topBridgeAxisMax}
+            minScale={0}
             axisFormatter={(value) => formatScore(value, 3)}
             valueFormatter={(value) => formatScore(value, 4)}
           />
         </Panel>
-        <Panel eyebrow="Gateway role" title="Top gateway">
+        {/* <Panel eyebrow="Gateway role" title="Top gateway">
           <ColumnBarChart
             data={topGateways}
             axisFormatter={(value) => formatScore(value, 2)}
             maxValue={1}
             valueFormatter={(value) => formatScore(value, 4)}
           />
-        </Panel>
+        </Panel> */}
       </div>
 
       <div className="stats-grid">
@@ -563,9 +567,10 @@ function ColumnBarChart({
   ranked = true,
   valueFormatter = formatNumber,
   axisFormatter = valueFormatter,
+  minScale = 1,
 }) {
   const max = maxValue ?? Math.max(...data.map((item) => Number(item.value ?? 0)), 1);
-  const ticks = buildScaleTicks(max, axisFormatter);
+  const ticks = buildScaleTicks(max, axisFormatter, minScale);
 
   return (
     <div className="column-chart">
