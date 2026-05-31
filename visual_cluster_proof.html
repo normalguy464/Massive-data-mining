@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Diversity Proof</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+            background: #fff;
+        }
+
+        #network {
+            width: 100%;
+            height: 100vh;
+            background: #ffffff;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 40px;
+            border: 1px solid #000;
+            border-radius: 40px;
+            z-index: 100;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2 style="margin:0; font-size: 1.2rem; color: #000; letter-spacing: 1px;">CHỨNG MINH ĐỘ PHỦ: ANIME & POP
+            CULTURE VÀ POLITICS & CONSPIRACY</h2>
+        <p style="margin:5px 0 0; font-size: 0.85rem; color: #444;">Trực quan hóa sự đa dạng chủ đề: Từ Văn hóa đại
+            chúng đến Chính trị & Xã hội</p>
+    </div>
+
+    <div id="network"></div>
+
+    <script>
+        const nodesData = [{ "id": "c_0", "label": "Anime & Pop Culture", "group": "cluster", "title": "L\u00fd do: C\u00e1c subreddit t\u1eadp trung v\u00e0o anime, phim \u1ea3nh, series v\u00e0 v\u0103n h\u00f3a pop li\u00ean quan \u0111\u1ebfn nh\u00e2n v\u1eadt, c\u1ed1t truy\u1ec7n v\u00e0 c\u1ed9ng \u0111\u1ed3ng y\u00eau th\u00edch.", "value": 55 }, { "id": "s_196", "label": "196", "group": "subreddit", "value": 12 }, { "id": "s_BottomFeedersofYT", "label": "BottomFeedersofYT", "group": "subreddit", "value": 12 }, { "id": "s_BleachedEdits", "label": "BleachedEdits", "group": "subreddit", "value": 12 }, { "id": "s_AnomalyXd", "label": "AnomalyXd", "group": "subreddit", "value": 12 }, { "id": "s_Anime_For_Otakus", "label": "Anime_For_Otakus", "group": "subreddit", "value": 12 }, { "id": "s_Animedubs", "label": "Animedubs", "group": "subreddit", "value": 12 }, { "id": "s_ArcaneAnimatedSeries", "label": "ArcaneAnimatedSeries", "group": "subreddit", "value": 12 }, { "id": "s_Billions", "label": "Billions", "group": "subreddit", "value": 12 }, { "id": "s_CourageTheCowardlyDog", "label": "CourageTheCowardlyDog", "group": "subreddit", "value": 12 }, { "id": "s_ASOUE", "label": "ASOUE", "group": "subreddit", "value": 12 }, { "id": "s_AllTomorrows", "label": "AllTomorrows", "group": "subreddit", "value": 12 }, { "id": "s_AdrianoStudies", "label": "AdrianoStudies", "group": "subreddit", "value": 12 }, { "id": "s_BananaFish", "label": "BananaFish", "group": "subreddit", "value": 12 }, { "id": "s_12Monkeys", "label": "12Monkeys", "group": "subreddit", "value": 12 }, { "id": "s_CampCamp", "label": "CampCamp", "group": "subreddit", "value": 12 }, { "id": "s_CaptainAmerica", "label": "CaptainAmerica", "group": "subreddit", "value": 12 }, { "id": "s_Captain_Marvel", "label": "Captain_Marvel", "group": "subreddit", "value": 12 }, { "id": "s_CaughtSlipinLive", "label": "CaughtSlipinLive", "group": "subreddit", "value": 12 }, { "id": "s_ChurchOfFeMC", "label": "ChurchOfFeMC", "group": "subreddit", "value": 12 }, { "id": "s_AmourShipping", "label": "AmourShipping", "group": "subreddit", "value": 12 }, { "id": "c_21", "label": "Politics & Conspiracy", "group": "cluster", "title": "L\u00fd do: G\u1ed3m c\u00e1c subreddit v\u1ec1 ch\u00ednh tr\u1ecb, b\u1ea5t \u1ed5n x\u00e3 h\u1ed9i, v\u00e0 l\u00fd thuy\u1ebft \u00e2m m\u01b0u, \u0111\u1eb7c bi\u1ec7t t\u1eadp trung v\u00e0o California v\u00e0 c\u00e1c s\u1ef1 ki\u1ec7n th\u1eddi s\u1ef1 nh\u01b0 \u0111\u1ea1i d\u1ecbch, t\u1ed9i ph\u1ea1m, v\u00e0 tranh lu\u1eadn v\u1ec1 h\u1ec7 th\u1ed1ng kinh t\u1ebf.", "value": 55 }, { "id": "s_Capitalism", "label": "Capitalism", "group": "subreddit", "value": 12 }, { "id": "s_California", "label": "California", "group": "subreddit", "value": 12 }, { "id": "s_CoronavirusOC", "label": "CoronavirusOC", "group": "subreddit", "value": 12 }, { "id": "s_CoronavirusCA", "label": "CoronavirusCA", "group": "subreddit", "value": 12 }, { "id": "s_Corruption", "label": "Corruption", "group": "subreddit", "value": 12 }, { "id": "s_AncientAliens", "label": "AncientAliens", "group": "subreddit", "value": 12 }, { "id": "s_AlternativeHistory", "label": "AlternativeHistory", "group": "subreddit", "value": 12 }, { "id": "s_California_Politics", "label": "California_Politics", "group": "subreddit", "value": 12 }, { "id": "s_AmIFreeToGo", "label": "AmIFreeToGo", "group": "subreddit", "value": 12 }, { "id": "s_ABCauto", "label": "ABCauto", "group": "subreddit", "value": 12 }, { "id": "s_AntifascistsofReddit", "label": "AntifascistsofReddit", "group": "subreddit", "value": 12 }, { "id": "s_APauto", "label": "APauto", "group": "subreddit", "value": 12 }, { "id": "s_CBSauto", "label": "CBSauto", "group": "subreddit", "value": 12 }, { "id": "s_BryanKohbergerMoscow", "label": "BryanKohbergerMoscow", "group": "subreddit", "value": 12 }, { "id": "s_BryanKohberger", "label": "BryanKohberger", "group": "subreddit", "value": 12 }, { "id": "s_China_Flu", "label": "China_Flu", "group": "subreddit", "value": 12 }, { "id": "s_ActualFreakouts", "label": "ActualFreakouts", "group": "subreddit", "value": 12 }, { "id": "s_CapitalismVSocialism", "label": "CapitalismVSocialism", "group": "subreddit", "value": 12 }, { "id": "s_AttorneyTom", "label": "AttorneyTom", "group": "subreddit", "value": 12 }, { "id": "s_ActualPublicFreakouts", "label": "ActualPublicFreakouts", "group": "subreddit", "value": 12 }];
+        const edgesData = [{ "from": "c_0", "to": "s_196" }, { "from": "c_0", "to": "s_BottomFeedersofYT" }, { "from": "c_0", "to": "s_BleachedEdits" }, { "from": "c_0", "to": "s_AnomalyXd" }, { "from": "c_0", "to": "s_Anime_For_Otakus" }, { "from": "c_0", "to": "s_Animedubs" }, { "from": "c_0", "to": "s_ArcaneAnimatedSeries" }, { "from": "c_0", "to": "s_Billions" }, { "from": "c_0", "to": "s_CourageTheCowardlyDog" }, { "from": "c_0", "to": "s_ASOUE" }, { "from": "c_0", "to": "s_AllTomorrows" }, { "from": "c_0", "to": "s_AdrianoStudies" }, { "from": "c_0", "to": "s_BananaFish" }, { "from": "c_0", "to": "s_12Monkeys" }, { "from": "c_0", "to": "s_CampCamp" }, { "from": "c_0", "to": "s_CaptainAmerica" }, { "from": "c_0", "to": "s_Captain_Marvel" }, { "from": "c_0", "to": "s_CaughtSlipinLive" }, { "from": "c_0", "to": "s_ChurchOfFeMC" }, { "from": "c_0", "to": "s_AmourShipping" }, { "from": "c_21", "to": "s_Capitalism" }, { "from": "c_21", "to": "s_California" }, { "from": "c_21", "to": "s_CoronavirusOC" }, { "from": "c_21", "to": "s_CoronavirusCA" }, { "from": "c_21", "to": "s_Corruption" }, { "from": "c_21", "to": "s_AncientAliens" }, { "from": "c_21", "to": "s_AlternativeHistory" }, { "from": "c_21", "to": "s_California_Politics" }, { "from": "c_21", "to": "s_AmIFreeToGo" }, { "from": "c_21", "to": "s_ABCauto" }, { "from": "c_21", "to": "s_AntifascistsofReddit" }, { "from": "c_21", "to": "s_APauto" }, { "from": "c_21", "to": "s_CBSauto" }, { "from": "c_21", "to": "s_BryanKohbergerMoscow" }, { "from": "c_21", "to": "s_BryanKohberger" }, { "from": "c_21", "to": "s_China_Flu" }, { "from": "c_21", "to": "s_ActualFreakouts" }, { "from": "c_21", "to": "s_CapitalismVSocialism" }, { "from": "c_21", "to": "s_AttorneyTom" }, { "from": "c_21", "to": "s_ActualPublicFreakouts" }];
+
+        window.onload = function () {
+            const container = document.getElementById('network');
+            const data = {
+                nodes: new vis.DataSet(nodesData),
+                edges: new vis.DataSet(edgesData)
+            };
+
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    font: { size: 14, color: '#000', face: 'Arial' },
+                    borderWidth: 2,
+                    shadow: { enabled: true, color: 'rgba(0,0,0,0.1)' }
+                },
+                edges: {
+                    width: 1.5,
+                    color: { color: '#e1e4e8', highlight: '#0066cc' },
+                    smooth: { type: 'continuous' }
+                },
+                groups: {
+                    cluster: {
+                        color: { background: '#000', border: '#000' },
+                        font: { color: '#000', size: 20, face: 'bold', strokeWidth: 5, strokeColor: '#fff' }
+                    },
+                    subreddit: {
+                        color: { background: '#fff', border: '#333' },
+                        font: { size: 12, color: '#333' }
+                    }
+                },
+                physics: {
+                    barnesHut: {
+                        gravitationalConstant: -2000,
+                        centralGravity: 0.1,
+                        springLength: 150,
+                        springConstant: 0.05
+                    },
+                    stabilization: { iterations: 200 }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100
+                }
+            };
+
+            new vis.Network(container, data, options);
+        }
+    </script>
+</body>
+
+</html>

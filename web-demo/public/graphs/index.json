@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-05-31T07:10:33.913Z",
+  "graphs": [
+    {
+      "id": "subreddit_similarity",
+      "title": "Đồ thị tương đồng subreddit",
+      "description": "Mỗi node là subreddit, mỗi cạnh là similarity score sau khi lọc cạnh mạnh.",
+      "sourceFile": "subreddit_graph.html",
+      "path": "/graphs/subreddit_graph.html",
+      "nodeCount": 1930,
+      "edgeCount": 4000,
+      "groupCount": 0,
+      "fileSizeBytes": 1377815
+    },
+    {
+      "id": "subreddit_community",
+      "title": "Subreddit theo community",
+      "description": "Đồ thị subreddit được tô nhóm theo kết quả phát hiện cộng đồng.",
+      "sourceFile": "subreddit_community_graph.html",
+      "path": "/graphs/subreddit_community_graph.html",
+      "nodeCount": 1930,
+      "edgeCount": 4000,
+      "groupCount": 0,
+      "fileSizeBytes": 1790158
+    },
+    {
+      "id": "community_level",
+      "title": "Đồ thị cấp community",
+      "description": "Mỗi node là một community, cạnh thể hiện liên hệ giữa các community.",
+      "sourceFile": "community_level_graph.html",
+      "path": "/graphs/community_level_graph.html",
+      "nodeCount": 28,
+      "edgeCount": 47,
+      "groupCount": 0,
+      "fileSizeBytes": 725196
+    },
+    {
+      "id": "bridge_gateway",
+      "title": "Bridge và Gateway",
+      "description": "Trực quan hóa vai trò bridge, gateway và node có cả hai vai trò.",
+      "sourceFile": "bridge_gateway_graph.html",
+      "path": "/graphs/bridge_gateway_graph.html",
+      "nodeCount": 1754,
+      "edgeCount": 3912,
+      "groupCount": 0,
+      "fileSizeBytes": 2002601
+    },
+    {
+      "id": "cluster_named_graph",
+      "title": "Graph cluster đã định danh",
+      "description": "Graph gồm các cluster đã được đặt tên và một số subreddit tiêu biểu.",
+      "sourceFile": "visual_cluster_graph.html",
+      "path": "/graphs/visual_cluster_graph.html",
+      "nodeCount": 450,
+      "edgeCount": 359,
+      "groupCount": 0,
+      "fileSizeBytes": 78118
+    },
+    {
+      "id": "diversity_proof",
+      "title": "Minh chứng độ phủ chủ đề",
+      "description": "Graph nhỏ minh họa sự khác biệt giữa các miền nội dung tiêu biểu.",
+      "sourceFile": "visual_cluster_proof.html",
+      "path": "/graphs/visual_cluster_proof.html",
+      "nodeCount": 42,
+      "edgeCount": 40,
+      "groupCount": 0,
+      "fileSizeBytes": 9526
+    }
+  ]
+}
