@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-31T06:00:28.352Z",
+  "generatedAt": "2026-05-31T07:10:36.727Z",
   "report": {
     "title": "Xây dựng và phân tích cấu trúc cộng đồng Reddit trên dữ liệu lớn bằng đồ thị tương đồng ngữ nghĩa",
     "datasetScale": "Khoảng 1TB dữ liệu Reddit Pushshift",
@@ -251163,9 +251163,7 @@
         "label": "AccurateBattleSim",
         "communityId": 29,
         "communityName": "Game Chiến Tranh & Anime",
-        "roles": [
-          "gateway"
-        ],
+        "roles": [],
         "subredditContent": {
           "subreddit": "AccurateBattleSim",
           "displayName": "AccurateBattleSim",
@@ -251177,7 +251175,7 @@
           "communityId": 29,
           "communityName": "Game Chiến Tranh & Anime"
         },
-        "title": "AccurateBattleSim\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+        "title": "AccurateBattleSim\nGame Chiến Tranh & Anime\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
       },
       {
         "id": "subreddit:AgeOfCivilizations",
@@ -251829,9 +251827,7 @@
         "label": "AskDocs",
         "communityId": 46,
         "communityName": "Mental Health & Support",
-        "roles": [
-          "gateway"
-        ],
+        "roles": [],
         "subredditContent": {
           "subreddit": "AskDocs",
           "displayName": "AskDocs",
@@ -251843,7 +251839,7 @@
           "communityId": 46,
           "communityName": "Mental Health & Support"
         },
-        "title": "AskDocs\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
+        "title": "AskDocs\nMental Health & Support\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
       },
       {
         "id": "subreddit:Christianmarriage",
@@ -252371,9 +252367,7 @@
         "label": "BigArms",
         "communityId": 7,
         "communityName": "Nostalgia & Culture",
-        "roles": [
-          "gateway"
-        ],
+        "roles": [],
         "subredditContent": {
           "subreddit": "BigArms",
           "displayName": "BigArms",
@@ -252385,7 +252379,7 @@
           "communityId": 7,
           "communityName": "Nostalgia & Culture"
         },
-        "title": "BigArms\nNostalgia & Culture\nVai trò: gateway\nNội dung: Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign."
+        "title": "BigArms\nNostalgia & Culture\nNội dung: Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign."
       },
       {
         "id": "subreddit:80sdesign",
@@ -253458,9 +253452,7 @@
         "label": "Christians",
         "communityId": 15,
         "communityName": "Tôn giáo & Triết học Kitô",
-        "roles": [
-          "gateway"
-        ],
+        "roles": [],
         "subredditContent": {
           "subreddit": "Christians",
           "displayName": "Christians",
@@ -253472,7 +253464,7 @@
           "communityId": 15,
           "communityName": "Tôn giáo & Triết học Kitô"
         },
-        "title": "Christians\nTôn giáo & Triết học Kitô\nVai trò: gateway\nNội dung: Thuộc community \"Tôn giáo & Triết học Kitô\". Các subreddit tập trung vào Kitô giáo, Kinh Thánh, triết học Kitô và các thảo luận tôn giáo sâu sắc"
+        "title": "Christians\nTôn giáo & Triết học Kitô\nNội dung: Thuộc community \"Tôn giáo & Triết học Kitô\". Các subreddit tập trung vào Kitô giáo, Kinh Thánh, triết học Kitô và các thảo luận tôn giáo sâu sắc"
       },
       {
         "id": "subreddit:AskBibleScholars",
@@ -253848,7 +253840,6 @@
         "communityId": 28,
         "communityName": "Celebrity Fantasies",
         "roles": [
-          "gateway",
           "highway"
         ],
         "subredditContent": {
@@ -253862,7 +253853,7 @@
           "communityId": 28,
           "communityName": "Celebrity Fantasies"
         },
-        "title": "Celebrity_Fantasies2\nCelebrity Fantasies\nVai trò: gateway, highway\nNội dung: Thuộc community \"Celebrity Fantasies\". Các subreddit tập trung vào chủ đề tưởng tượng, tình dục và đời sống riêng tư của người nổi tiếng"
+        "title": "Celebrity_Fantasies2\nCelebrity Fantasies\nVai trò: highway\nNội dung: Thuộc community \"Celebrity Fantasies\". Các subreddit tập trung vào chủ đề tưởng tượng, tình dục và đời sống riêng tư của người nổi tiếng"
       },
       {
         "id": "subreddit:AskMec",
@@ -254394,7 +254385,9 @@
         "label": "ChatGPTCoding",
         "communityId": 60,
         "communityName": "ChatGPT Tools",
-        "roles": [],
+        "roles": [
+          "gateway"
+        ],
         "subredditContent": {
           "subreddit": "ChatGPTCoding",
           "displayName": "ChatGPTCoding",
@@ -254406,7 +254399,7 @@
           "communityId": 60,
           "communityName": "ChatGPT Tools"
         },
-        "title": "ChatGPTCoding\nChatGPT Tools\nNội dung: Thuộc community \"ChatGPT Tools\". Các subreddit tập trung vào công cụ, mã hóa và cách sử dụng ChatGPT hiệu quả"
+        "title": "ChatGPTCoding\nChatGPT Tools\nVai trò: gateway\nNội dung: Thuộc community \"ChatGPT Tools\". Các subreddit tập trung vào công cụ, mã hóa và cách sử dụng ChatGPT hiệu quả"
       },
       {
         "id": "subreddit:ChatGPTJailbreak",
@@ -258334,7 +258327,6 @@
         "communityName": "Game Chiến Tranh & Anime",
         "roles": [
           "bridge",
-          "gateway",
           "highway"
         ],
         "subredditContent": {
@@ -258348,7 +258340,7 @@
           "communityId": 29,
           "communityName": "Game Chiến Tranh & Anime"
         },
-        "title": "AdoptMeTradingRoblox\nGame Chiến Tranh & Anime\nVai trò: bridge, gateway, highway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+        "title": "AdoptMeTradingRoblox\nGame Chiến Tranh & Anime\nVai trò: bridge, highway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
       },
       {
         "id": "subreddit:AmazonWTF",
@@ -258594,107 +258586,18 @@
         "title": "CSHFans\nAnime & Pop Culture\nVai trò: bridge\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:AgencySquad",
+        "id": "subreddit:8bitdo",
         "type": "subreddit",
-        "label": "AgencySquad",
-        "communityId": 0,
-        "communityName": "Anime & Pop Culture",
-        "roles": [
-          "gateway",
-          "highway"
-        ],
-        "subredditContent": {
-          "subreddit": "AgencySquad",
-          "displayName": "AgencySquad",
-          "title": "AgencySquad",
-          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 0,
-          "communityName": "Anime & Pop Culture"
-        },
-        "title": "AgencySquad\nAnime & Pop Culture\nVai trò: gateway, highway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
-      },
-      {
-        "id": "subreddit:AnotherEdenGlobal",
-        "type": "subreddit",
-        "label": "AnotherEdenGlobal",
-        "communityId": 29,
-        "communityName": "Game Chiến Tranh & Anime",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "AnotherEdenGlobal",
-          "displayName": "AnotherEdenGlobal",
-          "title": "AnotherEdenGlobal",
-          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 29,
-          "communityName": "Game Chiến Tranh & Anime"
-        },
-        "title": "AnotherEdenGlobal\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
-      },
-      {
-        "id": "subreddit:AnimalCrossing",
-        "type": "subreddit",
-        "label": "AnimalCrossing",
-        "communityId": 75,
-        "communityName": "Thú cưng & Trò chơi",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "AnimalCrossing",
-          "displayName": "AnimalCrossing",
-          "title": "AnimalCrossing",
-          "content": "Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số.",
-          "shortContent": "Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 75,
-          "communityName": "Thú cưng & Trò chơi"
-        },
-        "title": "AnimalCrossing\nThú cưng & Trò chơi\nVai trò: gateway\nNội dung: Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số."
-      },
-      {
-        "id": "subreddit:AJR",
-        "type": "subreddit",
-        "label": "AJR",
-        "communityId": 10,
-        "communityName": "Âm nhạc đa thể loại",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "AJR",
-          "displayName": "AJR",
-          "title": "AJR",
-          "content": "Thuộc community \"Âm nhạc đa thể loại\". Các subreddit tập trung vào nhiều thể loại âm nhạc khác nhau, từ pop, rock, hip-hop đến nhạc độc lập và nghệ sĩ đa dạng.",
-          "shortContent": "Thuộc community \"Âm nhạc đa thể loại\". Các subreddit tập trung vào nhiều thể loại âm nhạc khác nhau, từ pop, rock, hip-hop đến nhạc độc lập và nghệ sĩ đa dạng.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 10,
-          "communityName": "Âm nhạc đa thể loại"
-        },
-        "title": "AJR\nÂm nhạc đa thể loại\nVai trò: gateway\nNội dung: Thuộc community \"Âm nhạc đa thể loại\". Các subreddit tập trung vào nhiều thể loại âm nhạc khác nhau, từ pop, rock, hip-hop đến nhạc độc lập và nghệ sĩ đa dạng."
-      },
-      {
-        "id": "subreddit:CarXStreets",
-        "type": "subreddit",
-        "label": "CarXStreets",
+        "label": "8bitdo",
         "communityId": 50,
         "communityName": "Ô tô và Công nghệ",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "CarXStreets",
-          "displayName": "CarXStreets",
-          "title": "CarXStreets",
+          "subreddit": "8bitdo",
+          "displayName": "8bitdo",
+          "title": "8bitdo",
           "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
           "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
           "source": "community_inference",
@@ -258702,43 +258605,21 @@
           "communityId": 50,
           "communityName": "Ô tô và Công nghệ"
         },
-        "title": "CarXStreets\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+        "title": "8bitdo\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
       },
       {
-        "id": "subreddit:BenzoWithdrawal",
+        "id": "subreddit:ContractorUK",
         "type": "subreddit",
-        "label": "BenzoWithdrawal",
-        "communityId": 26,
-        "communityName": "Cannabis & Fitness",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "BenzoWithdrawal",
-          "displayName": "BenzoWithdrawal",
-          "title": "BenzoWithdrawal",
-          "content": "Thuộc community \"Cannabis & Fitness\". Kết hợp giữa trồng cây cần sa (như CannabisGrowers, Autoflowers) và tập thể dục (CalisthenicsCulture, Calisthenic), cùng các chủ đề liên quan đến hóa chất và sức khỏe (Benzofamily, 7_hydroxymitragynine).",
-          "shortContent": "Thuộc community \"Cannabis & Fitness\". Kết hợp giữa trồng cây cần sa (như CannabisGrowers, Autoflowers) và tập thể dục (CalisthenicsCulture, Calisthenic), cùng các chủ đề liên quan đến hóa chất và sức khỏe (Benzofamily, 7_hydroxymitragynine).",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 26,
-          "communityName": "Cannabis & Fitness"
-        },
-        "title": "BenzoWithdrawal\nCannabis & Fitness\nVai trò: gateway\nNội dung: Thuộc community \"Cannabis & Fitness\". Kết hợp giữa trồng cây cần sa (như CannabisGrowers, Autoflowers) và tập thể dục (CalisthenicsCulture, Calisthenic), cùng các chủ đề liên quan đến hóa chất và sức khỏe (Benzofamily, 7_hydroxymitragynine)."
-      },
-      {
-        "id": "subreddit:CaminoDeSantiago",
-        "type": "subreddit",
-        "label": "CaminoDeSantiago",
+        "label": "ContractorUK",
         "communityId": 24,
         "communityName": "Học tập & Địa lý",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "CaminoDeSantiago",
-          "displayName": "CaminoDeSantiago",
-          "title": "CaminoDeSantiago",
+          "subreddit": "ContractorUK",
+          "displayName": "ContractorUK",
+          "title": "ContractorUK",
           "content": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
           "shortContent": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
           "source": "community_inference",
@@ -258746,87 +258627,65 @@
           "communityId": 24,
           "communityName": "Học tập & Địa lý"
         },
-        "title": "CaminoDeSantiago\nHọc tập & Địa lý\nVai trò: gateway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
+        "title": "ContractorUK\nHọc tập & Địa lý\nVai trò: gateway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
       },
       {
-        "id": "subreddit:1110AsleepShower",
+        "id": "subreddit:AhriMains",
         "type": "subreddit",
-        "label": "1110AsleepShower",
-        "communityId": 7,
-        "communityName": "Nostalgia & Culture",
+        "label": "AhriMains",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "1110AsleepShower",
-          "displayName": "1110AsleepShower",
-          "title": "1110AsleepShower",
-          "content": "Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign.",
-          "shortContent": "Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign.",
+          "subreddit": "AhriMains",
+          "displayName": "AhriMains",
+          "title": "AhriMains",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "source": "community_inference",
           "status": "inferred",
-          "communityId": 7,
-          "communityName": "Nostalgia & Culture"
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
         },
-        "title": "1110AsleepShower\nNostalgia & Culture\nVai trò: gateway\nNội dung: Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign."
+        "title": "AhriMains\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:AskReddit",
+        "id": "subreddit:BokunoheroFanfiction",
         "type": "subreddit",
-        "label": "AskReddit",
-        "communityId": 46,
-        "communityName": "Mental Health & Support",
+        "label": "BokunoheroFanfiction",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "AskReddit",
-          "displayName": "AskReddit",
-          "title": "AskReddit",
-          "content": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
-          "shortContent": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "subreddit": "BokunoheroFanfiction",
+          "displayName": "BokunoheroFanfiction",
+          "title": "BokunoheroFanfiction",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "source": "community_inference",
           "status": "inferred",
-          "communityId": 46,
-          "communityName": "Mental Health & Support"
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
         },
-        "title": "AskReddit\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
+        "title": "BokunoheroFanfiction\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:BattlefieldLFG",
+        "id": "subreddit:AirdropRating",
         "type": "subreddit",
-        "label": "BattlefieldLFG",
-        "communityId": 4,
-        "communityName": "Thương mại trò chơi",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "BattlefieldLFG",
-          "displayName": "BattlefieldLFG",
-          "title": "BattlefieldLFG",
-          "content": "Thuộc community \"Thương mại trò chơi\". Các subreddit tập trung vào trao đổi, mua bán tài sản, vật phẩm hoặc tài khoản trong các trò chơi điện tử.",
-          "shortContent": "Thuộc community \"Thương mại trò chơi\". Các subreddit tập trung vào trao đổi, mua bán tài sản, vật phẩm hoặc tài khoản trong các trò chơi điện tử.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 4,
-          "communityName": "Thương mại trò chơi"
-        },
-        "title": "BattlefieldLFG\nThương mại trò chơi\nVai trò: gateway\nNội dung: Thuộc community \"Thương mại trò chơi\". Các subreddit tập trung vào trao đổi, mua bán tài sản, vật phẩm hoặc tài khoản trong các trò chơi điện tử."
-      },
-      {
-        "id": "subreddit:ASX_Bets",
-        "type": "subreddit",
-        "label": "ASX_Bets",
+        "label": "AirdropRating",
         "communityId": 3,
         "communityName": "Crypto & Finance",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "ASX_Bets",
-          "displayName": "ASX_Bets",
-          "title": "ASX_Bets",
+          "subreddit": "AirdropRating",
+          "displayName": "AirdropRating",
+          "title": "AirdropRating",
           "content": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
           "shortContent": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
           "source": "community_inference",
@@ -258834,112 +258693,439 @@
           "communityId": 3,
           "communityName": "Crypto & Finance"
         },
-        "title": "ASX_Bets\nCrypto & Finance\nVai trò: gateway\nNội dung: Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số."
+        "title": "AirdropRating\nCrypto & Finance\nVai trò: gateway\nNội dung: Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số."
       },
       {
-        "id": "subreddit:AmazonMerch",
+        "id": "subreddit:AdamLanza",
         "type": "subreddit",
-        "label": "AmazonMerch",
-        "communityId": 24,
-        "communityName": "Học tập & Địa lý",
+        "label": "AdamLanza",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "AmazonMerch",
-          "displayName": "AmazonMerch",
-          "title": "AmazonMerch",
-          "content": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
-          "shortContent": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
+          "subreddit": "AdamLanza",
+          "displayName": "AdamLanza",
+          "title": "AdamLanza",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "source": "community_inference",
           "status": "inferred",
-          "communityId": 24,
-          "communityName": "Học tập & Địa lý"
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
         },
-        "title": "AmazonMerch\nHọc tập & Địa lý\nVai trò: gateway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
+        "title": "AdamLanza\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:BlackestFridayDeals",
+        "id": "subreddit:AyyMD",
         "type": "subreddit",
-        "label": "BlackestFridayDeals",
-        "communityId": 23,
-        "communityName": "Deals & Discounts",
-        "roles": [
-          "gateway",
-          "highway"
-        ],
-        "subredditContent": {
-          "subreddit": "BlackestFridayDeals",
-          "displayName": "BlackestFridayDeals",
-          "title": "BlackestFridayDeals",
-          "content": "Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách.",
-          "shortContent": "Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 23,
-          "communityName": "Deals & Discounts"
-        },
-        "title": "BlackestFridayDeals\nDeals & Discounts\nVai trò: gateway, highway\nNội dung: Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách."
-      },
-      {
-        "id": "subreddit:CelebsARG_",
-        "type": "subreddit",
-        "label": "CelebsARG_",
-        "communityId": 8,
-        "communityName": "Reddit Nam Mỹ",
-        "roles": [
-          "gateway",
-          "highway"
-        ],
-        "subredditContent": {
-          "subreddit": "CelebsARG_",
-          "displayName": "CelebsARG_",
-          "title": "CelebsARG_",
-          "content": "Thuộc community \"Reddit Nam Mỹ\". Các subreddit tập trung vào các quốc gia và cộng đồng tại Nam Mỹ, đặc biệt là Argentina, Colombia, Bolivia và các chủ đề liên quan đến văn hóa, thể thao và đời sống xã hội.",
-          "shortContent": "Thuộc community \"Reddit Nam Mỹ\". Các subreddit tập trung vào các quốc gia và cộng đồng tại Nam Mỹ, đặc biệt là Argentina, Colombia, Bolivia và các chủ đề liên quan đến văn hóa, thể thao và đời sống xã hội.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 8,
-          "communityName": "Reddit Nam Mỹ"
-        },
-        "title": "CelebsARG_\nReddit Nam Mỹ\nVai trò: gateway, highway\nNội dung: Thuộc community \"Reddit Nam Mỹ\". Các subreddit tập trung vào các quốc gia và cộng đồng tại Nam Mỹ, đặc biệt là Argentina, Colombia, Bolivia và các chủ đề liên quan đến văn hóa, thể thao và đời sống xã hội."
-      },
-      {
-        "id": "subreddit:CollegeFootball25",
-        "type": "subreddit",
-        "label": "CollegeFootball25",
-        "communityId": 18,
-        "communityName": "Thể thao chuyên nghiệp",
+        "label": "AyyMD",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "CollegeFootball25",
-          "displayName": "CollegeFootball25",
-          "title": "CollegeFootball25",
-          "content": "Thuộc community \"Thể thao chuyên nghiệp\". Các subreddit tập trung vào các đội thể thao chuyên nghiệp từ nhiều môn như bóng bầu dục, bóng đá, bóng chày, bóng rổ và các giải đấu lớn.",
-          "shortContent": "Thuộc community \"Thể thao chuyên nghiệp\". Các subreddit tập trung vào các đội thể thao chuyên nghiệp từ nhiều môn như bóng bầu dục, bóng đá, bóng chày, bóng rổ và các giải đấu lớn.",
+          "subreddit": "AyyMD",
+          "displayName": "AyyMD",
+          "title": "AyyMD",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
           "source": "community_inference",
           "status": "inferred",
-          "communityId": 18,
-          "communityName": "Thể thao chuyên nghiệp"
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
         },
-        "title": "CollegeFootball25\nThể thao chuyên nghiệp\nVai trò: gateway\nNội dung: Thuộc community \"Thể thao chuyên nghiệp\". Các subreddit tập trung vào các đội thể thao chuyên nghiệp từ nhiều môn như bóng bầu dục, bóng đá, bóng chày, bóng rổ và các giải đấu lớn."
+        "title": "AyyMD\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
       },
       {
-        "id": "subreddit:BidenBuzz",
+        "id": "subreddit:CatfishMePlease2",
         "type": "subreddit",
-        "label": "BidenBuzz",
+        "label": "CatfishMePlease2",
+        "communityId": 9,
+        "communityName": "Hookup & Attraction",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "CatfishMePlease2",
+          "displayName": "CatfishMePlease2",
+          "title": "CatfishMePlease2",
+          "content": "Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc.",
+          "shortContent": "Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 9,
+          "communityName": "Hookup & Attraction"
+        },
+        "title": "CatfishMePlease2\nHookup & Attraction\nVai trò: gateway\nNội dung: Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc."
+      },
+      {
+        "id": "subreddit:BudgetBrews",
+        "type": "subreddit",
+        "label": "BudgetBrews",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "BudgetBrews",
+          "displayName": "BudgetBrews",
+          "title": "BudgetBrews",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "BudgetBrews\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:ACOTARHulu",
+        "type": "subreddit",
+        "label": "ACOTARHulu",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "ACOTARHulu",
+          "displayName": "ACOTARHulu",
+          "title": "ACOTARHulu",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "ACOTARHulu\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:ClickerHeroesRecruit",
+        "type": "subreddit",
+        "label": "ClickerHeroesRecruit",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "ClickerHeroesRecruit",
+          "displayName": "ClickerHeroesRecruit",
+          "title": "ClickerHeroesRecruit",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "ClickerHeroesRecruit\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:AlienwareAlpha",
+        "type": "subreddit",
+        "label": "AlienwareAlpha",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AlienwareAlpha",
+          "displayName": "AlienwareAlpha",
+          "title": "AlienwareAlpha",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
+        },
+        "title": "AlienwareAlpha\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+      },
+      {
+        "id": "subreddit:ConeHeads",
+        "type": "subreddit",
+        "label": "ConeHeads",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "ConeHeads",
+          "displayName": "ConeHeads",
+          "title": "ConeHeads",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "ConeHeads\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:AnnePro",
+        "type": "subreddit",
+        "label": "AnnePro",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AnnePro",
+          "displayName": "AnnePro",
+          "title": "AnnePro",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
+        },
+        "title": "AnnePro\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+      },
+      {
+        "id": "subreddit:AmITheA_holeUnanimous",
+        "type": "subreddit",
+        "label": "AmITheA_holeUnanimous",
+        "communityId": 46,
+        "communityName": "Mental Health & Support",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AmITheA_holeUnanimous",
+          "displayName": "AmITheA_holeUnanimous",
+          "title": "AmITheA_holeUnanimous",
+          "content": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "shortContent": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 46,
+          "communityName": "Mental Health & Support"
+        },
+        "title": "AmITheA_holeUnanimous\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
+      },
+      {
+        "id": "subreddit:CitiesSkylinesModding",
+        "type": "subreddit",
+        "label": "CitiesSkylinesModding",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "CitiesSkylinesModding",
+          "displayName": "CitiesSkylinesModding",
+          "title": "CitiesSkylinesModding",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "CitiesSkylinesModding\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:AMD_Technology_Bets",
+        "type": "subreddit",
+        "label": "AMD_Technology_Bets",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AMD_Technology_Bets",
+          "displayName": "AMD_Technology_Bets",
+          "title": "AMD_Technology_Bets",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
+        },
+        "title": "AMD_Technology_Bets\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+      },
+      {
+        "id": "subreddit:AdoptMyVillager",
+        "type": "subreddit",
+        "label": "AdoptMyVillager",
+        "communityId": 75,
+        "communityName": "Thú cưng & Trò chơi",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AdoptMyVillager",
+          "displayName": "AdoptMyVillager",
+          "title": "AdoptMyVillager",
+          "content": "Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số.",
+          "shortContent": "Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 75,
+          "communityName": "Thú cưng & Trò chơi"
+        },
+        "title": "AdoptMyVillager\nThú cưng & Trò chơi\nVai trò: gateway\nNội dung: Thuộc community \"Thú cưng & Trò chơi\". Gồm các subreddit về thú cưng như mèo, chó, rùa, và trò chơi Animal Crossing, 3DS, thể hiện sự kết hợp giữa thú cưng và giải trí kỹ thuật số."
+      },
+      {
+        "id": "subreddit:CaptainDisillusion",
+        "type": "subreddit",
+        "label": "CaptainDisillusion",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "CaptainDisillusion",
+          "displayName": "CaptainDisillusion",
+          "title": "CaptainDisillusion",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "CaptainDisillusion\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:AppleCard",
+        "type": "subreddit",
+        "label": "AppleCard",
+        "communityId": 3,
+        "communityName": "Crypto & Finance",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AppleCard",
+          "displayName": "AppleCard",
+          "title": "AppleCard",
+          "content": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
+          "shortContent": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 3,
+          "communityName": "Crypto & Finance"
+        },
+        "title": "AppleCard\nCrypto & Finance\nVai trò: gateway\nNội dung: Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số."
+      },
+      {
+        "id": "subreddit:AskTheOuija",
+        "type": "subreddit",
+        "label": "AskTheOuija",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AskTheOuija",
+          "displayName": "AskTheOuija",
+          "title": "AskTheOuija",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "AskTheOuija\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:AMCTheatres",
+        "type": "subreddit",
+        "label": "AMCTheatres",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AMCTheatres",
+          "displayName": "AMCTheatres",
+          "title": "AMCTheatres",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "AMCTheatres\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:AltYiff",
+        "type": "subreddit",
+        "label": "AltYiff",
+        "communityId": 9,
+        "communityName": "Hookup & Attraction",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AltYiff",
+          "displayName": "AltYiff",
+          "title": "AltYiff",
+          "content": "Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc.",
+          "shortContent": "Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 9,
+          "communityName": "Hookup & Attraction"
+        },
+        "title": "AltYiff\nHookup & Attraction\nVai trò: gateway\nNội dung: Thuộc community \"Hookup & Attraction\". Các subreddit tập trung vào hẹn hò, thu hút tình dục và nội dung gợi cảm, chủ yếu hướng đến người trẻ và quan hệ tình dục không ràng buộc."
+      },
+      {
+        "id": "subreddit:Cloververse",
+        "type": "subreddit",
+        "label": "Cloververse",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "Cloververse",
+          "displayName": "Cloververse",
+          "title": "Cloververse",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "Cloververse\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:AskAstrophotography",
+        "type": "subreddit",
+        "label": "AskAstrophotography",
         "communityId": 21,
         "communityName": "Politics & Conspiracy",
         "roles": [
-          "bridge",
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "BidenBuzz",
-          "displayName": "BidenBuzz",
-          "title": "BidenBuzz",
+          "subreddit": "AskAstrophotography",
+          "displayName": "AskAstrophotography",
+          "title": "AskAstrophotography",
           "content": "Thuộc community \"Politics & Conspiracy\". Gồm các subreddit về chính trị, bất ổn xã hội, và lý thuyết âm mưu, đặc biệt tập trung vào California và các sự kiện thời sự như đại dịch, tội phạm, và tranh luận về hệ thống kinh tế.",
           "shortContent": "Thuộc community \"Politics & Conspiracy\". Gồm các subreddit về chính trị, bất ổn xã hội, và lý thuyết âm mưu, đặc biệt tập trung vào California và các sự kiện thời sự như đại dịch, tội phạm, và tranh luận về hệ thống kinh tế.",
           "source": "community_inference",
@@ -258947,21 +259133,87 @@
           "communityId": 21,
           "communityName": "Politics & Conspiracy"
         },
-        "title": "BidenBuzz\nPolitics & Conspiracy\nVai trò: bridge, gateway\nNội dung: Thuộc community \"Politics & Conspiracy\". Gồm các subreddit về chính trị, bất ổn xã hội, và lý thuyết âm mưu, đặc biệt tập trung vào California và các sự kiện thời sự như đại dịch, tội phạm, và tranh luận về hệ thống kinh tế."
+        "title": "AskAstrophotography\nPolitics & Conspiracy\nVai trò: gateway\nNội dung: Thuộc community \"Politics & Conspiracy\". Gồm các subreddit về chính trị, bất ổn xã hội, và lý thuyết âm mưu, đặc biệt tập trung vào California và các sự kiện thời sự như đại dịch, tội phạm, và tranh luận về hệ thống kinh tế."
       },
       {
-        "id": "subreddit:BearsNSFWLikes",
+        "id": "subreddit:AmIOverreacting",
         "type": "subreddit",
-        "label": "BearsNSFWLikes",
+        "label": "AmIOverreacting",
+        "communityId": 46,
+        "communityName": "Mental Health & Support",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AmIOverreacting",
+          "displayName": "AmIOverreacting",
+          "title": "AmIOverreacting",
+          "content": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "shortContent": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 46,
+          "communityName": "Mental Health & Support"
+        },
+        "title": "AmIOverreacting\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
+      },
+      {
+        "id": "subreddit:Bankruptcy",
+        "type": "subreddit",
+        "label": "Bankruptcy",
+        "communityId": 3,
+        "communityName": "Crypto & Finance",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "Bankruptcy",
+          "displayName": "Bankruptcy",
+          "title": "Bankruptcy",
+          "content": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
+          "shortContent": "Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 3,
+          "communityName": "Crypto & Finance"
+        },
+        "title": "Bankruptcy\nCrypto & Finance\nVai trò: gateway\nNội dung: Thuộc community \"Crypto & Finance\". Các subreddit tập trung vào tiền điện tử, giao dịch tài chính, và các sản phẩm tài chính liên quan đến blockchain và tiền tệ kỹ thuật số."
+      },
+      {
+        "id": "subreddit:AlbanianNews",
+        "type": "subreddit",
+        "label": "AlbanianNews",
+        "communityId": 7,
+        "communityName": "Nostalgia & Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AlbanianNews",
+          "displayName": "AlbanianNews",
+          "title": "AlbanianNews",
+          "content": "Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign.",
+          "shortContent": "Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 7,
+          "communityName": "Nostalgia & Culture"
+        },
+        "title": "AlbanianNews\nNostalgia & Culture\nVai trò: gateway\nNội dung: Thuộc community \"Nostalgia & Culture\". Các subreddit tập trung vào ký ức thời kỳ 70s, 80s, 90s, văn hóa địa phương (như Chandigarh, Bacolod, Bhopal) và các chủ đề giải trí mang tính hồi tưởng như CableTV_Memories, 90s_kid, 80sdesign."
+      },
+      {
+        "id": "subreddit:AliensAmongUs",
+        "type": "subreddit",
+        "label": "AliensAmongUs",
         "communityId": 0,
         "communityName": "Anime & Pop Culture",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "BearsNSFWLikes",
-          "displayName": "BearsNSFWLikes",
-          "title": "BearsNSFWLikes",
+          "subreddit": "AliensAmongUs",
+          "displayName": "AliensAmongUs",
+          "title": "AliensAmongUs",
           "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "source": "community_inference",
@@ -258969,21 +259221,87 @@
           "communityId": 0,
           "communityName": "Anime & Pop Culture"
         },
-        "title": "BearsNSFWLikes\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+        "title": "AliensAmongUs\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:Bowling",
+        "id": "subreddit:CTsandbox",
         "type": "subreddit",
-        "label": "Bowling",
+        "label": "CTsandbox",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "CTsandbox",
+          "displayName": "CTsandbox",
+          "title": "CTsandbox",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "CTsandbox\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:BatmanBeyond",
+        "type": "subreddit",
+        "label": "BatmanBeyond",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "BatmanBeyond",
+          "displayName": "BatmanBeyond",
+          "title": "BatmanBeyond",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "BatmanBeyond\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:ApolloScooters",
+        "type": "subreddit",
+        "label": "ApolloScooters",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "ApolloScooters",
+          "displayName": "ApolloScooters",
+          "title": "ApolloScooters",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
+        },
+        "title": "ApolloScooters\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+      },
+      {
+        "id": "subreddit:Apexrollouts",
+        "type": "subreddit",
+        "label": "Apexrollouts",
         "communityId": 29,
         "communityName": "Game Chiến Tranh & Anime",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "Bowling",
-          "displayName": "Bowling",
-          "title": "Bowling",
+          "subreddit": "Apexrollouts",
+          "displayName": "Apexrollouts",
+          "title": "Apexrollouts",
           "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
           "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
           "source": "community_inference",
@@ -258991,65 +259309,43 @@
           "communityId": 29,
           "communityName": "Game Chiến Tranh & Anime"
         },
-        "title": "Bowling\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+        "title": "Apexrollouts\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
       },
       {
-        "id": "subreddit:BoogieMonster",
+        "id": "subreddit:Bluetooth_Speakers",
         "type": "subreddit",
-        "label": "BoogieMonster",
-        "communityId": 46,
-        "communityName": "Mental Health & Support",
+        "label": "Bluetooth_Speakers",
+        "communityId": 50,
+        "communityName": "Ô tô và Công nghệ",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "BoogieMonster",
-          "displayName": "BoogieMonster",
-          "title": "BoogieMonster",
-          "content": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
-          "shortContent": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
+          "subreddit": "Bluetooth_Speakers",
+          "displayName": "Bluetooth_Speakers",
+          "title": "Bluetooth_Speakers",
+          "content": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
+          "shortContent": "Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe.",
           "source": "community_inference",
           "status": "inferred",
-          "communityId": 46,
-          "communityName": "Mental Health & Support"
+          "communityId": 50,
+          "communityName": "Ô tô và Công nghệ"
         },
-        "title": "BoogieMonster\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
+        "title": "Bluetooth_Speakers\nÔ tô và Công nghệ\nVai trò: gateway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
       },
       {
-        "id": "subreddit:AvPD",
+        "id": "subreddit:BanVideoGames",
         "type": "subreddit",
-        "label": "AvPD",
-        "communityId": 46,
-        "communityName": "Mental Health & Support",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "AvPD",
-          "displayName": "AvPD",
-          "title": "AvPD",
-          "content": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
-          "shortContent": "Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 46,
-          "communityName": "Mental Health & Support"
-        },
-        "title": "AvPD\nMental Health & Support\nVai trò: gateway\nNội dung: Thuộc community \"Mental Health & Support\". Các subreddit tập trung vào sức khỏe tinh thần, hỗ trợ cá nhân, rối loạn tâm lý và các chủ đề liên quan đến đời sống cá nhân như ADHD, agoraphobia, CRPS, và các cộng đồng hỗ trợ như AskFeminists, AskDocs."
-      },
-      {
-        "id": "subreddit:ClappingDemCheeks",
-        "type": "subreddit",
-        "label": "ClappingDemCheeks",
+        "label": "BanVideoGames",
         "communityId": 0,
         "communityName": "Anime & Pop Culture",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "ClappingDemCheeks",
-          "displayName": "ClappingDemCheeks",
-          "title": "ClappingDemCheeks",
+          "subreddit": "BanVideoGames",
+          "displayName": "BanVideoGames",
+          "title": "BanVideoGames",
           "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
           "source": "community_inference",
@@ -259057,21 +259353,65 @@
           "communityId": 0,
           "communityName": "Anime & Pop Culture"
         },
-        "title": "ClappingDemCheeks\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+        "title": "BanVideoGames\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       },
       {
-        "id": "subreddit:CalPolyPomona",
+        "id": "subreddit:AskGameMasters",
         "type": "subreddit",
-        "label": "CalPolyPomona",
+        "label": "AskGameMasters",
+        "communityId": 29,
+        "communityName": "Game Chiến Tranh & Anime",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "AskGameMasters",
+          "displayName": "AskGameMasters",
+          "title": "AskGameMasters",
+          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 29,
+          "communityName": "Game Chiến Tranh & Anime"
+        },
+        "title": "AskGameMasters\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+      },
+      {
+        "id": "subreddit:4chan",
+        "type": "subreddit",
+        "label": "4chan",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway"
+        ],
+        "subredditContent": {
+          "subreddit": "4chan",
+          "displayName": "4chan",
+          "title": "4chan",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "4chan\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:Cascadia",
+        "type": "subreddit",
+        "label": "Cascadia",
         "communityId": 24,
         "communityName": "Học tập & Địa lý",
         "roles": [
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "CalPolyPomona",
-          "displayName": "CalPolyPomona",
-          "title": "CalPolyPomona",
+          "subreddit": "Cascadia",
+          "displayName": "Cascadia",
+          "title": "Cascadia",
           "content": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
           "shortContent": "Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực).",
           "source": "community_inference",
@@ -259079,67 +259419,21 @@
           "communityId": 24,
           "communityName": "Học tập & Địa lý"
         },
-        "title": "CalPolyPomona\nHọc tập & Địa lý\nVai trò: gateway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
+        "title": "Cascadia\nHọc tập & Địa lý\nVai trò: gateway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
       },
       {
-        "id": "subreddit:ATBandATGcommunity",
+        "id": "subreddit:BriarMains",
         "type": "subreddit",
-        "label": "ATBandATGcommunity",
-        "communityId": 0,
-        "communityName": "Anime & Pop Culture",
-        "roles": [
-          "gateway",
-          "highway"
-        ],
-        "subredditContent": {
-          "subreddit": "ATBandATGcommunity",
-          "displayName": "ATBandATGcommunity",
-          "title": "ATBandATGcommunity",
-          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 0,
-          "communityName": "Anime & Pop Culture"
-        },
-        "title": "ATBandATGcommunity\nAnime & Pop Culture\nVai trò: gateway, highway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
-      },
-      {
-        "id": "subreddit:0sanitymemes",
-        "type": "subreddit",
-        "label": "0sanitymemes",
-        "communityId": 0,
-        "communityName": "Anime & Pop Culture",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "0sanitymemes",
-          "displayName": "0sanitymemes",
-          "title": "0sanitymemes",
-          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 0,
-          "communityName": "Anime & Pop Culture"
-        },
-        "title": "0sanitymemes\nAnime & Pop Culture\nVai trò: gateway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
-      },
-      {
-        "id": "subreddit:BombRush_Cyberfunk",
-        "type": "subreddit",
-        "label": "BombRush_Cyberfunk",
+        "label": "BriarMains",
         "communityId": 29,
         "communityName": "Game Chiến Tranh & Anime",
         "roles": [
-          "bridge",
           "gateway"
         ],
         "subredditContent": {
-          "subreddit": "BombRush_Cyberfunk",
-          "displayName": "BombRush_Cyberfunk",
-          "title": "BombRush_Cyberfunk",
+          "subreddit": "BriarMains",
+          "displayName": "BriarMains",
+          "title": "BriarMains",
           "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
           "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
           "source": "community_inference",
@@ -259147,73 +259441,7 @@
           "communityId": 29,
           "communityName": "Game Chiến Tranh & Anime"
         },
-        "title": "BombRush_Cyberfunk\nGame Chiến Tranh & Anime\nVai trò: bridge, gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
-      },
-      {
-        "id": "subreddit:BibleVerseCommentary",
-        "type": "subreddit",
-        "label": "BibleVerseCommentary",
-        "communityId": 15,
-        "communityName": "Tôn giáo & Triết học Kitô",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "BibleVerseCommentary",
-          "displayName": "BibleVerseCommentary",
-          "title": "BibleVerseCommentary",
-          "content": "Thuộc community \"Tôn giáo & Triết học Kitô\". Các subreddit tập trung vào Kitô giáo, Kinh Thánh, triết học Kitô và các thảo luận tôn giáo sâu sắc",
-          "shortContent": "Thuộc community \"Tôn giáo & Triết học Kitô\". Các subreddit tập trung vào Kitô giáo, Kinh Thánh, triết học Kitô và các thảo luận tôn giáo sâu sắc",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 15,
-          "communityName": "Tôn giáo & Triết học Kitô"
-        },
-        "title": "BibleVerseCommentary\nTôn giáo & Triết học Kitô\nVai trò: gateway\nNội dung: Thuộc community \"Tôn giáo & Triết học Kitô\". Các subreddit tập trung vào Kitô giáo, Kinh Thánh, triết học Kitô và các thảo luận tôn giáo sâu sắc"
-      },
-      {
-        "id": "subreddit:ApexOutlands",
-        "type": "subreddit",
-        "label": "ApexOutlands",
-        "communityId": 29,
-        "communityName": "Game Chiến Tranh & Anime",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "ApexOutlands",
-          "displayName": "ApexOutlands",
-          "title": "ApexOutlands",
-          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 29,
-          "communityName": "Game Chiến Tranh & Anime"
-        },
-        "title": "ApexOutlands\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
-      },
-      {
-        "id": "subreddit:ArcaneOdyssey",
-        "type": "subreddit",
-        "label": "ArcaneOdyssey",
-        "communityId": 29,
-        "communityName": "Game Chiến Tranh & Anime",
-        "roles": [
-          "gateway"
-        ],
-        "subredditContent": {
-          "subreddit": "ArcaneOdyssey",
-          "displayName": "ArcaneOdyssey",
-          "title": "ArcaneOdyssey",
-          "content": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "shortContent": "Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng.",
-          "source": "community_inference",
-          "status": "inferred",
-          "communityId": 29,
-          "communityName": "Game Chiến Tranh & Anime"
-        },
-        "title": "ArcaneOdyssey\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
+        "title": "BriarMains\nGame Chiến Tranh & Anime\nVai trò: gateway\nNội dung: Thuộc community \"Game Chiến Tranh & Anime\". Các subreddit tập trung vào game chiến tranh, vũ trụ 40k, và anime chiến đấu, kết hợp yếu tố hành động, chiến lược và giả tưởng."
       },
       {
         "id": "subreddit:BlackHair",
@@ -259302,6 +259530,29 @@
           "communityName": "Ô tô và Công nghệ"
         },
         "title": "Athleta_gap\nÔ tô và Công nghệ\nVai trò: highway\nNội dung: Thuộc community \"Ô tô và Công nghệ\". Các subreddit tập trung vào xe hơi, dòng xe cụ thể, công nghệ ô tô và trải nghiệm lái xe."
+      },
+      {
+        "id": "subreddit:BlackestFridayDeals",
+        "type": "subreddit",
+        "label": "BlackestFridayDeals",
+        "communityId": 23,
+        "communityName": "Deals & Discounts",
+        "roles": [
+          "gateway",
+          "highway"
+        ],
+        "subredditContent": {
+          "subreddit": "BlackestFridayDeals",
+          "displayName": "BlackestFridayDeals",
+          "title": "BlackestFridayDeals",
+          "content": "Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách.",
+          "shortContent": "Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 23,
+          "communityName": "Deals & Discounts"
+        },
+        "title": "BlackestFridayDeals\nDeals & Discounts\nVai trò: gateway, highway\nNội dung: Thuộc community \"Deals & Discounts\". Các subreddit tập trung vào các ưu đãi, giảm giá và deal trên nhiều sản phẩm, từ điện tử đến đồ chơi và sách."
       },
       {
         "id": "subreddit:AdoptMeTrading",
@@ -259436,6 +259687,28 @@
         "title": "AmazonSeller\nHọc tập & Địa lý\nVai trò: highway\nNội dung: Thuộc community \"Học tập & Địa lý\". Các subreddit tập trung vào học tập (AP, giáo viên) và địa điểm địa lý (thành phố, vùng núi, khu vực)."
       },
       {
+        "id": "subreddit:ATBandATGcommunity",
+        "type": "subreddit",
+        "label": "ATBandATGcommunity",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "highway"
+        ],
+        "subredditContent": {
+          "subreddit": "ATBandATGcommunity",
+          "displayName": "ATBandATGcommunity",
+          "title": "ATBandATGcommunity",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "ATBandATGcommunity\nAnime & Pop Culture\nVai trò: highway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
         "id": "subreddit:ButchSelfies",
         "type": "subreddit",
         "label": "ButchSelfies",
@@ -259501,6 +259774,29 @@
           "communityName": "Anime & Pop Culture"
         },
         "title": "AusMemes\nAnime & Pop Culture\nVai trò: bridge, highway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
+      },
+      {
+        "id": "subreddit:AgencySquad",
+        "type": "subreddit",
+        "label": "AgencySquad",
+        "communityId": 0,
+        "communityName": "Anime & Pop Culture",
+        "roles": [
+          "gateway",
+          "highway"
+        ],
+        "subredditContent": {
+          "subreddit": "AgencySquad",
+          "displayName": "AgencySquad",
+          "title": "AgencySquad",
+          "content": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "shortContent": "Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích.",
+          "source": "community_inference",
+          "status": "inferred",
+          "communityId": 0,
+          "communityName": "Anime & Pop Culture"
+        },
+        "title": "AgencySquad\nAnime & Pop Culture\nVai trò: gateway, highway\nNội dung: Thuộc community \"Anime & Pop Culture\". Các subreddit tập trung vào anime, phim ảnh, series và văn hóa pop liên quan đến nhân vật, cốt truyện và cộng đồng yêu thích."
       }
     ],
     "edges": [
@@ -262116,198 +262412,275 @@
         "weight": 1
       },
       {
-        "id": "membership:0:AgencySquad",
-        "from": "community:0",
-        "to": "subreddit:AgencySquad",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:29:AnotherEdenGlobal",
-        "from": "community:29",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:75:AnimalCrossing",
-        "from": "community:75",
-        "to": "subreddit:AnimalCrossing",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:10:AJR",
-        "from": "community:10",
-        "to": "subreddit:AJR",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:50:CarXStreets",
+        "id": "membership:50:8bitdo",
         "from": "community:50",
-        "to": "subreddit:CarXStreets",
+        "to": "subreddit:8bitdo",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:26:BenzoWithdrawal",
-        "from": "community:26",
-        "to": "subreddit:BenzoWithdrawal",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:24:CaminoDeSantiago",
+        "id": "membership:24:ContractorUK",
         "from": "community:24",
-        "to": "subreddit:CaminoDeSantiago",
+        "to": "subreddit:ContractorUK",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:7:1110AsleepShower",
-        "from": "community:7",
-        "to": "subreddit:1110AsleepShower",
+        "id": "membership:0:AhriMains",
+        "from": "community:0",
+        "to": "subreddit:AhriMains",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:46:AskReddit",
-        "from": "community:46",
-        "to": "subreddit:AskReddit",
+        "id": "membership:0:BokunoheroFanfiction",
+        "from": "community:0",
+        "to": "subreddit:BokunoheroFanfiction",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:4:BattlefieldLFG",
-        "from": "community:4",
-        "to": "subreddit:BattlefieldLFG",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:3:ASX_Bets",
+        "id": "membership:3:AirdropRating",
         "from": "community:3",
-        "to": "subreddit:ASX_Bets",
+        "to": "subreddit:AirdropRating",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:24:AmazonMerch",
-        "from": "community:24",
-        "to": "subreddit:AmazonMerch",
+        "id": "membership:0:AdamLanza",
+        "from": "community:0",
+        "to": "subreddit:AdamLanza",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:23:BlackestFridayDeals",
-        "from": "community:23",
-        "to": "subreddit:BlackestFridayDeals",
+        "id": "membership:50:AyyMD",
+        "from": "community:50",
+        "to": "subreddit:AyyMD",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:8:CelebsARG_",
-        "from": "community:8",
-        "to": "subreddit:CelebsARG_",
+        "id": "membership:9:CatfishMePlease2",
+        "from": "community:9",
+        "to": "subreddit:CatfishMePlease2",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:18:CollegeFootball25",
-        "from": "community:18",
-        "to": "subreddit:CollegeFootball25",
+        "id": "membership:29:BudgetBrews",
+        "from": "community:29",
+        "to": "subreddit:BudgetBrews",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:21:BidenBuzz",
+        "id": "membership:0:ACOTARHulu",
+        "from": "community:0",
+        "to": "subreddit:ACOTARHulu",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:29:ClickerHeroesRecruit",
+        "from": "community:29",
+        "to": "subreddit:ClickerHeroesRecruit",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:50:AlienwareAlpha",
+        "from": "community:50",
+        "to": "subreddit:AlienwareAlpha",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:29:ConeHeads",
+        "from": "community:29",
+        "to": "subreddit:ConeHeads",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:50:AnnePro",
+        "from": "community:50",
+        "to": "subreddit:AnnePro",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:46:AmITheA_holeUnanimous",
+        "from": "community:46",
+        "to": "subreddit:AmITheA_holeUnanimous",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:29:CitiesSkylinesModding",
+        "from": "community:29",
+        "to": "subreddit:CitiesSkylinesModding",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:50:AMD_Technology_Bets",
+        "from": "community:50",
+        "to": "subreddit:AMD_Technology_Bets",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:75:AdoptMyVillager",
+        "from": "community:75",
+        "to": "subreddit:AdoptMyVillager",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:CaptainDisillusion",
+        "from": "community:0",
+        "to": "subreddit:CaptainDisillusion",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:3:AppleCard",
+        "from": "community:3",
+        "to": "subreddit:AppleCard",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:29:AskTheOuija",
+        "from": "community:29",
+        "to": "subreddit:AskTheOuija",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:AMCTheatres",
+        "from": "community:0",
+        "to": "subreddit:AMCTheatres",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:9:AltYiff",
+        "from": "community:9",
+        "to": "subreddit:AltYiff",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:Cloververse",
+        "from": "community:0",
+        "to": "subreddit:Cloververse",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:21:AskAstrophotography",
         "from": "community:21",
-        "to": "subreddit:BidenBuzz",
+        "to": "subreddit:AskAstrophotography",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:0:BearsNSFWLikes",
+        "id": "membership:46:AmIOverreacting",
+        "from": "community:46",
+        "to": "subreddit:AmIOverreacting",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:3:Bankruptcy",
+        "from": "community:3",
+        "to": "subreddit:Bankruptcy",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:7:AlbanianNews",
+        "from": "community:7",
+        "to": "subreddit:AlbanianNews",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:AliensAmongUs",
         "from": "community:0",
-        "to": "subreddit:BearsNSFWLikes",
+        "to": "subreddit:AliensAmongUs",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:29:Bowling",
+        "id": "membership:0:CTsandbox",
+        "from": "community:0",
+        "to": "subreddit:CTsandbox",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:BatmanBeyond",
+        "from": "community:0",
+        "to": "subreddit:BatmanBeyond",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:50:ApolloScooters",
+        "from": "community:50",
+        "to": "subreddit:ApolloScooters",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:29:Apexrollouts",
         "from": "community:29",
-        "to": "subreddit:Bowling",
+        "to": "subreddit:Apexrollouts",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:46:BoogieMonster",
-        "from": "community:46",
-        "to": "subreddit:BoogieMonster",
+        "id": "membership:50:Bluetooth_Speakers",
+        "from": "community:50",
+        "to": "subreddit:Bluetooth_Speakers",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:46:AvPD",
-        "from": "community:46",
-        "to": "subreddit:AvPD",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:0:ClappingDemCheeks",
+        "id": "membership:0:BanVideoGames",
         "from": "community:0",
-        "to": "subreddit:ClappingDemCheeks",
+        "to": "subreddit:BanVideoGames",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:24:CalPolyPomona",
+        "id": "membership:29:AskGameMasters",
+        "from": "community:29",
+        "to": "subreddit:AskGameMasters",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:4chan",
+        "from": "community:0",
+        "to": "subreddit:4chan",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:24:Cascadia",
         "from": "community:24",
-        "to": "subreddit:CalPolyPomona",
+        "to": "subreddit:Cascadia",
         "type": "membership",
         "weight": 1
       },
       {
-        "id": "membership:0:ATBandATGcommunity",
-        "from": "community:0",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:0:0sanitymemes",
-        "from": "community:0",
-        "to": "subreddit:0sanitymemes",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:29:BombRush_Cyberfunk",
+        "id": "membership:29:BriarMains",
         "from": "community:29",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:15:BibleVerseCommentary",
-        "from": "community:15",
-        "to": "subreddit:BibleVerseCommentary",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:29:ApexOutlands",
-        "from": "community:29",
-        "to": "subreddit:ApexOutlands",
-        "type": "membership",
-        "weight": 1
-      },
-      {
-        "id": "membership:29:ArcaneOdyssey",
-        "from": "community:29",
-        "to": "subreddit:ArcaneOdyssey",
+        "to": "subreddit:BriarMains",
         "type": "membership",
         "weight": 1
       },
@@ -262336,6 +262709,13 @@
         "id": "membership:50:Athleta_gap",
         "from": "community:50",
         "to": "subreddit:Athleta_gap",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:23:BlackestFridayDeals",
+        "from": "community:23",
+        "to": "subreddit:BlackestFridayDeals",
         "type": "membership",
         "weight": 1
       },
@@ -262382,6 +262762,13 @@
         "weight": 1
       },
       {
+        "id": "membership:0:ATBandATGcommunity",
+        "from": "community:0",
+        "to": "subreddit:ATBandATGcommunity",
+        "type": "membership",
+        "weight": 1
+      },
+      {
         "id": "membership:9:ButchSelfies",
         "from": "community:9",
         "to": "subreddit:ButchSelfies",
@@ -262399,6 +262786,13 @@
         "id": "membership:0:AusMemes",
         "from": "community:0",
         "to": "subreddit:AusMemes",
+        "type": "membership",
+        "weight": 1
+      },
+      {
+        "id": "membership:0:AgencySquad",
+        "from": "community:0",
+        "to": "subreddit:AgencySquad",
         "type": "membership",
         "weight": 1
       },
@@ -262506,13 +262900,6 @@
         "to": "subreddit:BlossomyOffers",
         "type": "similarity",
         "score": 0.9775
-      },
-      {
-        "id": "similarity:CelebsARG_:Argentinas_LO",
-        "from": "subreddit:CelebsARG_",
-        "to": "subreddit:Argentinas_LO",
-        "type": "similarity",
-        "score": 0.9773
       },
       {
         "id": "similarity:CasualRO:AutomobileRO",
@@ -262641,13 +263028,6 @@
         "score": 0.9638
       },
       {
-        "id": "similarity:BidenBuzz:AskThe_Donald",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:AskThe_Donald",
-        "type": "similarity",
-        "score": 0.9627
-      },
-      {
         "id": "similarity:Allergies:Allergy",
         "from": "subreddit:Allergies",
         "to": "subreddit:Allergy",
@@ -262730,13 +263110,6 @@
         "to": "subreddit:Best_Gifs_NSFW",
         "type": "similarity",
         "score": 0.9509
-      },
-      {
-        "id": "similarity:BigArms:1110AsleepShower",
-        "from": "subreddit:BigArms",
-        "to": "subreddit:1110AsleepShower",
-        "type": "similarity",
-        "score": 0.9497
       },
       {
         "id": "similarity:CouponCodeFind:BlossomyOffers",
@@ -262886,25 +263259,11 @@
         "score": 0.9257
       },
       {
-        "id": "similarity:AgencySquad:0sanitymemes",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.9255
-      },
-      {
         "id": "similarity:AdoptMeTrading:AdoptMeTradingRoblox",
         "from": "subreddit:AdoptMeTrading",
         "to": "subreddit:AdoptMeTradingRoblox",
         "type": "similarity",
         "score": 0.9247
-      },
-      {
-        "id": "similarity:ApexOutlands:0sanitymemes",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.9243
       },
       {
         "id": "similarity:CoronavirusCA:CoronavirusOC",
@@ -262928,13 +263287,6 @@
         "score": 0.92
       },
       {
-        "id": "similarity:ArcaneOdyssey:0sanitymemes",
-        "from": "subreddit:ArcaneOdyssey",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.9195
-      },
-      {
         "id": "similarity:ArrestStories:ArrestsWeb",
         "from": "subreddit:ArrestStories",
         "to": "subreddit:ArrestsWeb",
@@ -262949,32 +263301,11 @@
         "score": 0.918
       },
       {
-        "id": "similarity:ApexOutlands:ArcaneOdyssey",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.9168
-      },
-      {
         "id": "similarity:CagesideSeatsPro:AEWFanHub",
         "from": "subreddit:CagesideSeatsPro",
         "to": "subreddit:AEWFanHub",
         "type": "similarity",
         "score": 0.9159
-      },
-      {
-        "id": "similarity:ArcaneOdyssey:AccurateBattleSim",
-        "from": "subreddit:ArcaneOdyssey",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.9154
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:BearsNSFWLikes",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:BearsNSFWLikes",
-        "type": "similarity",
-        "score": 0.9152
       },
       {
         "id": "similarity:AskThe_Donald:AHomeForPlagueRats",
@@ -262989,13 +263320,6 @@
         "to": "subreddit:AdviceAtheists",
         "type": "similarity",
         "score": 0.912
-      },
-      {
-        "id": "similarity:AltBlonde:1110AsleepShower",
-        "from": "subreddit:AltBlonde",
-        "to": "subreddit:1110AsleepShower",
-        "type": "similarity",
-        "score": 0.9098
       },
       {
         "id": "similarity:4832:ACGN",
@@ -263054,20 +263378,6 @@
         "score": 0.9067
       },
       {
-        "id": "similarity:AgencySquad:ApexOutlands",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.9058
-      },
-      {
-        "id": "similarity:0sanitymemes:AccurateBattleSim",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.9053
-      },
-      {
         "id": "similarity:Christianity:Christians",
         "from": "subreddit:Christianity",
         "to": "subreddit:Christians",
@@ -263089,13 +263399,6 @@
         "score": 0.9044
       },
       {
-        "id": "similarity:BidenBuzz:AHomeForPlagueRats",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:AHomeForPlagueRats",
-        "type": "similarity",
-        "score": 0.9041
-      },
-      {
         "id": "similarity:ColoryDiscount:BuoyancyDeals",
         "from": "subreddit:ColoryDiscount",
         "to": "subreddit:BuoyancyDeals",
@@ -263103,25 +263406,11 @@
         "score": 0.9039
       },
       {
-        "id": "similarity:ApexOutlands:AccurateBattleSim",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.9021
-      },
-      {
         "id": "similarity:BadGirlsFromEarth:BestForMyGuest",
         "from": "subreddit:BadGirlsFromEarth",
         "to": "subreddit:BestForMyGuest",
         "type": "similarity",
         "score": 0.9018
-      },
-      {
-        "id": "similarity:CPTSDmemes:AvPD",
-        "from": "subreddit:CPTSDmemes",
-        "to": "subreddit:AvPD",
-        "type": "similarity",
-        "score": 0.9003
       },
       {
         "id": "similarity:ClevelandIndians:ColoradoRockies",
@@ -263164,20 +263453,6 @@
         "to": "subreddit:Animewallpaper",
         "type": "similarity",
         "score": 0.8956
-      },
-      {
-        "id": "similarity:AgencySquad:ArcaneOdyssey",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.8946
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:BestForMyGuest",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:BestForMyGuest",
-        "type": "similarity",
-        "score": 0.8941
       },
       {
         "id": "similarity:BitcoinAUS:BitcoinCA",
@@ -263278,20 +263553,6 @@
         "score": 0.8865
       },
       {
-        "id": "similarity:CSHFans:AJR",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8865
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:Best_Gifs_NSFW",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:Best_Gifs_NSFW",
-        "type": "similarity",
-        "score": 0.8857
-      },
-      {
         "id": "similarity:AskLegal:AusLegal",
         "from": "subreddit:AskLegal",
         "to": "subreddit:AusLegal",
@@ -263362,20 +263623,6 @@
         "score": 0.8802
       },
       {
-        "id": "similarity:ClappingDemCheeks:Best_Gifs_NSFW",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:Best_Gifs_NSFW",
-        "type": "similarity",
-        "score": 0.8793
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:BestForMyGuest",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:BestForMyGuest",
-        "type": "similarity",
-        "score": 0.8791
-      },
-      {
         "id": "similarity:CSHFans:ATBandATGcommunity",
         "from": "subreddit:CSHFans",
         "to": "subreddit:ATBandATGcommunity",
@@ -263395,20 +263642,6 @@
         "to": "subreddit:BonneBouffe",
         "type": "similarity",
         "score": 0.8786
-      },
-      {
-        "id": "similarity:AnotherEdenGlobal:0sanitymemes",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8773
-      },
-      {
-        "id": "similarity:Connery:ApexOutlands",
-        "from": "subreddit:Connery",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.8761
       },
       {
         "id": "similarity:Carreraaa:ArgEntos",
@@ -263481,13 +263714,6 @@
         "score": 0.8698
       },
       {
-        "id": "similarity:Connery:0sanitymemes",
-        "from": "subreddit:Connery",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8692
-      },
-      {
         "id": "similarity:BroncoSport:Aprilia",
         "from": "subreddit:BroncoSport",
         "to": "subreddit:Aprilia",
@@ -263507,20 +263733,6 @@
         "to": "subreddit:AgencySquad",
         "type": "similarity",
         "score": 0.867
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:BadGirlsFromEarth",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:BadGirlsFromEarth",
-        "type": "similarity",
-        "score": 0.8652
-      },
-      {
-        "id": "similarity:CEI_stock:ASX_Bets",
-        "from": "subreddit:CEI_stock",
-        "to": "subreddit:ASX_Bets",
-        "type": "similarity",
-        "score": 0.8639
       },
       {
         "id": "similarity:BitcoinAUS:BitcoinIndia",
@@ -263544,25 +263756,11 @@
         "score": 0.863
       },
       {
-        "id": "similarity:Connery:ArcaneOdyssey",
-        "from": "subreddit:Connery",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.8628
-      },
-      {
         "id": "similarity:BIGTIDDYGOTHGIRLS:AsianGoddess",
         "from": "subreddit:BIGTIDDYGOTHGIRLS",
         "to": "subreddit:AsianGoddess",
         "type": "similarity",
         "score": 0.8627
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:BleachedEdits",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:BleachedEdits",
-        "type": "similarity",
-        "score": 0.8626
       },
       {
         "id": "similarity:BlackestFridayDeals:Amazon_Best_Deals",
@@ -263635,13 +263833,6 @@
         "score": 0.86
       },
       {
-        "id": "similarity:Bastille:AJR",
-        "from": "subreddit:Bastille",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8591
-      },
-      {
         "id": "similarity:Android:AndroidQuestions",
         "from": "subreddit:Android",
         "to": "subreddit:AndroidQuestions",
@@ -263677,25 +263868,11 @@
         "score": 0.856
       },
       {
-        "id": "similarity:AnomalyXd:0sanitymemes",
-        "from": "subreddit:AnomalyXd",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8549
-      },
-      {
         "id": "similarity:Amoledbackgrounds:Animewallpaper",
         "from": "subreddit:Amoledbackgrounds",
         "to": "subreddit:Animewallpaper",
         "type": "similarity",
         "score": 0.8539
-      },
-      {
-        "id": "similarity:BadGirlsFromEarth:BearsNSFWLikes",
-        "from": "subreddit:BadGirlsFromEarth",
-        "to": "subreddit:BearsNSFWLikes",
-        "type": "similarity",
-        "score": 0.8533
       },
       {
         "id": "similarity:ComputerSecurity:AskNetsec",
@@ -263747,13 +263924,6 @@
         "score": 0.8509
       },
       {
-        "id": "similarity:AnimalCrossing:ATBandATGcommunity",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8504
-      },
-      {
         "id": "similarity:AmazonMusic:AppleMusic",
         "from": "subreddit:AmazonMusic",
         "to": "subreddit:AppleMusic",
@@ -263768,32 +263938,11 @@
         "score": 0.8495
       },
       {
-        "id": "similarity:BreakPoint:ApexOutlands",
-        "from": "subreddit:BreakPoint",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.8494
-      },
-      {
-        "id": "similarity:AnotherEdenGlobal:ArcaneOdyssey",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.8493
-      },
-      {
         "id": "similarity:BitcoinCA:BitcoinUK",
         "from": "subreddit:BitcoinCA",
         "to": "subreddit:BitcoinUK",
         "type": "similarity",
         "score": 0.8491
-      },
-      {
-        "id": "similarity:CalPolyPomona:Baruch",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:Baruch",
-        "type": "similarity",
-        "score": 0.8479
       },
       {
         "id": "similarity:Celica:Buick",
@@ -263880,25 +264029,11 @@
         "score": 0.8422
       },
       {
-        "id": "similarity:CelebsARG_:AuronPlay",
-        "from": "subreddit:CelebsARG_",
-        "to": "subreddit:AuronPlay",
-        "type": "similarity",
-        "score": 0.8421
-      },
-      {
         "id": "similarity:BicuriousGuysChatNew:AsianGoddess",
         "from": "subreddit:BicuriousGuysChatNew",
         "to": "subreddit:AsianGoddess",
         "type": "similarity",
         "score": 0.8421
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:AgencySquad",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:AgencySquad",
-        "type": "similarity",
-        "score": 0.8413
       },
       {
         "id": "similarity:Carreraaa:Argentinas_LO",
@@ -263936,13 +264071,6 @@
         "score": 0.8405
       },
       {
-        "id": "similarity:Carreraaa:CelebsARG_",
-        "from": "subreddit:Carreraaa",
-        "to": "subreddit:CelebsARG_",
-        "type": "similarity",
-        "score": 0.8405
-      },
-      {
         "id": "similarity:Bastille:AnnieClark",
         "from": "subreddit:Bastille",
         "to": "subreddit:AnnieClark",
@@ -263955,13 +264083,6 @@
         "to": "subreddit:AuronPlay",
         "type": "similarity",
         "score": 0.8395
-      },
-      {
-        "id": "similarity:AnotherEdenGlobal:AccurateBattleSim",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.8387
       },
       {
         "id": "similarity:Chromecast:AndroidTV",
@@ -263992,13 +264113,6 @@
         "score": 0.8359
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:AccurateBattleSim",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.8352
-      },
-      {
         "id": "similarity:ChevyTahoe:Buick",
         "from": "subreddit:ChevyTahoe",
         "to": "subreddit:Buick",
@@ -264011,13 +264125,6 @@
         "to": "subreddit:Albuquerque",
         "type": "similarity",
         "score": 0.8338
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:BreakPoint",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:BreakPoint",
-        "type": "similarity",
-        "score": 0.8337
       },
       {
         "id": "similarity:Connery:BreakPoint",
@@ -264034,20 +264141,6 @@
         "score": 0.8332
       },
       {
-        "id": "similarity:AnotherEdenGlobal:ArcaneAnimatedSeries",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:ArcaneAnimatedSeries",
-        "type": "similarity",
-        "score": 0.8329
-      },
-      {
-        "id": "similarity:0sanitymemes:ATBandATGcommunity",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8329
-      },
-      {
         "id": "similarity:AskAstrologers:AstrologyCharts",
         "from": "subreddit:AskAstrologers",
         "to": "subreddit:AstrologyCharts",
@@ -264055,25 +264148,11 @@
         "score": 0.8328
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:AJR",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8325
-      },
-      {
         "id": "similarity:BIGTIDDYGOTHGIRLS:BicuriousGuysChatNew",
         "from": "subreddit:BIGTIDDYGOTHGIRLS",
         "to": "subreddit:BicuriousGuysChatNew",
         "type": "similarity",
         "score": 0.8321
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:AgencySquad",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:AgencySquad",
-        "type": "similarity",
-        "score": 0.832
       },
       {
         "id": "similarity:BonnerBlogs:Augenschmaus",
@@ -264097,13 +264176,6 @@
         "score": 0.8317
       },
       {
-        "id": "similarity:ApexConsole:ApexOutlands",
-        "from": "subreddit:ApexConsole",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.8315
-      },
-      {
         "id": "similarity:BettermentBookClub:BooksAndFilms",
         "from": "subreddit:BettermentBookClub",
         "to": "subreddit:BooksAndFilms",
@@ -264116,20 +264188,6 @@
         "to": "subreddit:Ashnikko",
         "type": "similarity",
         "score": 0.831
-      },
-      {
-        "id": "similarity:Beepbox:BombRush_Cyberfunk",
-        "from": "subreddit:Beepbox",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.8307
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:0sanitymemes",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8307
       },
       {
         "id": "similarity:AmazonFlexUK:AmazonWFShoppers",
@@ -264186,20 +264244,6 @@
         "to": "subreddit:AskThe_Donald",
         "type": "similarity",
         "score": 0.8295
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:AsianGoddess",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:AsianGoddess",
-        "type": "similarity",
-        "score": 0.8291
-      },
-      {
-        "id": "similarity:BreakPoint:ArcaneOdyssey",
-        "from": "subreddit:BreakPoint",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.8289
       },
       {
         "id": "similarity:CarltonBlues:BrightonHoveAlbion",
@@ -264265,23 +264309,9 @@
         "score": 0.8266
       },
       {
-        "id": "similarity:CSHFans:BombRush_Cyberfunk",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.8266
-      },
-      {
         "id": "similarity:ClimateActionPlan:ClimateOffensive",
         "from": "subreddit:ClimateActionPlan",
         "to": "subreddit:ClimateOffensive",
-        "type": "similarity",
-        "score": 0.8266
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:AnotherEdenGlobal",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:AnotherEdenGlobal",
         "type": "similarity",
         "score": 0.8266
       },
@@ -264321,13 +264351,6 @@
         "score": 0.8248
       },
       {
-        "id": "similarity:ClappingDemCheeks:BleachedEdits",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:BleachedEdits",
-        "type": "similarity",
-        "score": 0.8242
-      },
-      {
         "id": "similarity:ContagiousLaughter:90DayFiance",
         "from": "subreddit:ContagiousLaughter",
         "to": "subreddit:90DayFiance",
@@ -264354,13 +264377,6 @@
         "to": "subreddit:AlternativeHealth",
         "type": "similarity",
         "score": 0.823
-      },
-      {
-        "id": "similarity:CSHFans:0sanitymemes",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8226
       },
       {
         "id": "similarity:CatGifs:BeardedDragons",
@@ -264447,20 +264463,6 @@
         "score": 0.8193
       },
       {
-        "id": "similarity:Ashnikko:AJR",
-        "from": "subreddit:Ashnikko",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8188
-      },
-      {
-        "id": "similarity:ArcaneAnimatedSeries:0sanitymemes",
-        "from": "subreddit:ArcaneAnimatedSeries",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8187
-      },
-      {
         "id": "similarity:BonneBouffe:AskMec",
         "from": "subreddit:BonneBouffe",
         "to": "subreddit:AskMec",
@@ -264475,23 +264477,9 @@
         "score": 0.8183
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:AgencySquad",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:AgencySquad",
-        "type": "similarity",
-        "score": 0.8181
-      },
-      {
         "id": "similarity:Barber:BlackHair",
         "from": "subreddit:Barber",
         "to": "subreddit:BlackHair",
-        "type": "similarity",
-        "score": 0.8181
-      },
-      {
-        "id": "similarity:BleachedEdits:0sanitymemes",
-        "from": "subreddit:BleachedEdits",
-        "to": "subreddit:0sanitymemes",
         "type": "similarity",
         "score": 0.8181
       },
@@ -264522,13 +264510,6 @@
         "to": "subreddit:ATBandATGcommunity",
         "type": "similarity",
         "score": 0.8167
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:ATBandATGcommunity",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8158
       },
       {
         "id": "similarity:ACAB:AHomeForPlagueRats",
@@ -264608,13 +264589,6 @@
         "score": 0.8123
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:ArcaneOdyssey",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.8116
-      },
-      {
         "id": "similarity:BestForMyGuest:BicuriousGuysChatNew",
         "from": "subreddit:BestForMyGuest",
         "to": "subreddit:BicuriousGuysChatNew",
@@ -264627,13 +264601,6 @@
         "to": "subreddit:ATBandATGcommunity",
         "type": "similarity",
         "score": 0.8112
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:AsianGoddess",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:AsianGoddess",
-        "type": "similarity",
-        "score": 0.811
       },
       {
         "id": "similarity:Adobe:AdobeZii",
@@ -264657,13 +264624,6 @@
         "score": 0.8104
       },
       {
-        "id": "similarity:Beepbox:AJR",
-        "from": "subreddit:Beepbox",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8095
-      },
-      {
         "id": "similarity:AskThe_Donald:ACAB",
         "from": "subreddit:AskThe_Donald",
         "to": "subreddit:ACAB",
@@ -264678,32 +264638,11 @@
         "score": 0.8087
       },
       {
-        "id": "similarity:AJR:ATBandATGcommunity",
-        "from": "subreddit:AJR",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8077
-      },
-      {
-        "id": "similarity:BeardedDragons:AnimalCrossing",
-        "from": "subreddit:BeardedDragons",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.8074
-      },
-      {
         "id": "similarity:CozyFantasy:BooksAndFilms",
         "from": "subreddit:CozyFantasy",
         "to": "subreddit:BooksAndFilms",
         "type": "similarity",
         "score": 0.8069
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:0sanitymemes",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8068
       },
       {
         "id": "similarity:CatsBeingCats:AgencySquad",
@@ -264713,46 +264652,11 @@
         "score": 0.8067
       },
       {
-        "id": "similarity:AgencySquad:AnotherEdenGlobal",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.8067
-      },
-      {
-        "id": "similarity:AgencySquad:AnimalCrossing",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.8063
-      },
-      {
         "id": "similarity:AnomalyXd:ATBandATGcommunity",
         "from": "subreddit:AnomalyXd",
         "to": "subreddit:ATBandATGcommunity",
         "type": "similarity",
         "score": 0.806
-      },
-      {
-        "id": "similarity:ContagiousLaughter:0sanitymemes",
-        "from": "subreddit:ContagiousLaughter",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8057
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:AltBlonde",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:AltBlonde",
-        "type": "similarity",
-        "score": 0.8057
-      },
-      {
-        "id": "similarity:Connery:BombRush_Cyberfunk",
-        "from": "subreddit:Connery",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.8048
       },
       {
         "id": "similarity:AgencySquad:AusMemes",
@@ -264804,48 +264708,6 @@
         "score": 0.8032
       },
       {
-        "id": "similarity:ApexOutlands:ATBandATGcommunity",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8032
-      },
-      {
-        "id": "similarity:BeybladeX:BombRush_Cyberfunk",
-        "from": "subreddit:BeybladeX",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.8027
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:0sanitymemes",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8022
-      },
-      {
-        "id": "similarity:CSHFans:AnimalCrossing",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.802
-      },
-      {
-        "id": "similarity:AgencySquad:AJR",
-        "from": "subreddit:AgencySquad",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.8018
-      },
-      {
-        "id": "similarity:AusMemes:0sanitymemes",
-        "from": "subreddit:AusMemes",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.8008
-      },
-      {
         "id": "similarity:AltBlonde:AsianGoddess",
         "from": "subreddit:AltBlonde",
         "to": "subreddit:AsianGoddess",
@@ -264867,20 +264729,6 @@
         "score": 0.8003
       },
       {
-        "id": "similarity:BearsNSFWLikes:ATBandATGcommunity",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.8002
-      },
-      {
-        "id": "similarity:CPTSDmemes:ApexOutlands",
-        "from": "subreddit:CPTSDmemes",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7999
-      },
-      {
         "id": "similarity:BestForMyGuest:BleachedEdits",
         "from": "subreddit:BestForMyGuest",
         "to": "subreddit:BleachedEdits",
@@ -264900,20 +264748,6 @@
         "to": "subreddit:ATBandATGcommunity",
         "type": "similarity",
         "score": 0.7995
-      },
-      {
-        "id": "similarity:CarXStreets:BombRush_Cyberfunk",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.7992
-      },
-      {
-        "id": "similarity:CarXStreets:Cartalk",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:Cartalk",
-        "type": "similarity",
-        "score": 0.7987
       },
       {
         "id": "similarity:BTD5:BreakPoint",
@@ -264944,13 +264778,6 @@
         "score": 0.7983
       },
       {
-        "id": "similarity:CarXStreets:BreakPoint",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:BreakPoint",
-        "type": "similarity",
-        "score": 0.7979
-      },
-      {
         "id": "similarity:BonneBouffe:AskMeuf",
         "from": "subreddit:BonneBouffe",
         "to": "subreddit:AskMeuf",
@@ -264958,25 +264785,11 @@
         "score": 0.7977
       },
       {
-        "id": "similarity:AnomalyXd:ArcaneOdyssey",
-        "from": "subreddit:AnomalyXd",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7968
-      },
-      {
         "id": "similarity:BadGirlsFromEarth:BallbustingStories",
         "from": "subreddit:BadGirlsFromEarth",
         "to": "subreddit:BallbustingStories",
         "type": "similarity",
         "score": 0.7968
-      },
-      {
-        "id": "similarity:CPA:CalPolyPomona",
-        "from": "subreddit:CPA",
-        "to": "subreddit:CalPolyPomona",
-        "type": "similarity",
-        "score": 0.7962
       },
       {
         "id": "similarity:CornishFeed:BengaliFeed",
@@ -265014,27 +264827,6 @@
         "score": 0.795
       },
       {
-        "id": "similarity:Connery:AnotherEdenGlobal",
-        "from": "subreddit:Connery",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.7949
-      },
-      {
-        "id": "similarity:ArcaneOdyssey:ATBandATGcommunity",
-        "from": "subreddit:ArcaneOdyssey",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.7945
-      },
-      {
-        "id": "similarity:AnomalyXd:ApexOutlands",
-        "from": "subreddit:AnomalyXd",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7941
-      },
-      {
         "id": "similarity:Comcast:ATT",
         "from": "subreddit:Comcast",
         "to": "subreddit:ATT",
@@ -265070,39 +264862,11 @@
         "score": 0.7926
       },
       {
-        "id": "similarity:CarXStreets:4x4",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:4x4",
-        "type": "similarity",
-        "score": 0.7926
-      },
-      {
         "id": "similarity:AskMarketing:Affiliatemarketing",
         "from": "subreddit:AskMarketing",
         "to": "subreddit:Affiliatemarketing",
         "type": "similarity",
         "score": 0.7916
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:ContagiousLaughter",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:ContagiousLaughter",
-        "type": "similarity",
-        "score": 0.7916
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:ApexOutlands",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7914
-      },
-      {
-        "id": "similarity:BreakPoint:0sanitymemes",
-        "from": "subreddit:BreakPoint",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7911
       },
       {
         "id": "similarity:BrightonHoveAlbion:AFL",
@@ -265147,39 +264911,11 @@
         "score": 0.7898
       },
       {
-        "id": "similarity:BidenBuzz:CNNmemes",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:CNNmemes",
-        "type": "similarity",
-        "score": 0.7897
-      },
-      {
-        "id": "similarity:BibleVerseCommentary:AdviceAtheists",
-        "from": "subreddit:BibleVerseCommentary",
-        "to": "subreddit:AdviceAtheists",
-        "type": "similarity",
-        "score": 0.7897
-      },
-      {
         "id": "similarity:CSHFans:Beepbox",
         "from": "subreddit:CSHFans",
         "to": "subreddit:Beepbox",
         "type": "similarity",
         "score": 0.7896
-      },
-      {
-        "id": "similarity:BidenBuzz:ACAB",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:ACAB",
-        "type": "similarity",
-        "score": 0.7896
-      },
-      {
-        "id": "similarity:CPTSDmemes:0sanitymemes",
-        "from": "subreddit:CPTSDmemes",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7895
       },
       {
         "id": "similarity:Cash4Cash:AVexchange",
@@ -265201,27 +264937,6 @@
         "to": "subreddit:Coldsores",
         "type": "similarity",
         "score": 0.7891
-      },
-      {
-        "id": "similarity:AnimalCrossing:AnotherEdenGlobal",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.7891
-      },
-      {
-        "id": "similarity:ContagiousLaughter:BearsNSFWLikes",
-        "from": "subreddit:ContagiousLaughter",
-        "to": "subreddit:BearsNSFWLikes",
-        "type": "similarity",
-        "score": 0.7888
-      },
-      {
-        "id": "similarity:Bastille:BombRush_Cyberfunk",
-        "from": "subreddit:Bastille",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.7887
       },
       {
         "id": "similarity:ATBandATGcommunity:AccurateBattleSim",
@@ -265266,13 +264981,6 @@
         "score": 0.7878
       },
       {
-        "id": "similarity:AgeOfCivilizations:ArcaneOdyssey",
-        "from": "subreddit:AgeOfCivilizations",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7877
-      },
-      {
         "id": "similarity:AntiVegan:AskVegans",
         "from": "subreddit:AntiVegan",
         "to": "subreddit:AskVegans",
@@ -265285,13 +264993,6 @@
         "to": "subreddit:CavaPoo",
         "type": "similarity",
         "score": 0.7876
-      },
-      {
-        "id": "similarity:BTD5:ArcaneOdyssey",
-        "from": "subreddit:BTD5",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7873
       },
       {
         "id": "similarity:AmazonVine:AmazonWFShoppers",
@@ -265322,32 +265023,11 @@
         "score": 0.7862
       },
       {
-        "id": "similarity:BleachedEdits:AnotherEdenGlobal",
-        "from": "subreddit:BleachedEdits",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.786
-      },
-      {
-        "id": "similarity:AnotherEdenGlobal:ApexOutlands",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7849
-      },
-      {
         "id": "similarity:Balding:BeardAdvice",
         "from": "subreddit:Balding",
         "to": "subreddit:BeardAdvice",
         "type": "similarity",
         "score": 0.7848
-      },
-      {
-        "id": "similarity:CampFlogGnaw:AJR",
-        "from": "subreddit:CampFlogGnaw",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7844
       },
       {
         "id": "similarity:CSHFans:AccurateBattleSim",
@@ -265357,25 +265037,11 @@
         "score": 0.7844
       },
       {
-        "id": "similarity:ConservativeKiwi:BidenBuzz",
-        "from": "subreddit:ConservativeKiwi",
-        "to": "subreddit:BidenBuzz",
-        "type": "similarity",
-        "score": 0.7842
-      },
-      {
         "id": "similarity:CNNmemes:AHomeForPlagueRats",
         "from": "subreddit:CNNmemes",
         "to": "subreddit:AHomeForPlagueRats",
         "type": "similarity",
         "score": 0.7842
-      },
-      {
-        "id": "similarity:BadGirlsFromEarth:1110AsleepShower",
-        "from": "subreddit:BadGirlsFromEarth",
-        "to": "subreddit:1110AsleepShower",
-        "type": "similarity",
-        "score": 0.7838
       },
       {
         "id": "similarity:CSHFans:420",
@@ -265392,39 +265058,11 @@
         "score": 0.7835
       },
       {
-        "id": "similarity:AgeOfCivilizations:0sanitymemes",
-        "from": "subreddit:AgeOfCivilizations",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7832
-      },
-      {
         "id": "similarity:Colombia:Argentinas_LO",
         "from": "subreddit:Colombia",
         "to": "subreddit:Argentinas_LO",
         "type": "similarity",
         "score": 0.7831
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:BigArms",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:BigArms",
-        "type": "similarity",
-        "score": 0.7826
-      },
-      {
-        "id": "similarity:AgeOfCivilizations:ApexOutlands",
-        "from": "subreddit:AgeOfCivilizations",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7826
-      },
-      {
-        "id": "similarity:ApexConsole:ArcaneOdyssey",
-        "from": "subreddit:ApexConsole",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7826
       },
       {
         "id": "similarity:CatGifs:CavaPoo",
@@ -265448,13 +265086,6 @@
         "score": 0.782
       },
       {
-        "id": "similarity:CatholicMemes:0sanitymemes",
-        "from": "subreddit:CatholicMemes",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7816
-      },
-      {
         "id": "similarity:ChatGPTNSFW:ChatGPTPro",
         "from": "subreddit:ChatGPTNSFW",
         "to": "subreddit:ChatGPTPro",
@@ -265469,25 +265100,11 @@
         "score": 0.7814
       },
       {
-        "id": "similarity:BTD5:BombRush_Cyberfunk",
-        "from": "subreddit:BTD5",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.7814
-      },
-      {
         "id": "similarity:CouponCodeFind:2023AliexpressDeals",
         "from": "subreddit:CouponCodeFind",
         "to": "subreddit:2023AliexpressDeals",
         "type": "similarity",
         "score": 0.7814
-      },
-      {
-        "id": "similarity:CarXStreets:BeybladeX",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:BeybladeX",
-        "type": "similarity",
-        "score": 0.7811
       },
       {
         "id": "similarity:CarltonBlues:AroundTheNFL",
@@ -265502,20 +265119,6 @@
         "to": "subreddit:AmazonSeller",
         "type": "similarity",
         "score": 0.781
-      },
-      {
-        "id": "similarity:CatsBeingCats:AnimalCrossing",
-        "from": "subreddit:CatsBeingCats",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.7807
-      },
-      {
-        "id": "similarity:CSHFans:ArcaneOdyssey",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7807
       },
       {
         "id": "similarity:Asksweddit:Aarhus",
@@ -265539,13 +265142,6 @@
         "score": 0.7796
       },
       {
-        "id": "similarity:CarXStreets:Aprilia",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:Aprilia",
-        "type": "similarity",
-        "score": 0.7794
-      },
-      {
         "id": "similarity:BitcoinPrivate:BitcoinUK",
         "from": "subreddit:BitcoinPrivate",
         "to": "subreddit:BitcoinUK",
@@ -265556,13 +265152,6 @@
         "id": "similarity:BTD5:BeybladeX",
         "from": "subreddit:BTD5",
         "to": "subreddit:BeybladeX",
-        "type": "similarity",
-        "score": 0.779
-      },
-      {
-        "id": "similarity:0sanitymemes:AJR",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:AJR",
         "type": "similarity",
         "score": 0.779
       },
@@ -265588,46 +265177,11 @@
         "score": 0.7786
       },
       {
-        "id": "similarity:ApexOutlands:AusMemes",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:AusMemes",
-        "type": "similarity",
-        "score": 0.7786
-      },
-      {
-        "id": "similarity:CampFlogGnaw:BombRush_Cyberfunk",
-        "from": "subreddit:CampFlogGnaw",
-        "to": "subreddit:BombRush_Cyberfunk",
-        "type": "similarity",
-        "score": 0.7785
-      },
-      {
         "id": "similarity:ArcaneAnimatedSeries:90DayFiance",
         "from": "subreddit:ArcaneAnimatedSeries",
         "to": "subreddit:90DayFiance",
         "type": "similarity",
         "score": 0.7785
-      },
-      {
-        "id": "similarity:Christians:BibleVerseCommentary",
-        "from": "subreddit:Christians",
-        "to": "subreddit:BibleVerseCommentary",
-        "type": "similarity",
-        "score": 0.7783
-      },
-      {
-        "id": "similarity:CSHFans:ApexOutlands",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7783
-      },
-      {
-        "id": "similarity:Christianity:BibleVerseCommentary",
-        "from": "subreddit:Christianity",
-        "to": "subreddit:BibleVerseCommentary",
-        "type": "similarity",
-        "score": 0.7782
       },
       {
         "id": "similarity:AnomalyXd:AccurateBattleSim",
@@ -265644,13 +265198,6 @@
         "score": 0.7778
       },
       {
-        "id": "similarity:CarXStreets:Celica",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:Celica",
-        "type": "similarity",
-        "score": 0.7771
-      },
-      {
         "id": "similarity:CSHFans:CARTILEAKS",
         "from": "subreddit:CSHFans",
         "to": "subreddit:CARTILEAKS",
@@ -265663,13 +265210,6 @@
         "to": "subreddit:AnomalyXd",
         "type": "similarity",
         "score": 0.7765
-      },
-      {
-        "id": "similarity:ArcaneAnimatedSeries:ArcaneOdyssey",
-        "from": "subreddit:ArcaneAnimatedSeries",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7759
       },
       {
         "id": "similarity:Connery:AgeOfCivilizations",
@@ -265686,27 +265226,6 @@
         "score": 0.7755
       },
       {
-        "id": "similarity:AnimalCrossing:90DayFiance",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:90DayFiance",
-        "type": "similarity",
-        "score": 0.7754
-      },
-      {
-        "id": "similarity:CarXStreets:AgencySquad",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:AgencySquad",
-        "type": "similarity",
-        "score": 0.7753
-      },
-      {
-        "id": "similarity:AnimalCrossing:420",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:420",
-        "type": "similarity",
-        "score": 0.775
-      },
-      {
         "id": "similarity:Buick:Aprilia",
         "from": "subreddit:Buick",
         "to": "subreddit:Aprilia",
@@ -265721,13 +265240,6 @@
         "score": 0.7745
       },
       {
-        "id": "similarity:CARTILEAKS:AJR",
-        "from": "subreddit:CARTILEAKS",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7743
-      },
-      {
         "id": "similarity:BehindTheClosetDoor:AmazonWFShoppers",
         "from": "subreddit:BehindTheClosetDoor",
         "to": "subreddit:AmazonWFShoppers",
@@ -265740,13 +265252,6 @@
         "to": "subreddit:90DayFiance",
         "type": "similarity",
         "score": 0.7737
-      },
-      {
-        "id": "similarity:AnnieClark:AJR",
-        "from": "subreddit:AnnieClark",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7734
       },
       {
         "id": "similarity:AgencySquad:AdoptMeTrading",
@@ -265768,13 +265273,6 @@
         "to": "subreddit:AFL",
         "type": "similarity",
         "score": 0.7727
-      },
-      {
-        "id": "similarity:CelebsARG_:Colombia",
-        "from": "subreddit:CelebsARG_",
-        "to": "subreddit:Colombia",
-        "type": "similarity",
-        "score": 0.7724
       },
       {
         "id": "similarity:CatholicMemes:Absurdism",
@@ -265805,13 +265303,6 @@
         "score": 0.7711
       },
       {
-        "id": "similarity:BTD5:ApexOutlands",
-        "from": "subreddit:BTD5",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7707
-      },
-      {
         "id": "similarity:Aunaturalladies2:ATBandATGcommunity",
         "from": "subreddit:Aunaturalladies2",
         "to": "subreddit:ATBandATGcommunity",
@@ -265826,13 +265317,6 @@
         "score": 0.7707
       },
       {
-        "id": "similarity:0sanitymemes:90DayFiance",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:90DayFiance",
-        "type": "similarity",
-        "score": 0.7706
-      },
-      {
         "id": "similarity:Corruption:AskThe_Donald",
         "from": "subreddit:Corruption",
         "to": "subreddit:AskThe_Donald",
@@ -265840,39 +265324,11 @@
         "score": 0.7705
       },
       {
-        "id": "similarity:AnimalCrossing:AJR",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7704
-      },
-      {
         "id": "similarity:CSHFans:90DayFiance",
         "from": "subreddit:CSHFans",
         "to": "subreddit:90DayFiance",
         "type": "similarity",
         "score": 0.7696
-      },
-      {
-        "id": "similarity:CSHFans:AnotherEdenGlobal",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.7691
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:420",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:420",
-        "type": "similarity",
-        "score": 0.7682
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:AnimalCrossing",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.7682
       },
       {
         "id": "similarity:Aliexpress:AmazonVine",
@@ -265917,30 +265373,9 @@
         "score": 0.7676
       },
       {
-        "id": "similarity:ConanExilesServers:BattlefieldLFG",
-        "from": "subreddit:ConanExilesServers",
-        "to": "subreddit:BattlefieldLFG",
-        "type": "similarity",
-        "score": 0.7673
-      },
-      {
-        "id": "similarity:BombRush_Cyberfunk:ATBandATGcommunity",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.7672
-      },
-      {
         "id": "similarity:CampFlogGnaw:AimeLeonDore",
         "from": "subreddit:CampFlogGnaw",
         "to": "subreddit:AimeLeonDore",
-        "type": "similarity",
-        "score": 0.7672
-      },
-      {
-        "id": "similarity:CelebsARG_:ArgEntos",
-        "from": "subreddit:CelebsARG_",
-        "to": "subreddit:ArgEntos",
         "type": "similarity",
         "score": 0.7672
       },
@@ -265959,13 +265394,6 @@
         "score": 0.7669
       },
       {
-        "id": "similarity:CatsBeingCats:0sanitymemes",
-        "from": "subreddit:CatsBeingCats",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7668
-      },
-      {
         "id": "similarity:ArgEntos:Argentinas_LO",
         "from": "subreddit:ArgEntos",
         "to": "subreddit:Argentinas_LO",
@@ -265980,39 +265408,11 @@
         "score": 0.7665
       },
       {
-        "id": "similarity:0sanitymemes:AHomeForPlagueRats",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:AHomeForPlagueRats",
-        "type": "similarity",
-        "score": 0.7664
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:AnomalyXd",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:AnomalyXd",
-        "type": "similarity",
-        "score": 0.7664
-      },
-      {
         "id": "similarity:ContagiousLaughter:BestForMyGuest",
         "from": "subreddit:ContagiousLaughter",
         "to": "subreddit:BestForMyGuest",
         "type": "similarity",
         "score": 0.7662
-      },
-      {
-        "id": "similarity:CSHFans:ClappingDemCheeks",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:ClappingDemCheeks",
-        "type": "similarity",
-        "score": 0.7662
-      },
-      {
-        "id": "similarity:BoogieMonster:420",
-        "from": "subreddit:BoogieMonster",
-        "to": "subreddit:420",
-        "type": "similarity",
-        "score": 0.7659
       },
       {
         "id": "similarity:Cartalk:Aprilia",
@@ -266050,30 +265450,9 @@
         "score": 0.7652
       },
       {
-        "id": "similarity:CatsBeingCats:BearsNSFWLikes",
-        "from": "subreddit:CatsBeingCats",
-        "to": "subreddit:BearsNSFWLikes",
-        "type": "similarity",
-        "score": 0.7651
-      },
-      {
-        "id": "similarity:AnimalCrossing:0sanitymemes",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7651
-      },
-      {
         "id": "similarity:BleachedEdits:AsianGoddess",
         "from": "subreddit:BleachedEdits",
         "to": "subreddit:AsianGoddess",
-        "type": "similarity",
-        "score": 0.7648
-      },
-      {
-        "id": "similarity:CSHFans:BearsNSFWLikes",
-        "from": "subreddit:CSHFans",
-        "to": "subreddit:BearsNSFWLikes",
         "type": "similarity",
         "score": 0.7648
       },
@@ -266085,20 +265464,6 @@
         "score": 0.7647
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:CARTILEAKS",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:CARTILEAKS",
-        "type": "similarity",
-        "score": 0.7647
-      },
-      {
-        "id": "similarity:90DayFiance:AJR",
-        "from": "subreddit:90DayFiance",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7647
-      },
-      {
         "id": "similarity:Beepbox:CARTILEAKS",
         "from": "subreddit:Beepbox",
         "to": "subreddit:CARTILEAKS",
@@ -266106,25 +265471,11 @@
         "score": 0.7645
       },
       {
-        "id": "similarity:BombRush_Cyberfunk:Ashnikko",
-        "from": "subreddit:BombRush_Cyberfunk",
-        "to": "subreddit:Ashnikko",
-        "type": "similarity",
-        "score": 0.764
-      },
-      {
         "id": "similarity:AmazonVine:AmazonWTF",
         "from": "subreddit:AmazonVine",
         "to": "subreddit:AmazonWTF",
         "type": "similarity",
         "score": 0.764
-      },
-      {
-        "id": "similarity:AnotherEdenGlobal:AJR",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7639
       },
       {
         "id": "similarity:BadGirlsFromEarth:AltBlonde",
@@ -266176,30 +265527,9 @@
         "score": 0.7633
       },
       {
-        "id": "similarity:AnotherEdenGlobal:ATBandATGcommunity",
-        "from": "subreddit:AnotherEdenGlobal",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.7629
-      },
-      {
-        "id": "similarity:BidenBuzz:AusMemes",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:AusMemes",
-        "type": "similarity",
-        "score": 0.7627
-      },
-      {
         "id": "similarity:CashAppDonations:BorrowmoneyOnline",
         "from": "subreddit:CashAppDonations",
         "to": "subreddit:BorrowmoneyOnline",
-        "type": "similarity",
-        "score": 0.7626
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:Aunaturalladies2",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:Aunaturalladies2",
         "type": "similarity",
         "score": 0.7626
       },
@@ -266232,13 +265562,6 @@
         "score": 0.7618
       },
       {
-        "id": "similarity:AmazonWFShoppers:ASX_Bets",
-        "from": "subreddit:AmazonWFShoppers",
-        "to": "subreddit:ASX_Bets",
-        "type": "similarity",
-        "score": 0.7618
-      },
-      {
         "id": "similarity:90DayFiance:ATBandATGcommunity",
         "from": "subreddit:90DayFiance",
         "to": "subreddit:ATBandATGcommunity",
@@ -266253,23 +265576,9 @@
         "score": 0.7616
       },
       {
-        "id": "similarity:BeybladeX:ArcaneOdyssey",
-        "from": "subreddit:BeybladeX",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7615
-      },
-      {
         "id": "similarity:AmazonWFShoppers:ATBandATGcommunity",
         "from": "subreddit:AmazonWFShoppers",
         "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.7614
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:Aunaturalladies2",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:Aunaturalladies2",
         "type": "similarity",
         "score": 0.7614
       },
@@ -266286,13 +265595,6 @@
         "to": "subreddit:AmazonFlexDrivers",
         "type": "similarity",
         "score": 0.7613
-      },
-      {
-        "id": "similarity:CarXStreets:BroncoSport",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:BroncoSport",
-        "type": "similarity",
-        "score": 0.7612
       },
       {
         "id": "similarity:CampFlogGnaw:CARTILEAKS",
@@ -266400,13 +265702,6 @@
         "score": 0.7586
       },
       {
-        "id": "similarity:CCJ2:0sanitymemes",
-        "from": "subreddit:CCJ2",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7585
-      },
-      {
         "id": "similarity:BleachedEdits:90DayFiance",
         "from": "subreddit:BleachedEdits",
         "to": "subreddit:90DayFiance",
@@ -266449,25 +265744,11 @@
         "score": 0.7571
       },
       {
-        "id": "similarity:AnimalCrossing:ArcaneOdyssey",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:ArcaneOdyssey",
+        "id": "similarity:AyyMD:AMD_Technology_Bets",
+        "from": "subreddit:AyyMD",
+        "to": "subreddit:AMD_Technology_Bets",
         "type": "similarity",
-        "score": 0.757
-      },
-      {
-        "id": "similarity:ContagiousLaughter:ApexOutlands",
-        "from": "subreddit:ContagiousLaughter",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7569
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:AnomalyXd",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:AnomalyXd",
-        "type": "similarity",
-        "score": 0.7565
+        "score": 0.7562
       },
       {
         "id": "similarity:CPTSDmemes:CSHFans",
@@ -266498,13 +265779,6 @@
         "score": 0.7559
       },
       {
-        "id": "similarity:BeybladeX:AnotherEdenGlobal",
-        "from": "subreddit:BeybladeX",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.7558
-      },
-      {
         "id": "similarity:AusMemes:AusPol",
         "from": "subreddit:AusMemes",
         "to": "subreddit:AusPol",
@@ -266524,13 +265798,6 @@
         "to": "subreddit:AmazonWFShoppers",
         "type": "similarity",
         "score": 0.7552
-      },
-      {
-        "id": "similarity:BearsNSFWLikes:AltBlonde",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:AltBlonde",
-        "type": "similarity",
-        "score": 0.7551
       },
       {
         "id": "similarity:2islamist4you:Afghan",
@@ -266561,13 +265828,6 @@
         "score": 0.7547
       },
       {
-        "id": "similarity:AnimalCrossing:AccurateBattleSim",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.7546
-      },
-      {
         "id": "similarity:Bundesliga:7vsWild",
         "from": "subreddit:Bundesliga",
         "to": "subreddit:7vsWild",
@@ -266582,39 +265842,11 @@
         "score": 0.7543
       },
       {
-        "id": "similarity:CarXStreets:ApexOutlands",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7542
-      },
-      {
-        "id": "similarity:AmazonMerch:AmazonSeller",
-        "from": "subreddit:AmazonMerch",
-        "to": "subreddit:AmazonSeller",
-        "type": "similarity",
-        "score": 0.7538
-      },
-      {
-        "id": "similarity:AusMemes:ASX_Bets",
-        "from": "subreddit:AusMemes",
-        "to": "subreddit:ASX_Bets",
-        "type": "similarity",
-        "score": 0.7537
-      },
-      {
         "id": "similarity:AsianMasculinity:AMWFs",
         "from": "subreddit:AsianMasculinity",
         "to": "subreddit:AMWFs",
         "type": "similarity",
         "score": 0.7536
-      },
-      {
-        "id": "similarity:CalPolyPomona:Bestbuy",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:Bestbuy",
-        "type": "similarity",
-        "score": 0.7533
       },
       {
         "id": "similarity:BestForMyGuest:AltBlonde",
@@ -266624,11 +265856,11 @@
         "score": 0.7531
       },
       {
-        "id": "similarity:ContagiousLaughter:AnimalCrossing",
-        "from": "subreddit:ContagiousLaughter",
-        "to": "subreddit:AnimalCrossing",
+        "id": "similarity:Cascadia:Boise",
+        "from": "subreddit:Cascadia",
+        "to": "subreddit:Boise",
         "type": "similarity",
-        "score": 0.7529
+        "score": 0.753
       },
       {
         "id": "similarity:BadGirlsFromEarth:90DayFiance",
@@ -266652,13 +265884,6 @@
         "score": 0.7527
       },
       {
-        "id": "similarity:Bestbuy:ASX_Bets",
-        "from": "subreddit:Bestbuy",
-        "to": "subreddit:ASX_Bets",
-        "type": "similarity",
-        "score": 0.7523
-      },
-      {
         "id": "similarity:ChatGPTNSFW:ChatGPTPromptGenius",
         "from": "subreddit:ChatGPTNSFW",
         "to": "subreddit:ChatGPTPromptGenius",
@@ -266673,39 +265898,11 @@
         "score": 0.7521
       },
       {
-        "id": "similarity:Bestbuy:ApexOutlands",
-        "from": "subreddit:Bestbuy",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7521
-      },
-      {
-        "id": "similarity:CalPolyPomona:ATBandATGcommunity",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.752
-      },
-      {
-        "id": "similarity:BreakPoint:AnimalCrossing",
-        "from": "subreddit:BreakPoint",
-        "to": "subreddit:AnimalCrossing",
-        "type": "similarity",
-        "score": 0.7519
-      },
-      {
         "id": "similarity:AncientGreek:2greek4you",
         "from": "subreddit:AncientGreek",
         "to": "subreddit:2greek4you",
         "type": "similarity",
         "score": 0.7518
-      },
-      {
-        "id": "similarity:AvPD:BDDvent",
-        "from": "subreddit:AvPD",
-        "to": "subreddit:BDDvent",
-        "type": "similarity",
-        "score": 0.7517
       },
       {
         "id": "similarity:ContagiousLaughter:BallbustingStories",
@@ -266750,20 +265947,6 @@
         "score": 0.7508
       },
       {
-        "id": "similarity:CarXStreets:ATBandATGcommunity",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:ATBandATGcommunity",
-        "type": "similarity",
-        "score": 0.7504
-      },
-      {
-        "id": "similarity:BehindTheClosetDoor:AmazonMerch",
-        "from": "subreddit:BehindTheClosetDoor",
-        "to": "subreddit:AmazonMerch",
-        "type": "similarity",
-        "score": 0.7502
-      },
-      {
         "id": "similarity:AgencySquad:AmazonWFShoppers",
         "from": "subreddit:AgencySquad",
         "to": "subreddit:AmazonWFShoppers",
@@ -266797,13 +265980,6 @@
         "to": "subreddit:BroncoSport",
         "type": "similarity",
         "score": 0.7494
-      },
-      {
-        "id": "similarity:0sanitymemes:Absurdism",
-        "from": "subreddit:0sanitymemes",
-        "to": "subreddit:Absurdism",
-        "type": "similarity",
-        "score": 0.7492
       },
       {
         "id": "similarity:ArcaneAnimatedSeries:AccurateBattleSim",
@@ -266848,13 +266024,6 @@
         "score": 0.748
       },
       {
-        "id": "similarity:AJR:AccurateBattleSim",
-        "from": "subreddit:AJR",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.7475
-      },
-      {
         "id": "similarity:CentrelinkOz:BenefitsAdviceUK",
         "from": "subreddit:CentrelinkOz",
         "to": "subreddit:BenefitsAdviceUK",
@@ -266869,13 +266038,6 @@
         "score": 0.7473
       },
       {
-        "id": "similarity:CampFlogGnaw:0sanitymemes",
-        "from": "subreddit:CampFlogGnaw",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7472
-      },
-      {
         "id": "similarity:ChampionshipHistory:AEWFanHub",
         "from": "subreddit:ChampionshipHistory",
         "to": "subreddit:AEWFanHub",
@@ -266886,13 +266048,6 @@
         "id": "similarity:Connery:AusMemes",
         "from": "subreddit:Connery",
         "to": "subreddit:AusMemes",
-        "type": "similarity",
-        "score": 0.7465
-      },
-      {
-        "id": "similarity:ButchSelfies:AnimalCrossing",
-        "from": "subreddit:ButchSelfies",
-        "to": "subreddit:AnimalCrossing",
         "type": "similarity",
         "score": 0.7465
       },
@@ -266953,25 +266108,11 @@
         "score": 0.7457
       },
       {
-        "id": "similarity:Best_Gifs_NSFW:0sanitymemes",
-        "from": "subreddit:Best_Gifs_NSFW",
-        "to": "subreddit:0sanitymemes",
-        "type": "similarity",
-        "score": 0.7455
-      },
-      {
         "id": "similarity:CPTSDmemes:CatholicMemes",
         "from": "subreddit:CPTSDmemes",
         "to": "subreddit:CatholicMemes",
         "type": "similarity",
         "score": 0.7454
-      },
-      {
-        "id": "similarity:AmazonFlexUK:ASX_Bets",
-        "from": "subreddit:AmazonFlexUK",
-        "to": "subreddit:ASX_Bets",
-        "type": "similarity",
-        "score": 0.7452
       },
       {
         "id": "similarity:2islamist4you:AHomeForPlagueRats",
@@ -266981,30 +266122,9 @@
         "score": 0.7448
       },
       {
-        "id": "similarity:CalPolyPomona:AmazonFlexDrivers",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:AmazonFlexDrivers",
-        "type": "similarity",
-        "score": 0.7447
-      },
-      {
-        "id": "similarity:CalPolyPomona:AgencySquad",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:AgencySquad",
-        "type": "similarity",
-        "score": 0.7447
-      },
-      {
         "id": "similarity:AlanWatts:Absurdism",
         "from": "subreddit:AlanWatts",
         "to": "subreddit:Absurdism",
-        "type": "similarity",
-        "score": 0.7445
-      },
-      {
-        "id": "similarity:ApexOutlands:ArcaneAnimatedSeries",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:ArcaneAnimatedSeries",
         "type": "similarity",
         "score": 0.7445
       },
@@ -267016,23 +266136,9 @@
         "score": 0.7443
       },
       {
-        "id": "similarity:ClappingDemCheeks:90DayFiance",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:90DayFiance",
-        "type": "similarity",
-        "score": 0.7442
-      },
-      {
         "id": "similarity:BadGirlsFromEarth:AsianGoddess",
         "from": "subreddit:BadGirlsFromEarth",
         "to": "subreddit:AsianGoddess",
-        "type": "similarity",
-        "score": 0.7442
-      },
-      {
-        "id": "similarity:ClappingDemCheeks:1110AsleepShower",
-        "from": "subreddit:ClappingDemCheeks",
-        "to": "subreddit:1110AsleepShower",
         "type": "similarity",
         "score": 0.7442
       },
@@ -267044,25 +266150,11 @@
         "score": 0.7441
       },
       {
-        "id": "similarity:BattlefieldLFG:Ark_PS4_Community",
-        "from": "subreddit:BattlefieldLFG",
-        "to": "subreddit:Ark_PS4_Community",
-        "type": "similarity",
-        "score": 0.7439
-      },
-      {
         "id": "similarity:AnomalyXd:AusMemes",
         "from": "subreddit:AnomalyXd",
         "to": "subreddit:AusMemes",
         "type": "similarity",
         "score": 0.7437
-      },
-      {
-        "id": "similarity:BreakPoint:AnotherEdenGlobal",
-        "from": "subreddit:BreakPoint",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.7434
       },
       {
         "id": "similarity:ConanExilesServers:ARKbuyandsell",
@@ -267079,46 +266171,11 @@
         "score": 0.7429
       },
       {
-        "id": "similarity:CarXStreets:BTD5",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:BTD5",
-        "type": "similarity",
-        "score": 0.7427
-      },
-      {
         "id": "similarity:Bestbuy:AusMemes",
         "from": "subreddit:Bestbuy",
         "to": "subreddit:AusMemes",
         "type": "similarity",
         "score": 0.7426
-      },
-      {
-        "id": "similarity:CelebsARG_:BigArms",
-        "from": "subreddit:CelebsARG_",
-        "to": "subreddit:BigArms",
-        "type": "similarity",
-        "score": 0.7426
-      },
-      {
-        "id": "similarity:CatholicMemes:ApexOutlands",
-        "from": "subreddit:CatholicMemes",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7425
-      },
-      {
-        "id": "similarity:CalPolyPomona:AmazonWFShoppers",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:AmazonWFShoppers",
-        "type": "similarity",
-        "score": 0.7425
-      },
-      {
-        "id": "similarity:CarXStreets:AimeLeonDore",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:AimeLeonDore",
-        "type": "similarity",
-        "score": 0.7422
       },
       {
         "id": "similarity:Connery:AnomalyXd",
@@ -267156,25 +266213,11 @@
         "score": 0.7418
       },
       {
-        "id": "similarity:BibleVerseCommentary:AskBibleScholars",
-        "from": "subreddit:BibleVerseCommentary",
-        "to": "subreddit:AskBibleScholars",
-        "type": "similarity",
-        "score": 0.7414
-      },
-      {
         "id": "similarity:ContagiousLaughter:420",
         "from": "subreddit:ContagiousLaughter",
         "to": "subreddit:420",
         "type": "similarity",
         "score": 0.7414
-      },
-      {
-        "id": "similarity:CatholicMemes:BibleVerseCommentary",
-        "from": "subreddit:CatholicMemes",
-        "to": "subreddit:BibleVerseCommentary",
-        "type": "similarity",
-        "score": 0.741
       },
       {
         "id": "similarity:AHomeForPlagueRats:AdviceAtheists",
@@ -267226,53 +266269,11 @@
         "score": 0.7394
       },
       {
-        "id": "similarity:BearsNSFWLikes:AnotherEdenGlobal",
-        "from": "subreddit:BearsNSFWLikes",
-        "to": "subreddit:AnotherEdenGlobal",
-        "type": "similarity",
-        "score": 0.739
-      },
-      {
-        "id": "similarity:CalPolyPomona:CampFlogGnaw",
-        "from": "subreddit:CalPolyPomona",
-        "to": "subreddit:CampFlogGnaw",
-        "type": "similarity",
-        "score": 0.7389
-      },
-      {
-        "id": "similarity:AnimalCrossing:ApexOutlands",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:ApexOutlands",
-        "type": "similarity",
-        "score": 0.7388
-      },
-      {
-        "id": "similarity:Corruption:BidenBuzz",
-        "from": "subreddit:Corruption",
-        "to": "subreddit:BidenBuzz",
-        "type": "similarity",
-        "score": 0.7387
-      },
-      {
         "id": "similarity:Boise:AppalachianTrail",
         "from": "subreddit:Boise",
         "to": "subreddit:AppalachianTrail",
         "type": "similarity",
         "score": 0.7386
-      },
-      {
-        "id": "similarity:ArcaneAnimatedSeries:AJR",
-        "from": "subreddit:ArcaneAnimatedSeries",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7386
-      },
-      {
-        "id": "similarity:CarXStreets:AccurateBattleSim",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:AccurateBattleSim",
-        "type": "similarity",
-        "score": 0.7385
       },
       {
         "id": "similarity:3dshacks:3dsqrcodes",
@@ -267301,13 +266302,6 @@
         "to": "subreddit:Amtrak",
         "type": "similarity",
         "score": 0.7381
-      },
-      {
-        "id": "similarity:AnimalCrossing:AdoptMeTrading",
-        "from": "subreddit:AnimalCrossing",
-        "to": "subreddit:AdoptMeTrading",
-        "type": "similarity",
-        "score": 0.738
       },
       {
         "id": "similarity:AskThe_Donald:AustraliaLeftPolitics",
@@ -267364,27 +266358,6 @@
         "to": "subreddit:90DayFiance",
         "type": "similarity",
         "score": 0.7372
-      },
-      {
-        "id": "similarity:BidenBuzz:AusPol",
-        "from": "subreddit:BidenBuzz",
-        "to": "subreddit:AusPol",
-        "type": "similarity",
-        "score": 0.7369
-      },
-      {
-        "id": "similarity:CarXStreets:ArcaneOdyssey",
-        "from": "subreddit:CarXStreets",
-        "to": "subreddit:ArcaneOdyssey",
-        "type": "similarity",
-        "score": 0.7368
-      },
-      {
-        "id": "similarity:ApexOutlands:AJR",
-        "from": "subreddit:ApexOutlands",
-        "to": "subreddit:AJR",
-        "type": "similarity",
-        "score": 0.7366
       },
       {
         "id": "similarity:CSHFans:CatsBeingCats",
@@ -268187,14 +267160,12 @@
     ]
   },
   "bridgeGatewayOverlap": {
-    "count": 7,
-    "percent": 7.4,
+    "count": 5,
+    "percent": 5.3,
     "subreddits": [
       "AskThe_Donald",
       "420",
-      "AdoptMeTradingRoblox",
       "CatholicWomen",
-      "CSHFans",
       "BidenBuzz",
       "BombRush_Cyberfunk"
     ]
@@ -268473,274 +267444,274 @@
   ],
   "topGateways": [
     {
-      "subreddit": "AgencySquad",
-      "community_id": 0,
-      "community_size": 621,
-      "gateway_score": 0.00106745,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Anime & Pop Culture"
-    },
-    {
-      "subreddit": "AnotherEdenGlobal",
-      "community_id": 28,
-      "community_size": 354,
-      "gateway_score": 0.00077851,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Celebrity Fantasies"
-    },
-    {
-      "subreddit": "420",
-      "community_id": 9,
-      "community_size": 371,
-      "gateway_score": 0.00059332,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Hookup & Attraction"
-    },
-    {
-      "subreddit": "AnimalCrossing",
-      "community_id": 14,
-      "community_size": 183,
-      "gateway_score": 0.00059031,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Khoa học & Sống"
-    },
-    {
-      "subreddit": "AJR",
-      "community_id": 10,
-      "community_size": 118,
-      "gateway_score": 0.00053626,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Âm nhạc đa thể loại"
-    },
-    {
-      "subreddit": "CarXStreets",
+      "subreddit": "8bitdo",
       "community_id": 20,
       "community_size": 279,
-      "gateway_score": 0.00022882,
-      "gateway_score_normalized": 1,
+      "gateway_score": 3860000000,
+      "gateway_score_normalized": 4760000000000,
       "role": "gateway",
       "community_name": "Nam giới châu Á"
     },
     {
-      "subreddit": "AskThe_Donald",
-      "community_id": 21,
-      "community_size": 165,
-      "gateway_score": 0.00021445,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Politics & Conspiracy"
-    },
-    {
-      "subreddit": "BenzoWithdrawal",
-      "community_id": 33,
-      "community_size": 57,
-      "gateway_score": 0.0001733,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Xung đột Afghanistan"
-    },
-    {
-      "subreddit": "CaminoDeSantiago",
+      "subreddit": "ContractorUK",
       "community_id": 46,
       "community_size": 188,
-      "gateway_score": 0.00015925,
-      "gateway_score_normalized": 1,
+      "gateway_score": 4570000000,
+      "gateway_score_normalized": 4280000000000,
       "role": "gateway",
       "community_name": "Mental Health & Support"
     },
     {
-      "subreddit": "1110AsleepShower",
-      "community_id": 7,
-      "community_size": 146,
-      "gateway_score": 0.00015101,
-      "gateway_score_normalized": 1,
+      "subreddit": "AhriMains",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 14100000000,
+      "gateway_score_normalized": 4220000000000,
       "role": "gateway",
-      "community_name": "Nostalgia & Culture"
+      "community_name": "Anime & Pop Culture"
     },
     {
-      "subreddit": "AskReddit",
-      "community_id": 31,
-      "community_size": 211,
-      "gateway_score": 0.00010636,
-      "gateway_score_normalized": 1,
+      "subreddit": "BokunoheroFanfiction",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 13200000000,
+      "gateway_score_normalized": 3400000000000,
       "role": "gateway",
-      "community_name": "Finance & Tech Humor"
+      "community_name": "Anime & Pop Culture"
     },
     {
-      "subreddit": "BattlefieldLFG",
-      "community_id": 4,
-      "community_size": 33,
-      "gateway_score": 0.00010237,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Thương mại trò chơi"
-    },
-    {
-      "subreddit": "ASX_Bets",
+      "subreddit": "AirdropRating",
       "community_id": 66,
       "community_size": 106,
-      "gateway_score": 0.00010112,
-      "gateway_score_normalized": 1,
+      "gateway_score": 141000000,
+      "gateway_score_normalized": 3390000000000,
       "role": "gateway",
       "community_name": "DNA và Gia Phả"
     },
     {
-      "subreddit": "Christianity",
-      "community_id": 15,
-      "community_size": 21,
-      "gateway_score": 0.00007323,
-      "gateway_score_normalized": 1,
+      "subreddit": "AdamLanza",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 12700000000,
+      "gateway_score_normalized": 2920000000000,
       "role": "gateway",
-      "community_name": "Tôn giáo & Triết học Kitô"
+      "community_name": "Anime & Pop Culture"
     },
     {
-      "subreddit": "AmazonMerch",
-      "community_id": 19,
-      "community_size": 7,
-      "gateway_score": 0.00005456,
-      "gateway_score_normalized": 1,
+      "subreddit": "AyyMD",
+      "community_id": 20,
+      "community_size": 279,
+      "gateway_score": 3350000000,
+      "gateway_score_normalized": 2520000000000,
       "role": "gateway",
-      "community_name": "Creepy Encounters"
+      "community_name": "Nam giới châu Á"
     },
     {
-      "subreddit": "AEWOfficial",
-      "community_id": 47,
-      "community_size": 6,
-      "gateway_score": 0.00005585,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "MMA & Wrestling"
-    },
-    {
-      "subreddit": "BlackestFridayDeals",
-      "community_id": 23,
-      "community_size": 14,
-      "gateway_score": 0.00003994,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Deals & Discounts"
-    },
-    {
-      "subreddit": "CelebsARG_",
-      "community_id": 8,
-      "community_size": 73,
-      "gateway_score": 0.00003433,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Reddit Nam Mỹ"
-    },
-    {
-      "subreddit": "BeardAdvice",
-      "community_id": 75,
-      "community_size": 3,
-      "gateway_score": 0.00004631,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Thú cưng & Trò chơi"
-    },
-    {
-      "subreddit": "CollegeFootball25",
-      "community_id": 18,
-      "community_size": 61,
-      "gateway_score": 0.00003163,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Thể thao chuyên nghiệp"
-    },
-    {
-      "subreddit": "CapeIndependence",
-      "community_id": 48,
-      "community_size": 3,
-      "gateway_score": 0.00002433,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Chủ nghĩa phân biệt da màu"
-    },
-    {
-      "subreddit": "BallbustingStories",
-      "community_id": 27,
-      "community_size": 7,
-      "gateway_score": 0.0000126,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Boy Scouts"
-    },
-    {
-      "subreddit": "Afghan",
-      "community_id": 32,
-      "community_size": 3,
-      "gateway_score": 0.00001013,
-      "gateway_score_normalized": 1,
-      "role": "gateway",
-      "community_name": "Media & Broadcasting"
-    },
-    {
-      "subreddit": "BidenBuzz",
-      "community_id": 21,
-      "community_size": 165,
-      "gateway_score": 0.00021399,
-      "gateway_score_normalized": 0.9979,
-      "role": "gateway",
-      "community_name": "Politics & Conspiracy"
-    },
-    {
-      "subreddit": "AEWFanHub",
-      "community_id": 47,
-      "community_size": 6,
-      "gateway_score": 0.00005519,
-      "gateway_score_normalized": 0.9854,
-      "role": "gateway",
-      "community_name": "MMA & Wrestling"
-    },
-    {
-      "subreddit": "CatholicWomen",
-      "community_id": 31,
-      "community_size": 211,
-      "gateway_score": 0.00010455,
-      "gateway_score_normalized": 0.9829,
-      "role": "gateway",
-      "community_name": "Finance & Tech Humor"
-    },
-    {
-      "subreddit": "BearsNSFWLikes",
+      "subreddit": "CatfishMePlease2",
       "community_id": 9,
       "community_size": 371,
-      "gateway_score": 0.00058144,
-      "gateway_score_normalized": 0.98,
+      "gateway_score": 423000000,
+      "gateway_score_normalized": 1870000000000,
       "role": "gateway",
       "community_name": "Hookup & Attraction"
     },
     {
-      "subreddit": "BigArms",
+      "subreddit": "BudgetBrews",
+      "community_id": 28,
+      "community_size": 354,
+      "gateway_score": 93200000,
+      "gateway_score_normalized": 1500000000000,
+      "role": "gateway",
+      "community_name": "Celebrity Fantasies"
+    },
+    {
+      "subreddit": "ACOTARHulu",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 10800000000,
+      "gateway_score_normalized": 1110000000000,
+      "role": "gateway",
+      "community_name": "Anime & Pop Culture"
+    },
+    {
+      "subreddit": "ClickerHeroesRecruit",
+      "community_id": 28,
+      "community_size": 354,
+      "gateway_score": 896000000,
+      "gateway_score_normalized": 1040000000000,
+      "role": "gateway",
+      "community_name": "Celebrity Fantasies"
+    },
+    {
+      "subreddit": "AlienwareAlpha",
+      "community_id": 20,
+      "community_size": 279,
+      "gateway_score": 504000000,
+      "gateway_score_normalized": 993000000000,
+      "role": "gateway",
+      "community_name": "Nam giới châu Á"
+    },
+    {
+      "subreddit": "ConeHeads",
+      "community_id": 28,
+      "community_size": 354,
+      "gateway_score": 15800000000,
+      "gateway_score_normalized": 990000000000,
+      "role": "gateway",
+      "community_name": "Celebrity Fantasies"
+    },
+    {
+      "subreddit": "AnnePro",
+      "community_id": 20,
+      "community_size": 279,
+      "gateway_score": 500000000,
+      "gateway_score_normalized": 976000000000,
+      "role": "gateway",
+      "community_name": "Nam giới châu Á"
+    },
+    {
+      "subreddit": "AmITheA_holeUnanimous",
+      "community_id": 31,
+      "community_size": 211,
+      "gateway_score": 188000000,
+      "gateway_score_normalized": 946000000000,
+      "role": "gateway",
+      "community_name": "Finance & Tech Humor"
+    },
+    {
+      "subreddit": "CitiesSkylinesModding",
+      "community_id": 28,
+      "community_size": 354,
+      "gateway_score": 1520000000,
+      "gateway_score_normalized": 900000000000,
+      "role": "gateway",
+      "community_name": "Celebrity Fantasies"
+    },
+    {
+      "subreddit": "AMD_Technology_Bets",
+      "community_id": 20,
+      "community_size": 279,
+      "gateway_score": 483000000,
+      "gateway_score_normalized": 899000000000,
+      "role": "gateway",
+      "community_name": "Nam giới châu Á"
+    },
+    {
+      "subreddit": "AdoptMyVillager",
+      "community_id": 14,
+      "community_size": 183,
+      "gateway_score": 10200000000,
+      "gateway_score_normalized": 897000000000,
+      "role": "gateway",
+      "community_name": "Khoa học & Sống"
+    },
+    {
+      "subreddit": "CaptainDisillusion",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 18900000000,
+      "gateway_score_normalized": 875000000000,
+      "role": "gateway",
+      "community_name": "Anime & Pop Culture"
+    },
+    {
+      "subreddit": "AppleCard",
+      "community_id": 66,
+      "community_size": 106,
+      "gateway_score": 1930000000,
+      "gateway_score_normalized": 859000000000,
+      "role": "gateway",
+      "community_name": "DNA và Gia Phả"
+    },
+    {
+      "subreddit": "AskTheOuija",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 1870000000,
+      "gateway_score_normalized": 857000000000,
+      "role": "gateway",
+      "community_name": "Anime & Pop Culture"
+    },
+    {
+      "subreddit": "AMCTheatres",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 18600000000,
+      "gateway_score_normalized": 841000000000,
+      "role": "gateway",
+      "community_name": "Anime & Pop Culture"
+    },
+    {
+      "subreddit": "AltYiff",
+      "community_id": 9,
+      "community_size": 371,
+      "gateway_score": 78400000,
+      "gateway_score_normalized": 796000000000,
+      "role": "gateway",
+      "community_name": "Hookup & Attraction"
+    },
+    {
+      "subreddit": "Cloververse",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 18000000000,
+      "gateway_score_normalized": 792000000000,
+      "role": "gateway",
+      "community_name": "Anime & Pop Culture"
+    },
+    {
+      "subreddit": "AskAstrophotography",
+      "community_id": 21,
+      "community_size": 165,
+      "gateway_score": 2440000000,
+      "gateway_score_normalized": 777000000000,
+      "role": "gateway",
+      "community_name": "Politics & Conspiracy"
+    },
+    {
+      "subreddit": "AmIOverreacting",
+      "community_id": 31,
+      "community_size": 211,
+      "gateway_score": 1690000000,
+      "gateway_score_normalized": 771000000000,
+      "role": "gateway",
+      "community_name": "Finance & Tech Humor"
+    },
+    {
+      "subreddit": "Bankruptcy",
+      "community_id": 66,
+      "community_size": 106,
+      "gateway_score": 1800000000,
+      "gateway_score_normalized": 730000000000,
+      "role": "gateway",
+      "community_name": "DNA và Gia Phả"
+    },
+    {
+      "subreddit": "AlbanianNews",
       "community_id": 7,
       "community_size": 146,
-      "gateway_score": 0.00014735,
-      "gateway_score_normalized": 0.9758,
+      "gateway_score": 2120000000,
+      "gateway_score_normalized": 688000000000,
       "role": "gateway",
       "community_name": "Nostalgia & Culture"
     },
     {
-      "subreddit": "Bowling",
-      "community_id": 18,
-      "community_size": 61,
-      "gateway_score": 0.00003075,
-      "gateway_score_normalized": 0.9712,
+      "subreddit": "AliensAmongUs",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 16500000000,
+      "gateway_score_normalized": 644000000000,
       "role": "gateway",
-      "community_name": "Thể thao chuyên nghiệp"
+      "community_name": "Anime & Pop Culture"
     },
     {
-      "subreddit": "BoogieMonster",
-      "community_id": 31,
-      "community_size": 211,
-      "gateway_score": 0.00010202,
-      "gateway_score_normalized": 0.9592,
+      "subreddit": "CTsandbox",
+      "community_id": 0,
+      "community_size": 621,
+      "gateway_score": 16400000000,
+      "gateway_score_normalized": 643000000000,
       "role": "gateway",
-      "community_name": "Finance & Tech Humor"
+      "community_name": "Anime & Pop Culture"
     }
   ],
   "topHighways": [
