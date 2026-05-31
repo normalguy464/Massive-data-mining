@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-05-30T16:08:37.585Z",
+  "graphs": [
+    {
+      "id": "subreddit_similarity",
+      "title": "Đồ thị tương đồng subreddit",
+      "description": "Mỗi node là subreddit, mỗi cạnh là similarity score sau khi lọc cạnh mạnh.",
+      "sourceFile": "subreddit_graph.html",
+      "path": "/graphs/subreddit_similarity.json",
+      "nodeCount": 1930,
+      "edgeCount": 4000,
+      "groupCount": 0,
+      "fileSizeBytes": 917887
+    },
+    {
+      "id": "subreddit_community",
+      "title": "Subreddit theo community",
+      "description": "Đồ thị subreddit được tô nhóm theo kết quả phát hiện cộng đồng.",
+      "sourceFile": "subreddit_community_graph.html",
+      "path": "/graphs/subreddit_community.json",
+      "nodeCount": 1930,
+      "edgeCount": 4000,
+      "groupCount": 153,
+      "fileSizeBytes": 1109616
+    },
+    {
+      "id": "community_level",
+      "title": "Đồ thị cấp community",
+      "description": "Mỗi node là một community, cạnh thể hiện liên hệ giữa các community.",
+      "sourceFile": "community_level_graph.html",
+      "path": "/graphs/community_level.json",
+      "nodeCount": 28,
+      "edgeCount": 47,
+      "groupCount": 0,
+      "fileSizeBytes": 23100
+    },
+    {
+      "id": "bridge_gateway",
+      "title": "Bridge và Gateway",
+      "description": "Trực quan hóa vai trò bridge, gateway và node có cả hai vai trò.",
+      "sourceFile": "bridge_gateway_graph.html",
+      "path": "/graphs/bridge_gateway.json",
+      "nodeCount": 1754,
+      "edgeCount": 3912,
+      "groupCount": 4,
+      "fileSizeBytes": 1235469
+    },
+    {
+      "id": "cluster_named_graph",
+      "title": "Graph cluster đã định danh",
+      "description": "Graph gồm các cluster đã được đặt tên và một số subreddit tiêu biểu.",
+      "sourceFile": "visual_cluster_graph.html",
+      "path": "/graphs/cluster_named_graph.json",
+      "nodeCount": 450,
+      "edgeCount": 359,
+      "groupCount": 2,
+      "fileSizeBytes": 103277
+    },
+    {
+      "id": "diversity_proof",
+      "title": "Minh chứng độ phủ chủ đề",
+      "description": "Graph nhỏ minh họa sự khác biệt giữa các miền nội dung tiêu biểu.",
+      "sourceFile": "visual_cluster_proof.html",
+      "path": "/graphs/diversity_proof.json",
+      "nodeCount": 42,
+      "edgeCount": 40,
+      "groupCount": 2,
+      "fileSizeBytes": 10041
+    },
+    {
+      "id": "pagerank_nibble",
+      "title": "PageRank Nibble local clusters",
+      "description": "Approximate Personalized PageRank neighborhoods from bridge/gateway/highway seeds.",
+      "sourceFile": "result/pagerank_nibble_graph.json",
+      "path": "/graphs/pagerank_nibble.json",
+      "nodeCount": 133,
+      "edgeCount": 423,
+      "groupCount": 11,
+      "fileSizeBytes": 103206
+    }
+  ]
+}
